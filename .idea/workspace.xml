@@ -4,26 +4,64 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="Project initiated" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="Project initiated">
+      <change afterPath="$PROJECT_DIR$/EquipmentFile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/LoginInfoFile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight Gain.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Weight Loss.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/AssignTrainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Equipment.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/EquipmentAdd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Gym.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/LoadData.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/ReadFile.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/Trainer.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserRegistration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/UserRemove.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WeightGainGoal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WeightLoseGoal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/WriteToFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="ProjectColorInfo"><![CDATA[{
-  "associatedIndex": 8
-}]]></component>
+  <component name="ProjectColorInfo">{
+  &quot;associatedIndex&quot;: 8
+}</component>
   <component name="ProjectId" id="2moXihS02pq5OwPRZkcsnDjQ4gf" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.GymManagement.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "git-widget-placeholder": "main",
@@ -47,7 +85,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727744228081</updated>
     </task>
-    <option name="localTasksCounter" value="2" />
+    <task id="LOCAL-00002" summary="Project initiated">
+      <option name="closed" value="true" />
+      <created>1727745086392</created>
+      <option name="number" value="00002" />
+      <option name="presentableId" value="LOCAL-00002" />
+      <option name="project" value="LOCAL" />
+      <updated>1727745086392</updated>
+    </task>
+    <option name="localTasksCounter" value="3" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -62,6 +108,7 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Project initiated" />
     <option name="LAST_COMMIT_MESSAGE" value="Project initiated" />
   </component>
