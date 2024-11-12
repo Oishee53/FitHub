@@ -10,10 +10,13 @@ public class EquipmentAdd {
         String equipmentName=scanner.next();
         System.out.println("Enter quantity:");
         int quantity = scanner.nextInt();
-        System.out.println("Condition");
+        System.out.println("Enter Condition: ");
         String condition = scanner.next();
-        Equipment equipment = new Equipment(equipmentID,equipmentName,quantity,condition);
+        System.out.println("Enter cost: ");
+        double cost = scanner.nextDouble();
+        Equipment equipment = new Equipment(equipmentID,equipmentName,quantity,condition,cost);
         gym.addEquipment(equipment);
+        Account.equipmentPurchased(cost,quantity);
         WriteToFile.writeInventory(gym.getEquipmentsList(), true);
         System.out.println("Equipment is added successfully!!");
 

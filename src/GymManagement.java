@@ -14,7 +14,6 @@ public class GymManagement {
     WeightGainGoal weightGainGoal = new WeightGainGoal();
     Scanner scanner = new Scanner(System.in);
 
-
     //main method
     public static void main(String[] args) throws IOException {
         String[] csvFiles = {
@@ -24,13 +23,25 @@ public class GymManagement {
                 "EquipmentFile.csv",
                 "LoginInfoFile.csv",
                 "Weight Gain.csv",
-                "Weight Loss.csv"
+                "Weight Loss.csv",
+                "BalanceFile.csv"
         };
 
         // Create each file
         for (String csvFile : csvFiles) {
             createCSVFile(csvFile);
         }
+        double initailBalance = 100000;
+        double updatedBalance = 0.0;
+        updatedBalance =ReadFile.readBalanceFile("BalanceFile.csv");
+        if(updatedBalance == 0.0){
+            Account account = new Account(initailBalance);
+            WriteToFile.BalanceFile(initailBalance);
+        }
+        else{
+            Account account = new Account(updatedBalance);
+        }
+
 
 
 
@@ -53,7 +64,8 @@ public class GymManagement {
         int loginChoice = scanner.nextInt();
         if (loginChoice == 1) {
             //Admin
-            System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management\n");
+            System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management");
+            System.out.println("4.Account");
             int adminChoice = scanner.nextInt();
             if (adminChoice == 1) {
                 System.out.println("1.Register a new member\n2.Remove a member\n3.Show all members");
@@ -73,7 +85,11 @@ public class GymManagement {
 
                 }
             } else if (adminChoice == 2) {
-                System.out.println("1.Register a new trainer\n2.Remove a trainer\n3.Show all trainers");
+                System.out.println("1. Register a new trainer");
+                System.out.println("2. Remove a trainer");
+                System.out.println("3. Show all trainers");
+                System.out.println("4. Pay trainer salary");
+
                 int adminTchoice = scanner.nextInt();
                 if (adminTchoice == 1) {
                     // register new member
@@ -88,6 +104,36 @@ public class GymManagement {
                 } else if (adminTchoice == 3) {
 
                     readListFile.readFile("TrainerFile.csv");
+                }
+                else if(adminTchoice == 4){
+                    System.out.println("1.Pay all trainers:");
+                    System.out.println("2.Pay specific trainer:");
+                    System.out.println("3.Pay all trainers, excluding one:");
+                    int paymentChoice = 0;
+                    if(paymentChoice==1){
+                        for(Trainer trainer:gym.getTrainerList()){
+                            Account.trainerPaid(trainer.getSalary());
+                        }
+
+                    }
+                    else if(paymentChoice==2){
+                        System.out.println("Enter trainerID:");
+                        String trainerID = scanner.next();
+                        for(Trainer trainer:gym.getTrainerList()){
+                            if(trainer.getTrainerID().equals(trainerID)) {
+                                Account.trainerPaid(trainer.getSalary());
+                            }
+                        }
+                    }
+                    else if(paymentChoice==3){
+                        System.out.println("Enter the trainer ID to exclude from payment:");
+                        String trainerID = scanner.next();
+                        for(Trainer trainer:gym.getTrainerList()){
+                            if(!trainer.getTrainerID().equals(trainerID)) {
+                                Account.trainerPaid(trainer.getSalary());
+                            }
+                        }
+                    }
                 }
             } else if (adminChoice == 3) {
                 System.out.println("1.Add new equipments\n2.Remove equipment\n3.Show all equipments");
@@ -105,6 +151,14 @@ public class GymManagement {
                 } else if (adminEchoice == 3) {
                     readListFile.readFile("EquipmentFile.csv");
 
+                }
+            }
+            else if(adminChoice == 4){
+                System.out.println("1.View Balance");
+                int accountChoice = scanner.nextInt();
+                if(accountChoice == 1){
+                    System.out.println(ReadFile.readBalanceFile("BalanceFile.csv"));
+                    gymManagement.consoleApp();
                 }
             }
 
@@ -225,6 +279,7 @@ public class GymManagement {
                 gymManagement.consoleApp();
             }
         }
+
     }
     private static void createCSVFile(String fileName) {
         File file = new File(fileName);

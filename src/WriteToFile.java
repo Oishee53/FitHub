@@ -119,6 +119,14 @@ public class WriteToFile {
             System.err.println("Error writing info to file: " + e.getMessage());
         }
     }
+    public static void BalanceFile(double balance) {
+        try (FileWriter writer = new FileWriter("BalanceFile.csv", false)) {  // Append mode enabled
+            writer.write(String.valueOf(balance) + "\n");  // Convert balance to string and add a newline
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
+
 
 
 }

@@ -77,8 +77,9 @@ public class LoadData {
                 String[] details = line.split(",");
                 // Convert details[2] to integers
                 int details2 = Integer.parseInt(details[2]);
+                double cost = Double.parseDouble(details[4]);
                 // Create the Member object using the parsed values
-                Equipment equipment = new Equipment(details[0], details[1],details2,details[3]);
+                Equipment equipment = new Equipment(details[0], details[1],details2,details[3],cost);
                 gym.addEquipment(equipment);
 
 
