@@ -110,15 +110,16 @@ public class WriteToFile {
             }
         }
     }
-    public static void memberAndTrainer(Gym gym, Member member, String trainerID) {
+   /* public static void memberAndTrainer(Gym gym, Member member, String trainerID) {
         String fileName = "Member and Trainer.csv";
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, true))) {  // Append mode enabled
-            writer.write(trainerID + " assigned to " + member.getFirstName() + " " + member.getLastName());
+            writer.write(trainerID + " assigned to " + member.getFirstName() + " " + member.getLastName()+
+                    " " + "(" + member.getEmailAddress()+")");
             writer.newLine();  // Add a new line after each entry
         } catch (IOException e) {
             System.err.println("Error writing info to file: " + e.getMessage());
         }
-    }
+    }*/
     public static void BalanceFile(double balance) {
         try (FileWriter writer = new FileWriter("BalanceFile.csv", false)) {  // Append mode enabled
             writer.write(String.valueOf(balance) + "\n");  // Convert balance to string and add a newline
@@ -127,6 +128,18 @@ public class WriteToFile {
         }
     }
 
-
-
+    public static void memberAndTrainer(Gym gym) {
+        String fileName = "Member and Trainer.csv";
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false))) {
+            for(Trainer trainer: gym.getTrainerList()) {
+                for(Member member: trainer.getAssignedMembers()) {
+                        writer.write(trainer.getTrainerID() + " assigned to " + member.getFirstName() + " " + member.getLastName() +
+                                " " + "(" + member.getEmailAddress() + ")");
+                        writer.newLine();  // Add a new line after each entry
+                    }
+                }
+        } catch (IOException e) {
+            System.err.println("Error writing info to file: " + e.getMessage());
+        }
+    }
 }

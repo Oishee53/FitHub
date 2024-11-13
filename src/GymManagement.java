@@ -50,6 +50,7 @@ public class GymManagement {
         loadData.LoadMemberDetails(gym);
         loadData.LoadTrainerDetails(gym);
         loadData.LoadEquipmentDetails(gym);
+        loadData.LoadMemberAssignedToTrainerDetails(gym);
         gymManagement.consoleApp();
 
     }
@@ -98,7 +99,14 @@ public class GymManagement {
                 } else if (adminTchoice == 2) {
                     System.out.println("Enter the trainer email id you want to remove");
                     String removeTrainerID = scanner.next();
-                    userRemove.trainerRemove(gym, removeTrainerID, loadData);
+                    for(Trainer trainer:gym.getTrainerList()){
+                        if(removeTrainerID.equals(trainer.getTrainerID())){
+                            userRemove.trainerRemove(gym, removeTrainerID);
+                            for(Member member:trainer.getAssignedMembers()){
+                                AssignTrainer.trainerReassign(gym,member);
+                            }
+                        }
+                    }
                     gymManagement.consoleApp();
 
                 } else if (adminTchoice == 3) {
@@ -106,10 +114,10 @@ public class GymManagement {
                     readListFile.readFile("TrainerFile.csv");
                 }
                 else if(adminTchoice == 4){
-                    System.out.println("1.Pay all trainers:");
-                    System.out.println("2.Pay specific trainer:");
-                    System.out.println("3.Pay all trainers, excluding one:");
-                    int paymentChoice = 0;
+                    System.out.println("1.Pay all trainers");
+                    System.out.println("2.Pay specific trainer");
+                    System.out.println("3.Pay all trainers, excluding one");
+                    int paymentChoice = scanner.nextInt();
                     if(paymentChoice==1){
                         for(Trainer trainer:gym.getTrainerList()){
                             Account.trainerPaid(trainer.getSalary());
@@ -119,21 +127,32 @@ public class GymManagement {
                     else if(paymentChoice==2){
                         System.out.println("Enter trainerID:");
                         String trainerID = scanner.next();
+                        boolean found = false;
                         for(Trainer trainer:gym.getTrainerList()){
                             if(trainer.getTrainerID().equals(trainerID)) {
+                                found = true;
                                 Account.trainerPaid(trainer.getSalary());
                             }
+                        }
+                        if(found == false){
+                            System.out.println("Incorrect trainerID!");
                         }
                     }
                     else if(paymentChoice==3){
                         System.out.println("Enter the trainer ID to exclude from payment:");
                         String trainerID = scanner.next();
+                        boolean found = false;
                         for(Trainer trainer:gym.getTrainerList()){
                             if(!trainer.getTrainerID().equals(trainerID)) {
+                                found = true;
                                 Account.trainerPaid(trainer.getSalary());
                             }
                         }
+                        if(found==false){
+                            System.out.println("Incorrect trainerID!");
+                        }
                     }
+                    gymManagement.consoleApp();
                 }
             } else if (adminChoice == 3) {
                 System.out.println("1.Add new equipments\n2.Remove equipment\n3.Show all equipments");

@@ -13,6 +13,7 @@ public class Account {
         if (salary > 0 && balance >= salary) {
             balance -= salary;
             WriteToFile.BalanceFile(balance);
+            System.out.println("Trainer paid successfully!");
         } else {
             System.out.println("Insufficient funds for trainer payment.");
         }

@@ -54,6 +54,11 @@ public class UserRegistration {
         else {
             System.out.println("Enter TrainerID: ");
             String trainerID = scanner.next();
+            while(!authenticateTrainerID(gym,trainerID)){
+                System.out.println("Invalid trainerID!");
+                System.out.println("Enter a new trainerID:");
+                trainerID=scanner.next();
+            }
             System.out.println("Enter goal(WeightLoss or WeightGain):");
             String goal = scanner.next();
             System.out.println("Enter your Specific goal");
@@ -65,7 +70,7 @@ public class UserRegistration {
             Account.memberPayment(6000);
             WriteToFile.writeMembers(gym.getMemberList(), false);
             WriteToFile.writeTrainer(gym.getTrainerList(), false);
-            WriteToFile.memberAndTrainer(gym,member,trainerID);
+            WriteToFile.memberAndTrainer(gym);
             System.out.println("Member is registered successfully!!");
         }
 
@@ -148,6 +153,14 @@ public class UserRegistration {
     private boolean validPhoneNumber(String phoneNumber){
         return phoneNumber.matches("(\\+8801|01)\\d{9}");
 
+    }
+    private boolean authenticateTrainerID(Gym gym,String ID){
+        for(Trainer trainer: gym.getTrainerList()){
+            if(trainer.getTrainerID().equals(ID)){
+                return true;
+            }
+        }
+        return false;
     }
 }
 

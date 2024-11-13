@@ -1,10 +1,12 @@
 import java.awt.*;
 import java.io.*;
 import java.util.ArrayList;
+import java.util.Scanner;
 
 public class AssignTrainer {
+    static Scanner scanner= new Scanner(System.in);
 
-    public boolean AvailableTrainerList(Gym gym) {
+    public static boolean AvailableTrainerList(Gym gym) {
         System.out.println("Available trainers: ");
         // Print the headings with specific formatting
         System.out.printf("%-12s %-10s %-15s%n", "TrainerID", "Shift", "Available Seats");
@@ -29,7 +31,7 @@ public class AssignTrainer {
 
 
 
-    public void trainerAssigned(Gym gym, String trainerID,Member member) {
+    public static void trainerAssigned(Gym gym, String trainerID, Member member) {
         for (Trainer trainer : gym.getTrainerList()) {
             if (trainerID.equals(trainer.getTrainerID())) {
                 int remainingSeats = trainer.getAvailableSeats() - 1;
@@ -73,6 +75,20 @@ public class AssignTrainer {
             System.err.println("Error writing to file: " + e.getMessage());
         }// after calling this method rewrite the trainer file
     }
+    public static void trainerReassign(Gym gym, Member member){
+        if(AvailableTrainerList(gym)){
+            System.out.println("Select a new trainerID for " + member.getFirstName()+" "
+                    + member.getLastName()+": ");
+            String trainerID = scanner.next();
+            member.setTrainerChose(trainerID);
+            trainerAssigned(gym,trainerID,member);
+            WriteToFile.writeTrainer(gym.getTrainerList(),false);
 
-
+        }
+        else{
+            member.setTrainerChose("NULL");
+        }
+        WriteToFile.writeMembers(gym.getMemberList(),false);
+        WriteToFile.memberAndTrainer(gym);
+    }
 }

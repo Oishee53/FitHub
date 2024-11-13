@@ -1,4 +1,5 @@
 import java.io.BufferedReader;
+import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 public class LoadData {
@@ -90,6 +91,46 @@ public class LoadData {
             System.out.println("Error parsing numeric values: " + ex.getMessage());
         }
     }
+    public static void LoadMemberAssignedToTrainerDetails(Gym gym) {
+        String trainerFilePath = "Member and Trainer.csv";
+        try (BufferedReader reader = new BufferedReader(new FileReader(trainerFilePath))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] parts = line.split("assigned to");
+                if (parts.length < 2) continue;  // Skip malformed lines
+
+                String trainerID = parts[0].trim(); // Trainer ID
+                String memberInfo = parts[1].trim(); // Member's name and email
+
+                // Split member info to get the email part
+                String[] details = memberInfo.split("\\(");
+                if (details.length < 2) continue;  // Skip if no email info
+
+                String memberName = details[0].trim();
+                String memberEmail = details[1].replace(")", "").trim();
+
+                // Find the trainer and add the correct member
+                for (Trainer trainer : gym.getTrainerList()) {
+                    if (trainerID.equals(trainer.getTrainerID())) {
+                        for (Member member : gym.getMemberList()) {
+                            if (member.getEmailAddress().equals(memberEmail)) {
+                                trainer.addAssignedMember(member);
+                                break; // Break once the member is added
+                            }
+                        }
+                        break; // Break once the correct trainer is found
+                    }
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException("File not found: " + e.getMessage());
+        } catch (IOException e) {
+            throw new RuntimeException("Error reading file: " + e.getMessage());
+        }
+    }
+
+
+
 
 
 }
