@@ -9,11 +9,12 @@ public class Account {
             WriteToFile.BalanceFile(balance);
         }
     }
-    public static void trainerPaid(double salary) {
+    public static void trainerPaid(String trainerID,double salary) {
         if (salary > 0 && balance >= salary) {
             balance -= salary;
             WriteToFile.BalanceFile(balance);
             System.out.println("Trainer paid successfully!");
+            WriteToFile.TrainerAccount(trainerID,salary);
         } else {
             System.out.println("Insufficient funds for trainer payment.");
         }

@@ -1,3 +1,4 @@
+import java.io.BufferedReader;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
@@ -140,6 +141,30 @@ public class WriteToFile {
                 }
         } catch (IOException e) {
             System.err.println("Error writing info to file: " + e.getMessage());
+        }
+    }
+    public static void initialAccountBalance(double balance){
+        String filename="AccountsFile.csv";
+        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename,true))){
+            writer.write("Initial Balance: " + balance + "\n");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void memberAccount(String name, double amount){
+        String filename="AccountsFile.csv";
+        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename,true))){
+            writer.write(name + " registered with " + amount + " taka!\n");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+    }
+    public static void TrainerAccount(String ID,double salary){
+        String filename="AccountsFile.csv";
+        try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename,true))){
+            writer.write(salary + " taka salary paid to " + ID + "!\n");
+        } catch (IOException e) {
+            throw new RuntimeException(e);
         }
     }
 }

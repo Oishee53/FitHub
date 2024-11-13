@@ -23,7 +23,7 @@ public class AssignTrainer {
         }
 
         if (!availableTrainer) {
-            System.out.println("No trainers are currently available.");
+            return false;
         }
 
         return availableTrainer;

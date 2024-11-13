@@ -37,15 +37,11 @@ public class GymManagement {
         if(updatedBalance == 0.0){
             Account account = new Account(initailBalance);
             WriteToFile.BalanceFile(initailBalance);
+            WriteToFile.initialAccountBalance(initailBalance);
         }
         else{
             Account account = new Account(updatedBalance);
         }
-
-
-
-
-
 
         loadData.LoadMemberDetails(gym);
         loadData.LoadTrainerDetails(gym);
@@ -120,7 +116,7 @@ public class GymManagement {
                     int paymentChoice = scanner.nextInt();
                     if(paymentChoice==1){
                         for(Trainer trainer:gym.getTrainerList()){
-                            Account.trainerPaid(trainer.getSalary());
+                            Account.trainerPaid(trainer.getTrainerID(),trainer.getSalary());
                         }
 
                     }
@@ -131,7 +127,7 @@ public class GymManagement {
                         for(Trainer trainer:gym.getTrainerList()){
                             if(trainer.getTrainerID().equals(trainerID)) {
                                 found = true;
-                                Account.trainerPaid(trainer.getSalary());
+                                Account.trainerPaid(trainerID,trainer.getSalary());
                             }
                         }
                         if(found == false){
@@ -145,7 +141,7 @@ public class GymManagement {
                         for(Trainer trainer:gym.getTrainerList()){
                             if(!trainer.getTrainerID().equals(trainerID)) {
                                 found = true;
-                                Account.trainerPaid(trainer.getSalary());
+                                Account.trainerPaid(trainer.getTrainerID(),trainer.getSalary());
                             }
                         }
                         if(found==false){
