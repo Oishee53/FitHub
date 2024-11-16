@@ -5,21 +5,9 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="Upto mid implemented.">
-      <change afterPath="$PROJECT_DIR$/Female Exercise.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Male Exercise.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/FitnessGoal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/TDEECalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquipmentFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquipmentFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Member and Trainer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Weight Gain.csv" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Weight Loss.csv" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WeightGainGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StrengthBuildingGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WeightLoseGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WeightLoseGoal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -36,6 +24,18 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
+  <component name="GitHubPullRequestSearchHistory"><![CDATA[{
+  "lastFilter": {
+    "state": "OPEN",
+    "assignee": "Bohota1"
+  }
+}]]></component>
+  <component name="GithubPullRequestsUISettings"><![CDATA[{
+  "selectedUrlAndAccountId": {
+    "url": "https://github.com/Oishee53/FitHub.git",
+    "accountId": "2076679b-0e3a-43fa-beed-2921e97129ce"
+  }
+}]]></component>
   <component name="ProjectColorInfo">{
   &quot;associatedIndex&quot;: 8
 }</component>
