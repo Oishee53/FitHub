@@ -4,33 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="Project initiated">
-      <change afterPath="$PROJECT_DIR$/EquipmentFile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/LoginInfoFile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Weight Gain.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Weight Loss.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/AssignTrainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Equipment.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/EquipmentAdd.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Gym.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/LoadData.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ReadFile.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/Trainer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserRegistration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/UserRemove.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WeightGainGoal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WeightLoseGoal.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/WriteToFile.java" afterDir="false" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="Upto mid implemented.">
+      <change afterPath="$PROJECT_DIR$/Female Exercise.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Male Exercise.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/FitnessGoal.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/TDEECalculator.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Main.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquipmentFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquipmentFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Member and Trainer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weight Gain.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Weight Loss.csv" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WeightGainGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StrengthBuildingGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WeightLoseGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WeightLoseGoal.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -58,16 +47,16 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.GymManagement.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.GymManagement.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -93,7 +82,15 @@
       <option name="project" value="LOCAL" />
       <updated>1727745086392</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="Upto mid implemented.">
+      <option name="closed" value="true" />
+      <created>1730781921082</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1730781921082</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -110,6 +107,7 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Project initiated" />
-    <option name="LAST_COMMIT_MESSAGE" value="Project initiated" />
+    <MESSAGE value="Upto mid implemented." />
+    <option name="LAST_COMMIT_MESSAGE" value="Upto mid implemented." />
   </component>
 </project>

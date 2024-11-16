@@ -11,7 +11,8 @@ public class GymManagement {
     Login login = new Login();
     static Gym gym = new Gym();
     WeightLoseGoal weightLoseGoal = new WeightLoseGoal();
-    WeightGainGoal weightGainGoal = new WeightGainGoal();
+    StrengthBuildingGoal strengthBuildingGoal = new StrengthBuildingGoal();
+    TDEECalculator tdeeCalculator= new TDEECalculator();
     Scanner scanner = new Scanner(System.in);
 
 
@@ -23,8 +24,8 @@ public class GymManagement {
                 "Member and Trainer.csv",
                 "EquipmentFile.csv",
                 "LoginInfoFile.csv",
-                "Weight Gain.csv",
-                "Weight Loss.csv"
+                "Male Exercise.csv",
+                "Female Exercise.csv"
         };
 
         // Create each file
@@ -120,7 +121,8 @@ public class GymManagement {
                 System.out.println("1. View Your Details");
                 System.out.println("2. Update Details");
                 System.out.println("3. View Suggestions Based On Your Goal");
-                System.out.println("4. Logout");
+                System.out.println("4. Track your progress");
+                System.out.println("5. Logout");
                 int memberChoice = scanner.nextInt();
 
                 if (memberChoice == 1) {
@@ -149,21 +151,26 @@ public class GymManagement {
 
                         if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
 
-                            if (member.getGoal().equalsIgnoreCase("WeightLoss")) {
-                                System.out.println("Goal matched: WeightLoss");
-                                weightLoseGoal.weightLoseFileRead(member);
+                            if (member.getGoal().equalsIgnoreCase("Weight Loss")) {
+                                weightLoseGoal.suggestion(member,tdeeCalculator);
                                 return;
-                            } else if (member.getGoal().equalsIgnoreCase("WeightGain")) {
-                                System.out.println("Goal matched: Weight Gain");
-                                weightGainGoal.weightGainFileRead(member);
+                            } else if (member.getGoal().equalsIgnoreCase("Strength Building")) {
+                                strengthBuildingGoal.suggestion(member,tdeeCalculator);
                             } else {
-                                System.out.println("Goal did not match either 'Weight Loss' or 'Weight Gain'");
+                                System.out.println("Goal did not match either Weight Loss or Strength Building");
                             }
                         }
                     }
                 }
+                else if (memberChoice == 4){
 
-                else if (memberChoice == 4) {
+
+
+
+
+                }
+
+                else if (memberChoice == 5) {
                     WriteToFile.LoginFile("", "");
                     gymManagement.consoleApp();
                 }
@@ -202,10 +209,10 @@ public class GymManagement {
                     //  System.out.println("3.Reset Email ");
                     System.out.println("4.Reset Password ");
                     System.out.println("5. Reset Date Of Birth ");
-                    System.out.println("6.Gender ");
+                    System.out.println("6.Reset Gender ");
                     System.out.println("7.Reset Address ");
                     System.out.println("8.Reset Shift ");
-                    System.out.println("9.Age ");
+                    System.out.println("9.Reset Age ");
                     trainerResetChoice = scanner.nextInt();
                     System.out.println("Enter new data:");
                     newData = scanner.next();
