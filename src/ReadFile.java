@@ -38,7 +38,7 @@ public class ReadFile {
         try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
             while ((line = br.readLine()) != null) {
                 // Split the line by comma, preserving values inside quotes
-                String[] values = line.split(",(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)");
+                String[] values = line.split(",");
                 for (String value : values) {
                     System.out.print(value.trim() + " ");
                 }
