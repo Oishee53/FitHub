@@ -4,20 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="Upto mid implemented.">
-      <change afterPath="$PROJECT_DIR$/WorkoutFile.csv" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/ProgressTrack.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Female Exercise.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Female Exercise.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Male Exercise.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Male Exercise.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/StrengthBuildingGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StrengthBuildingGoal.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TDEECalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TDEECalculator.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WeightLoseGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WeightLoseGoal.java" afterDir="false" />
-    </list>
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="Upto mid implemented." />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
