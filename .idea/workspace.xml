@@ -4,19 +4,10 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="remove trainer added">
-      <change afterPath="$PROJECT_DIR$/src/Account.java" afterDir="false" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="AccountsFile.csv created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Member and Trainer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Equipment.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EquipmentAdd.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EquipmentAdd.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadFile.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserRegistration.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/WriteToFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WriteToFile.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -131,7 +122,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733385303794</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="added functionality to monitor expense">
+      <option name="closed" value="true" />
+      <created>1733393522378</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1733393522379</updated>
+    </task>
+    <task id="LOCAL-00009" summary="AccountsFile.csv created">
+      <option name="closed" value="true" />
+      <created>1733393641240</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1733393641240</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -152,6 +159,8 @@
     <MESSAGE value=".." />
     <MESSAGE value="resolved conflict" />
     <MESSAGE value="remove trainer added" />
-    <option name="LAST_COMMIT_MESSAGE" value="remove trainer added" />
+    <MESSAGE value="added functionality to monitor expense" />
+    <MESSAGE value="AccountsFile.csv created" />
+    <option name="LAST_COMMIT_MESSAGE" value="AccountsFile.csv created" />
   </component>
 </project>

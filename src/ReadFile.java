@@ -30,16 +30,12 @@ public class ReadFile {
             System.err.println("Error reading file: " + e.getMessage());
         }
     }
-    public void readCSVFile(String fileName) {
+    public static void readAccountFile() {
+        String filename = "AccountsFile.csv";
         String line;
-        try (BufferedReader br = new BufferedReader(new FileReader(fileName))) {
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             while ((line = br.readLine()) != null) {
-                // Split the line by comma, preserving values inside quotes
-                String[] values = line.split(",");
-                for (String value : values) {
-                    System.out.print(value.trim() + " ");
-                }
-                System.out.println();
+                System.out.println(line);
             }
         } catch (IOException e) {
             System.out.println("An error occurred while reading the file: " + e.getMessage());

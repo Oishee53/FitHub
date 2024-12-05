@@ -61,11 +61,10 @@ public class GymManagement {
         System.out.println(".............FitHub...............");
         System.out.println("Enter your choice:");
         System.out.println("1.Admin\n2.Member\n3.Trainer");
-        System.out.println("4.Account");
         int loginChoice = scanner.nextInt();
         if (loginChoice == 1) {
             //Admin
-            System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management\n");
+            System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management\n4.Account");
             int adminChoice = scanner.nextInt();
             if (adminChoice == 1) {
                 System.out.println("1.Register a new member\n2.Remove a member\n3.Show all members");
@@ -166,6 +165,20 @@ public class GymManagement {
                 } else if (adminEchoice == 3) {
                     readListFile.readFile("EquipmentFile.csv");
 
+                }
+            }
+            else if(adminChoice == 4){
+                System.out.println("1.View Balance");
+                System.out.println("2. View all transaction");
+                int accountChoice = scanner.nextInt();
+                if(accountChoice == 1){
+                    System.out.println("Account Balance: ");
+                    System.out.println(ReadFile.readBalanceFile("BalanceFile.csv"));
+                    gymManagement.consoleApp();
+                }
+                else if(accountChoice == 2){
+                    ReadFile.readAccountFile();
+                    gymManagement.consoleApp();
                 }
             }
 
