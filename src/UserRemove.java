@@ -13,10 +13,9 @@ public class UserRemove {
         WriteToFile.writeMembers(gym.members,false);
         WriteToFile.writeTrainer(gym.trainers,false);
     }
-    public void trainerRemove(Gym gym,String email,LoadData loadData){
-        loadData.LoadTrainerDetails(gym);
+    public void trainerRemove(Gym gym,String ID){
         for (Trainer trainer: gym.trainers){
-            if(email.equals(trainer.getEmailAddress())) {
+            if(ID.equals(trainer.getTrainerID())) {
                 gym.removeTrainers(trainer);
                 System.out.println("Trainer removed successfully");
 
@@ -25,8 +24,8 @@ public class UserRemove {
         }
         WriteToFile.writeTrainer(gym.trainers,false);
     }
-    public void equipmentRemove(Gym gym,String ID,LoadData loadData){
-        loadData.LoadMemberDetails(gym);
+
+    public void equipmentRemove(Gym gym,String ID){
         for (Equipment equipment: gym.equipments){
             if(ID.equals(equipment.getEquipmentID())) {
                 gym.removeEquipment(equipment);

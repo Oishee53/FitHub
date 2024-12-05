@@ -62,9 +62,12 @@ public class UserRegistration {
                     address, age, weight, height, trainerID,goal,specificGoal);
             gym.addMembers(member);
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);
+            String fullname = firstName + " " + lastName;
+            Account.memberPayment(6000);
+            WriteToFile.memberAccount(fullname,6000);
             WriteToFile.writeMembers(gym.getMemberList(), false);
             WriteToFile.writeTrainer(gym.getTrainerList(), false);
-            WriteToFile.memberAndTrainer(gym,member,trainerID);
+            WriteToFile.memberAndTrainer(gym);
             System.out.println("Member is registered successfully!!");
         }
 

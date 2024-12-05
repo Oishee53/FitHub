@@ -3,12 +3,14 @@ class Equipment{
     private String name;
     private int quantity;
     private String condition;
+    private double cost;
 
-    public Equipment(String equipmentID, String name, int quantity, String condition) {
+    public Equipment(String equipmentID, String name, int quantity, String condition, double cost) {
         this.equipmentID = equipmentID;
         this.name = name;
         this.quantity = quantity;
         this.condition = condition;
+        this.cost = cost;
     }
 
 
@@ -44,4 +46,11 @@ class Equipment{
         this.quantity = quantity;
     }
 
+    public double getCost() {
+        return cost;
+    }
+
+    public void setCost(double cost) {
+        this.cost = cost;
+    }
 }
