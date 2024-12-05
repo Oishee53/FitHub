@@ -69,7 +69,6 @@ public class LoadData {
             System.out.println("Error reading trainer data file: " + ex.getMessage());
         }
     }
-
     public static void LoadEquipmentDetails(Gym gym) {
         try (BufferedReader reader = new BufferedReader(new FileReader("EquipmentFile.csv"))) {
             String line;
@@ -77,8 +76,9 @@ public class LoadData {
                 String[] details = line.split(",");
                 // Convert details[2] to integers
                 int details2 = Integer.parseInt(details[2]);
+                double cost = Double.parseDouble(details[4]);
                 // Create the Member object using the parsed values
-                Equipment equipment = new Equipment(details[0], details[1],details2,details[3]);
+                Equipment equipment = new Equipment(details[0], details[1],details2,details[3],cost);
                 gym.addEquipment(equipment);
 
 
@@ -89,6 +89,8 @@ public class LoadData {
             System.out.println("Error parsing numeric values: " + ex.getMessage());
         }
     }
+
+
     public static void LoadMemberAssignedToTrainerDetails(Gym gym) {
         String trainerFilePath = "Member and Trainer.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(trainerFilePath))) {

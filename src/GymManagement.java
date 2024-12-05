@@ -27,15 +27,25 @@ public class GymManagement {
                 "LoginInfoFile.csv",
                 "Male Exercise.csv",
                 "Female Exercise.csv",
-                "WorkoutFile.csv"
+                "WorkoutFile.csv",
+                "BalanceFile.csv"
         };
 
         // Create each file
         for (String csvFile : csvFiles) {
             createCSVFile(csvFile);
         }
-
-
+        double initailBalance = 100000;
+        double updatedBalance = 0.0;
+        updatedBalance =ReadFile.readBalanceFile("BalanceFile.csv");
+        if(updatedBalance == 0.0){
+            Account account = new Account(initailBalance);
+            WriteToFile.BalanceFile(initailBalance);
+            WriteToFile.initialAccountBalance(initailBalance);
+        }
+        else{
+            Account account = new Account(updatedBalance);
+        }
         loadData.LoadMemberDetails(gym);
         loadData.LoadTrainerDetails(gym);
         loadData.LoadEquipmentDetails(gym);
@@ -51,6 +61,7 @@ public class GymManagement {
         System.out.println(".............FitHub...............");
         System.out.println("Enter your choice:");
         System.out.println("1.Admin\n2.Member\n3.Trainer");
+        System.out.println("4.Account");
         int loginChoice = scanner.nextInt();
         if (loginChoice == 1) {
             //Admin
@@ -75,6 +86,7 @@ public class GymManagement {
                 }
             } else if (adminChoice == 2) {
                 System.out.println("1.Register a new trainer\n2.Remove a trainer\n3.Show all trainers");
+                System.out.println("4. Pay trainer salary");
                 int adminTchoice = scanner.nextInt();
                 if (adminTchoice == 1) {
                     // register new member
@@ -97,7 +109,48 @@ public class GymManagement {
 
                     readListFile.readFile("TrainerFile.csv");
                 }
-            } else if (adminChoice == 3) {
+                else if(adminTchoice == 4){
+                    System.out.println("1.Pay all trainers");
+                    System.out.println("2.Pay specific trainer");
+                    System.out.println("3.Pay all trainers, excluding one");
+                    int paymentChoice = scanner.nextInt();
+                    if(paymentChoice==1){
+                        for(Trainer trainer:gym.getTrainerList()){
+                            Account.trainerPaid(trainer.getTrainerID(),trainer.getSalary());
+                        }
+
+                    }
+                    else if(paymentChoice==2){
+                        System.out.println("Enter trainerID:");
+                        String trainerID = scanner.next();
+                        boolean found = false;
+                        for(Trainer trainer:gym.getTrainerList()){
+                            if(trainer.getTrainerID().equals(trainerID)) {
+                                found = true;
+                                Account.trainerPaid(trainerID,trainer.getSalary());
+                            }
+                        }
+                        if(found == false){
+                            System.out.println("Incorrect trainerID!");
+                        }
+                    }
+                    else if(paymentChoice==3){
+                        System.out.println("Enter the trainer ID to exclude from payment:");
+                        String trainerID = scanner.next();
+                        boolean found = false;
+                        for(Trainer trainer:gym.getTrainerList()){
+                            if(!trainer.getTrainerID().equals(trainerID)) {
+                                found = true;
+                                Account.trainerPaid(trainer.getTrainerID(),trainer.getSalary());
+                            }
+                        }
+                        if(found==false){
+                            System.out.println("Incorrect trainerID!");
+                        }
+                    }
+                    gymManagement.consoleApp();
+                }
+        } else if (adminChoice == 3) {
                 System.out.println("1.Add new equipments\n2.Remove equipment\n3.Show all equipments");
                 int adminEchoice = scanner.nextInt();
                 if (adminEchoice == 1) {

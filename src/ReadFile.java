@@ -45,4 +45,20 @@ public class ReadFile {
             System.out.println("An error occurred while reading the file: " + e.getMessage());
         }
     }
+    public static double readBalanceFile(String filename) {
+        double balance = 0.0;  // Default value for an empty or non-existent file
+
+        try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
+            String line = br.readLine();
+            if (line != null && !line.trim().isEmpty()) {
+                balance = Double.parseDouble(line);  // Parse balance if there's data
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading from file: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Error parsing balance from file: " + e.getMessage());
+        }
+
+        return balance;  // Return the balance (0.0 if file is empty or an error occurs)
+    }
 }
