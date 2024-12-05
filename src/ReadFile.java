@@ -16,9 +16,6 @@ public class ReadFile {
         else {
             System.out.println("Unknown File Type:");
         }
-
-
-
         // Try-with-resources to ensure the file is closed automatically
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
             String line;

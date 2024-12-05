@@ -64,7 +64,7 @@ public class UserRegistration {
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);
             WriteToFile.writeMembers(gym.getMemberList(), false);
             WriteToFile.writeTrainer(gym.getTrainerList(), false);
-            WriteToFile.memberAndTrainer(gym,member,trainerID);
+            WriteToFile.memberAndTrainer(gym);
             System.out.println("Member is registered successfully!!");
         }
 

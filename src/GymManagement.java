@@ -39,6 +39,7 @@ public class GymManagement {
         loadData.LoadMemberDetails(gym);
         loadData.LoadTrainerDetails(gym);
         loadData.LoadEquipmentDetails(gym);
+        loadData.LoadMemberAssignedToTrainerDetails(gym);
         gymManagement.consoleApp();
 
     }
@@ -80,9 +81,16 @@ public class GymManagement {
                     userRegistration.trainerRegistration(gym);
                     gymManagement.consoleApp();
                 } else if (adminTchoice == 2) {
-                    System.out.println("Enter the trainer email id you want to remove");
+                    System.out.println("Enter the trainer email id you want to remove: ");
                     String removeTrainerID = scanner.next();
-                    userRemove.trainerRemove(gym, removeTrainerID, loadData);
+                    for(Trainer trainer:gym.getTrainerList()){
+                        if(removeTrainerID.equals(trainer.getTrainerID())){
+                            userRemove.trainerRemove(gym, removeTrainerID);
+                            for(Member member:trainer.getAssignedMembers()){
+                                AssignTrainer.trainerReassign(gym,member);
+                            }
+                        }
+                    }
                     gymManagement.consoleApp();
 
                 } else if (adminTchoice == 3) {
@@ -99,7 +107,7 @@ public class GymManagement {
                 } else if (adminEchoice == 2) {
                     System.out.println("Enter the equipment id you want to remove:");
                     String removeEquipmentID = scanner.next();
-                    userRemove.equipmentRemove(gym, removeEquipmentID, loadData);
+                    userRemove.equipmentRemove(gym, removeEquipmentID);
 
                     gymManagement.consoleApp();
                 } else if (adminEchoice == 3) {
