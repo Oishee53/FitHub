@@ -7,19 +7,19 @@ public class TDEECalculator {
         else
         {BMR=10*member.getWeight()+6.25* member.getHeight()-5* member.getAge()-161;}
         double TDEE=BMR*1.55;//by default moderately active
-        if(member.getGoal().equalsIgnoreCase("Weight loss")){
+        if(member.getGoal().equalsIgnoreCase("WeightLoss")){
 
            TDEE= TDEE-500;
         }
-        else if (member.getGoal().equalsIgnoreCase("Strength building")) {
+        else if (member.getGoal().equalsIgnoreCase("StrengthBuilding")) {
            TDEE = TDEE+400;
         }
         protein=(TDEE*30)/100;
         fat=(TDEE*30)/100;
         carb=(TDEE*40)/100;
-        System.out.println("Your daily calorie conumption will be"+TDEE+"cal.\n");
-        System.out.println(protein+"g protein\n");
-        System.out.println(fat+"g fat\n");
-        System.out.println(carb+"cal carb");
+        System.out.println("Your daily calorie conumption will be "+TDEE+" cal.\n");
+        System.out.println(protein+" cal protein\n");
+        System.out.println(fat+" cal fat\n");
+        System.out.println(carb+" cal carb");
     }
 }

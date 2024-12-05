@@ -7,12 +7,13 @@ public class GymManagement {
     UserRemove userRemove = new UserRemove();
     EquipmentAdd equipmentAdd = new EquipmentAdd();
     static LoadData loadData = new LoadData();
-    ReadFile readListFile=new ReadFile();
+    ReadFile readListFile = new ReadFile();
     Login login = new Login();
     static Gym gym = new Gym();
     WeightLoseGoal weightLoseGoal = new WeightLoseGoal();
     StrengthBuildingGoal strengthBuildingGoal = new StrengthBuildingGoal();
-    TDEECalculator tdeeCalculator= new TDEECalculator();
+    TDEECalculator tdeeCalculator = new TDEECalculator();
+    ProgressTrack progressTrack = new ProgressTrack();
     Scanner scanner = new Scanner(System.in);
 
 
@@ -25,16 +26,14 @@ public class GymManagement {
                 "EquipmentFile.csv",
                 "LoginInfoFile.csv",
                 "Male Exercise.csv",
-                "Female Exercise.csv"
+                "Female Exercise.csv",
+                "WorkoutFile.csv"
         };
 
         // Create each file
         for (String csvFile : csvFiles) {
             createCSVFile(csvFile);
         }
-
-
-
 
 
         loadData.LoadMemberDetails(gym);
@@ -144,103 +143,141 @@ public class GymManagement {
                     System.out.println("Enter new data:");
                     newData = scanner.next();
                     login.resetMemberData(memberResetChoice, newData, loginEmail, loginPassword, gym.getMemberList());
-                }
-                else if (memberChoice == 3) {
+                } else if (memberChoice == 3) {
                     for (Member member : gym.getMemberList()) {
 
 
                         if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
 
-                            if (member.getGoal().equalsIgnoreCase("Weight Loss")) {
-                                weightLoseGoal.suggestion(member,tdeeCalculator);
+                            if (member.getGoal().equalsIgnoreCase("WeightLoss")) {
+                                weightLoseGoal.suggestion(member, tdeeCalculator);
                                 return;
-                            } else if (member.getGoal().equalsIgnoreCase("Strength Building")) {
-                                strengthBuildingGoal.suggestion(member,tdeeCalculator);
+                            } else if (member.getGoal().equalsIgnoreCase("StrengthBuilding")) {
+                                strengthBuildingGoal.suggestion(member, tdeeCalculator);
                             } else {
                                 System.out.println("Goal did not match either Weight Loss or Strength Building");
                             }
                         }
                     }
+                } else if (memberChoice == 4) {
+                    System.out.println("1.Dashboard");
+                    System.out.println("2.Workout");
+                    int trackingChoice = scanner.nextInt();
+                    if (trackingChoice == 1) {
+                        //DashBoard
+                    } else if (trackingChoice == 2) {
+                        System.out.println("1.Post new workout:");
+                        System.out.println("2.Past workouts");
+                        int WorkoutChoice = scanner.nextInt();
+                        if (WorkoutChoice == 1) {
+                            //Post new workouts
+                            for (Member member : gym.getMemberList()) {
+
+
+                                if (member.getEmailAddress().equalsIgnoreCase(loginEmail) && member.getGender().equalsIgnoreCase("Male")) {
+
+                                    progressTrack.NewMaleWorkout(member,scanner);
+                                }
+
+
+                                else if (member.getEmailAddress().equalsIgnoreCase(loginEmail) && member.getGender().equalsIgnoreCase("Female")){
+
+                                        progressTrack.NewFemaleWorkout(member,scanner);
+
+                                }
+                            }
+                        }
+                        else if (WorkoutChoice == 2) {
+
+                            //Past workouts
+                            for (Member member : gym.getMemberList()) {
+                                if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
+
+                                    progressTrack.pastWorkout(member);
+                                }
+                            }
+
+                        }
+
+
+                    }
                 }
-                else if (memberChoice == 4){
-
-
-
-
-
-                }
-
                 else if (memberChoice == 5) {
                     WriteToFile.LoginFile("", "");
                     gymManagement.consoleApp();
                 }
-            } else {
-                System.out.println("Wrong email or password:");
-                gymManagement.consoleApp();
-            }
-            System.out.println("1.Logout");
-            int back2 = scanner.nextInt();
-            if (back2 == 1) {
-                WriteToFile.LoginFile("", "");
-                gymManagement.consoleApp();
-            }
-        }
-        else if (loginChoice == 3) {
-            System.out.print("Enter your email:\n");
-            String loginEmail = scanner.next();
-            System.out.print("Enter your password:\n");
-            String loginPassword = scanner.next();
-            String filename = "TrainerFile.csv";
-            boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
-            if (isAuthenticated) {
-                System.out.println("1. View Your Details");
-                System.out.println("2. Update Details");
-                System.out.println("3. Logout");
-                int trainerChoice = scanner.nextInt();
-
-                if (trainerChoice == 1) {
-                    login.ReadTrainerDetails(loginEmail, loginPassword);
-                } else if (trainerChoice == 2) {
-                    int trainerResetChoice;
-                    String newData;
-                    System.out.println("What do you want to reset?");
-                    System.out.println("1.Reset First Name ");
-                    System.out.println("2.Reset Last Name ");
-                    //  System.out.println("3.Reset Email ");
-                    System.out.println("4.Reset Password ");
-                    System.out.println("5. Reset Date Of Birth ");
-                    System.out.println("6.Reset Gender ");
-                    System.out.println("7.Reset Address ");
-                    System.out.println("8.Reset Shift ");
-                    System.out.println("9.Reset Age ");
-                    trainerResetChoice = scanner.nextInt();
-                    System.out.println("Enter new data:");
-                    newData = scanner.next();
-                    login.resetTrainerData(trainerResetChoice, newData, loginEmail, loginPassword, gym.getTrainerList());
-                } else if (trainerChoice == 3) {
+                else {
+                    System.out.println("Wrong email or password:");
+                    gymManagement.consoleApp();
+                }
+                System.out.println("1.Logout");
+                int back2 = scanner.nextInt();
+                if (back2 == 1) {
                     WriteToFile.LoginFile("", "");
                     gymManagement.consoleApp();
                 }
-            } else {
-                System.out.println("Wrong email or password:");
-                gymManagement.consoleApp();
-            }
-            System.out.println("1.Logout");
-            int back3 = scanner.nextInt();
-            if (back3 == 1) {
-                WriteToFile.LoginFile("", "");
-                gymManagement.consoleApp();
             }
         }
+
+            //trainer
+            else if (loginChoice == 3) {
+                System.out.print("Enter your email:\n");
+                String loginEmail = scanner.next();
+                System.out.print("Enter your password:\n");
+                String loginPassword = scanner.next();
+                String filename = "TrainerFile.csv";
+                boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
+                if (isAuthenticated) {
+                    System.out.println("1. View Your Details");
+                    System.out.println("2. Update Details");
+                    System.out.println("3. Logout");
+                    int trainerChoice = scanner.nextInt();
+
+                    if (trainerChoice == 1) {
+                        login.ReadTrainerDetails(loginEmail, loginPassword);
+                    } else if (trainerChoice == 2) {
+                        int trainerResetChoice;
+                        String newData;
+                        System.out.println("What do you want to reset?");
+                        System.out.println("1.Reset First Name ");
+                        System.out.println("2.Reset Last Name ");
+                        //  System.out.println("3.Reset Email ");
+                        System.out.println("4.Reset Password ");
+                        System.out.println("5. Reset Date Of Birth ");
+                        System.out.println("6.Reset Gender ");
+                        System.out.println("7.Reset Address ");
+                        System.out.println("8.Reset Shift ");
+                        System.out.println("9.Reset Age ");
+                        trainerResetChoice = scanner.nextInt();
+                        System.out.println("Enter new data:");
+                        newData = scanner.next();
+                        login.resetTrainerData(trainerResetChoice, newData, loginEmail, loginPassword, gym.getTrainerList());
+                    } else if (trainerChoice == 3) {
+                        WriteToFile.LoginFile("", "");
+                        gymManagement.consoleApp();
+                    }
+                } else {
+                    System.out.println("Wrong email or password:");
+                    gymManagement.consoleApp();
+                }
+                System.out.println("1.Logout");
+                int back3 = scanner.nextInt();
+                if (back3 == 1) {
+                    WriteToFile.LoginFile("", "");
+                    gymManagement.consoleApp();
+                }
+            }
+
+
     }
-    private static void createCSVFile(String fileName) {
+    private static void createCSVFile (String fileName){
         File file = new File(fileName);
         try {
             // Create the file
             if (file.createNewFile()) {
                 System.out.println("CSV file created: " + file.getName());
             } else {
-               // System.out.println("CSV file already exists: " + file.getName());
+                // System.out.println("CSV file already exists: " + file.getName());
             }
         } catch (IOException e) {
             System.out.println("An error occurred while creating: " + fileName);
@@ -250,7 +287,6 @@ public class GymManagement {
 }
 
 
-//Oishee test
 
 
 
