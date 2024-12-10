@@ -16,8 +16,7 @@ public class GymManagement {
     ProgressTrack progressTrack = new ProgressTrack();
     Scanner scanner = new Scanner(System.in);
 
-
-    //main method
+    // Main method
     public static void main(String[] args) throws IOException {
         String[] csvFiles = {
                 "MemberFile.csv",
@@ -28,7 +27,8 @@ public class GymManagement {
                 "Male Exercise.csv",
                 "Female Exercise.csv",
                 "WorkoutFile.csv",
-                "BalanceFile.csv"
+                "BalanceFile.csv",
+                "Attendance.csv" // Added Attendance CSV
         };
 
         // Create each file
@@ -64,7 +64,7 @@ public class GymManagement {
         int loginChoice = scanner.nextInt();
         if (loginChoice == 1) {
             //Admin
-            System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management\n4.Account");
+            System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management\n4.Account\n5.Attendance Management");
             int adminChoice = scanner.nextInt();
             if (adminChoice == 1) {
                 System.out.println("1.Register a new member\n2.Remove a member\n3.Show all members");
@@ -83,7 +83,25 @@ public class GymManagement {
                     readListFile.readFile("MemberFile.csv");
 
                 }
-            } else if (adminChoice == 2) {
+            }
+            else if (adminChoice == 5) { // For Attendance Management
+                System.out.println("1. Take Attendance\n2. View Attendance for All Members");
+                int attendanceChoice = scanner.nextInt();
+                scanner.nextLine(); // Consume the leftover newline character
+
+                if (attendanceChoice == 1) {
+                    System.out.println("Enter Class Name (e.g., Class 1):");
+                    String className = scanner.nextLine(); // Use nextLine to capture full class name
+                    System.out.println("Enter emails of present members (comma-separated):");
+                    String presentEmails = scanner.nextLine(); // Use nextLine to capture the full input
+                    WriteToFile.writeAttendance(className, presentEmails, gym.getMemberList());
+                } else if (attendanceChoice == 2) {
+                    readListFile.readFile("Attendance.csv");
+                }
+            }
+
+
+            else if (adminChoice == 2) {
                 System.out.println("1.Register a new trainer\n2.Remove a trainer\n3.Show all trainers");
                 System.out.println("4. Pay trainer salary");
                 int adminTchoice = scanner.nextInt();
@@ -94,11 +112,11 @@ public class GymManagement {
                 } else if (adminTchoice == 2) {
                     System.out.println("Enter the trainer email id you want to remove: ");
                     String removeTrainerID = scanner.next();
-                    for(Trainer trainer:gym.getTrainerList()){
-                        if(removeTrainerID.equals(trainer.getTrainerID())){
+                    for (Trainer trainer : gym.getTrainerList()) {
+                        if (removeTrainerID.equals(trainer.getTrainerID())) {
                             userRemove.trainerRemove(gym, removeTrainerID);
-                            for(Member member:trainer.getAssignedMembers()){
-                                AssignTrainer.trainerReassign(gym,member);
+                            for (Member member : trainer.getAssignedMembers()) {
+                                AssignTrainer.trainerReassign(gym, member);
                             }
                         }
                     }
@@ -107,49 +125,46 @@ public class GymManagement {
                 } else if (adminTchoice == 3) {
 
                     readListFile.readFile("TrainerFile.csv");
-                }
-                else if(adminTchoice == 4){
+                } else if (adminTchoice == 4) {
                     System.out.println("1.Pay all trainers");
                     System.out.println("2.Pay specific trainer");
                     System.out.println("3.Pay all trainers, excluding one");
                     int paymentChoice = scanner.nextInt();
-                    if(paymentChoice==1){
-                        for(Trainer trainer:gym.getTrainerList()){
-                            Account.trainerPaid(trainer.getTrainerID(),trainer.getSalary());
+                    if (paymentChoice == 1) {
+                        for (Trainer trainer : gym.getTrainerList()) {
+                            Account.trainerPaid(trainer.getTrainerID(), trainer.getSalary());
                         }
 
-                    }
-                    else if(paymentChoice==2){
+                    } else if (paymentChoice == 2) {
                         System.out.println("Enter trainerID:");
                         String trainerID = scanner.next();
                         boolean found = false;
-                        for(Trainer trainer:gym.getTrainerList()){
-                            if(trainer.getTrainerID().equals(trainerID)) {
+                        for (Trainer trainer : gym.getTrainerList()) {
+                            if (trainer.getTrainerID().equals(trainerID)) {
                                 found = true;
-                                Account.trainerPaid(trainerID,trainer.getSalary());
+                                Account.trainerPaid(trainerID, trainer.getSalary());
                             }
                         }
-                        if(found == false){
+                        if (found == false) {
                             System.out.println("Incorrect trainerID!");
                         }
-                    }
-                    else if(paymentChoice==3){
+                    } else if (paymentChoice == 3) {
                         System.out.println("Enter the trainer ID to exclude from payment:");
                         String trainerID = scanner.next();
                         boolean found = false;
-                        for(Trainer trainer:gym.getTrainerList()){
-                            if(!trainer.getTrainerID().equals(trainerID)) {
+                        for (Trainer trainer : gym.getTrainerList()) {
+                            if (!trainer.getTrainerID().equals(trainerID)) {
                                 found = true;
-                                Account.trainerPaid(trainer.getTrainerID(),trainer.getSalary());
+                                Account.trainerPaid(trainer.getTrainerID(), trainer.getSalary());
                             }
                         }
-                        if(found==false){
+                        if (found == false) {
                             System.out.println("Incorrect trainerID!");
                         }
                     }
                     gymManagement.consoleApp();
                 }
-        } else if (adminChoice == 3) {
+            } else if (adminChoice == 3) {
                 System.out.println("1.Add new equipments\n2.Remove equipment\n3.Show all equipments");
                 int adminEchoice = scanner.nextInt();
                 if (adminEchoice == 1) {
@@ -166,23 +181,24 @@ public class GymManagement {
                     readListFile.readFile("EquipmentFile.csv");
 
                 }
-            }
-            else if(adminChoice == 4){
+            } else if (adminChoice == 4) {
                 System.out.println("1.View Balance");
                 System.out.println("2. View all transaction");
                 int accountChoice = scanner.nextInt();
-                if(accountChoice == 1){
+                if (accountChoice == 1) {
                     System.out.println("Account Balance: ");
                     System.out.println(ReadFile.readBalanceFile("BalanceFile.csv"));
                     gymManagement.consoleApp();
-                }
-                else if(accountChoice == 2){
+                } else if (accountChoice == 2) {
                     ReadFile.readAccountFile();
                     gymManagement.consoleApp();
                 }
             }
+        }
 
-        }//member
+
+
+        //member
         else if (loginChoice == 2) {
             System.out.print("Enter your email:\n");
             String loginEmail = scanner.next();
@@ -197,9 +213,11 @@ public class GymManagement {
                 System.out.println("4. Track your progress");
                 System.out.println("5. Logout");
                 int memberChoice = scanner.nextInt();
+                scanner.nextLine(); // Consume leftover newline
 
                 if (memberChoice == 1) {
-                    login.ReadMemberDetails(loginEmail, loginPassword);
+                    login.ReadMemberDetails(loginEmail, loginPassword); // Existing method for viewing details
+                    login.viewAttendance(loginEmail); // New method to display attendance
                 } else if (memberChoice == 2) {
                     int memberResetChoice;
                     String newData;
@@ -256,7 +274,7 @@ public class GymManagement {
 
                                 else if (member.getEmailAddress().equalsIgnoreCase(loginEmail) && member.getGender().equalsIgnoreCase("Female")){
 
-                                        progressTrack.NewFemaleWorkout(member,scanner);
+                                    progressTrack.NewFemaleWorkout(member,scanner);
 
                                 }
                             }
@@ -280,6 +298,17 @@ public class GymManagement {
                     WriteToFile.LoginFile("", "");
                     gymManagement.consoleApp();
                 }
+                else if (memberChoice == 6) { // Add this option for attendance
+                    for (Member member : gym.getMemberList()) {
+                        if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
+                            member.viewAttendance();
+                            break;
+                        }
+                    }
+                }
+
+
+
                 else {
                     System.out.println("Wrong email or password:");
                     gymManagement.consoleApp();
@@ -293,54 +322,54 @@ public class GymManagement {
             }
         }
 
-            //trainer
-            else if (loginChoice == 3) {
-                System.out.print("Enter your email:\n");
-                String loginEmail = scanner.next();
-                System.out.print("Enter your password:\n");
-                String loginPassword = scanner.next();
-                String filename = "TrainerFile.csv";
-                boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
-                if (isAuthenticated) {
-                    System.out.println("1. View Your Details");
-                    System.out.println("2. Update Details");
-                    System.out.println("3. Logout");
-                    int trainerChoice = scanner.nextInt();
+        //trainer
+        else if (loginChoice == 3) {
+            System.out.print("Enter your email:\n");
+            String loginEmail = scanner.next();
+            System.out.print("Enter your password:\n");
+            String loginPassword = scanner.next();
+            String filename = "TrainerFile.csv";
+            boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
+            if (isAuthenticated) {
+                System.out.println("1. View Your Details");
+                System.out.println("2. Update Details");
+                System.out.println("3. Logout");
+                int trainerChoice = scanner.nextInt();
 
-                    if (trainerChoice == 1) {
-                        login.ReadTrainerDetails(loginEmail, loginPassword);
-                    } else if (trainerChoice == 2) {
-                        int trainerResetChoice;
-                        String newData;
-                        System.out.println("What do you want to reset?");
-                        System.out.println("1.Reset First Name ");
-                        System.out.println("2.Reset Last Name ");
-                        //  System.out.println("3.Reset Email ");
-                        System.out.println("4.Reset Password ");
-                        System.out.println("5. Reset Date Of Birth ");
-                        System.out.println("6.Reset Gender ");
-                        System.out.println("7.Reset Address ");
-                        System.out.println("8.Reset Shift ");
-                        System.out.println("9.Reset Age ");
-                        trainerResetChoice = scanner.nextInt();
-                        System.out.println("Enter new data:");
-                        newData = scanner.next();
-                        login.resetTrainerData(trainerResetChoice, newData, loginEmail, loginPassword, gym.getTrainerList());
-                    } else if (trainerChoice == 3) {
-                        WriteToFile.LoginFile("", "");
-                        gymManagement.consoleApp();
-                    }
-                } else {
-                    System.out.println("Wrong email or password:");
-                    gymManagement.consoleApp();
-                }
-                System.out.println("1.Logout");
-                int back3 = scanner.nextInt();
-                if (back3 == 1) {
+                if (trainerChoice == 1) {
+                    login.ReadTrainerDetails(loginEmail, loginPassword);
+                } else if (trainerChoice == 2) {
+                    int trainerResetChoice;
+                    String newData;
+                    System.out.println("What do you want to reset?");
+                    System.out.println("1.Reset First Name ");
+                    System.out.println("2.Reset Last Name ");
+                    //  System.out.println("3.Reset Email ");
+                    System.out.println("4.Reset Password ");
+                    System.out.println("5. Reset Date Of Birth ");
+                    System.out.println("6.Reset Gender ");
+                    System.out.println("7.Reset Address ");
+                    System.out.println("8.Reset Shift ");
+                    System.out.println("9.Reset Age ");
+                    trainerResetChoice = scanner.nextInt();
+                    System.out.println("Enter new data:");
+                    newData = scanner.next();
+                    login.resetTrainerData(trainerResetChoice, newData, loginEmail, loginPassword, gym.getTrainerList());
+                } else if (trainerChoice == 3) {
                     WriteToFile.LoginFile("", "");
                     gymManagement.consoleApp();
                 }
+            } else {
+                System.out.println("Wrong email or password:");
+                gymManagement.consoleApp();
             }
+            System.out.println("1.Logout");
+            int back3 = scanner.nextInt();
+            if (back3 == 1) {
+                WriteToFile.LoginFile("", "");
+                gymManagement.consoleApp();
+            }
+        }
 
 
     }
@@ -359,16 +388,3 @@ public class GymManagement {
         }
     }
 }
-
-
-
-
-
-
-
-
-
-
-
-
-

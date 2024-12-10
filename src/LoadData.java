@@ -69,6 +69,7 @@ public class LoadData {
             System.out.println("Error reading trainer data file: " + ex.getMessage());
         }
     }
+
     public static void LoadEquipmentDetails(Gym gym) {
         try (BufferedReader reader = new BufferedReader(new FileReader("EquipmentFile.csv"))) {
             String line;
@@ -89,6 +90,11 @@ public class LoadData {
             System.out.println("Error parsing numeric values: " + ex.getMessage());
         }
     }
+
+
+
+
+
 
 
     public static void LoadMemberAssignedToTrainerDetails(Gym gym) {

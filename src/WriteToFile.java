@@ -2,11 +2,32 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WriteToFile {
 
     // Constructor
     public WriteToFile() {
+    }
+    public static void writeAttendance(String className, String presentEmails, List<Member> members) {
+        String[] presentList = presentEmails.split(",");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Attendance.csv", true))) {
+            for (Member member : members) {
+                String status = "Absent";
+                for (String email : presentList) {
+                    if (member.getEmailAddress().equalsIgnoreCase(email.trim())) {
+                        status = "Present";
+                        break;
+                    }
+                }
+                bw.write(className + "," + member.getEmailAddress() + "," + status);
+                bw.newLine();
+            }
+            System.out.println("Attendance recorded successfully!");
+        } catch (IOException e) {
+            System.out.println("Error writing attendance.");
+            e.printStackTrace();
+        }
     }
 
     public static void writeMembers(ArrayList<Member> members,boolean append) {
