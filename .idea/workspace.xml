@@ -4,7 +4,14 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="attendance tracking added" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="attendance tracking added">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attendance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/AssignTrainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/AssignTrainer.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Equipment.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Equipment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Trainer.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Trainer.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,7 +149,15 @@
       <option name="project" value="LOCAL" />
       <updated>1733836621727</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="attendance tracking added">
+      <option name="closed" value="true" />
+      <created>1733836848591</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1733836848591</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">

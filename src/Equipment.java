@@ -1,4 +1,4 @@
-class Equipment{
+public class Equipment {
     private String equipmentID;
     private String name;
     private int quantity;
@@ -13,37 +13,36 @@ class Equipment{
         this.cost = cost;
     }
 
-
-    public String getName() {
-        return name;
-    }
-
-    public int getQuantity() {
-        return quantity;
-    }
-
     public String getEquipmentID() {
         return equipmentID;
-    }
-
-    public String getCondition() {
-        return condition;
     }
 
     public void setEquipmentID(String equipmentID) {
         this.equipmentID = equipmentID;
     }
 
-    public void setCondition(String condition) {
-        this.condition = condition;
+    public String getName() {
+        return name;
     }
 
     public void setName(String name) {
         this.name = name;
     }
 
+    public int getQuantity() {
+        return quantity;
+    }
+
     public void setQuantity(int quantity) {
         this.quantity = quantity;
+    }
+
+    public String getCondition() {
+        return condition;
+    }
+
+    public void setCondition(String condition) {
+        this.condition = condition;
     }
 
     public double getCost() {
@@ -54,3 +53,4 @@ class Equipment{
         this.cost = cost;
     }
 }
+

@@ -75,19 +75,36 @@ public class LoadData {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] details = line.split(",");
-                // Convert details[2] to integers
-                int details2 = Integer.parseInt(details[2]);
-                double cost = Double.parseDouble(details[4]);
-                // Create the Member object using the parsed values
-                Equipment equipment = new Equipment(details[0], details[1],details2,details[3],cost);
-                gym.addEquipment(equipment);
 
+                if (details.length < 5) {
+                    System.out.println("Skipping invalid equipment record: " + line);
+                    continue;
+                }
 
+                try {
+                    // Parse numeric values with error handling
+                    int quantity = Integer.parseInt(details[3]);  // Quantity
+                    double cost = parseCost(details[4]); // Handle non-numeric cost
+
+                    // Create the Equipment object using the parsed values
+                    Equipment equipment = new Equipment(details[0], details[1], quantity, details[2], cost);
+                    gym.addEquipment(equipment);
+
+                } catch (NumberFormatException ex) {
+                    System.out.println("Skipping equipment with invalid numeric data: " + line);
+                }
             }
         } catch (IOException ex) {
-            ex.printStackTrace(); // Print stack trace for debugging
+            ex.printStackTrace();
+        }
+    }
+
+    private static double parseCost(String costString) {
+        try {
+            return Double.parseDouble(costString);
         } catch (NumberFormatException ex) {
-            System.out.println("Error parsing numeric values: " + ex.getMessage());
+            // If the cost is not numeric, set it to 0.0 or handle it as needed
+            return 0.0;
         }
     }
 
