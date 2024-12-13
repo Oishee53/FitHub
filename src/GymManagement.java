@@ -14,6 +14,7 @@ public class GymManagement {
     StrengthBuildingGoal strengthBuildingGoal = new StrengthBuildingGoal();
     TDEECalculator tdeeCalculator = new TDEECalculator();
     ProgressTrack progressTrack = new ProgressTrack();
+    Dashboard dashboard= new Dashboard();
     Scanner scanner = new Scanner(System.in);
 
 
@@ -239,7 +240,15 @@ public class GymManagement {
                     int trackingChoice = scanner.nextInt();
                     if (trackingChoice == 1) {
                         //DashBoard
-                    } else if (trackingChoice == 2) {
+                            for (Member member : gym.getMemberList()) {
+                                if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
+
+                                    dashboard.graph(member);
+                                }
+                            }
+
+
+                            } else if (trackingChoice == 2) {
                         System.out.println("1.Post new workout:");
                         System.out.println("2.Past workouts");
                         int WorkoutChoice = scanner.nextInt();
