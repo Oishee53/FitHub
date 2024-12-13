@@ -30,7 +30,7 @@ public class Dashboard {
                 //matches with members mail
                 if (member.getEmailAddress().equalsIgnoreCase(data[0]))
                     calorie = calorie + Double.parseDouble(data[4]);
-                
+
 
                 if(member.getEmailAddress().equalsIgnoreCase(data[0]) && date[1].equals("1") )
                     january = january + Double.parseDouble(data[4]);
@@ -72,7 +72,7 @@ public class Dashboard {
         }
 
 
-        System.out.println("|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n");
+        System.out.println("|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|\n|");
         System.out.println("|_   _   _   _   _   _   _   _   _   _   _   _   \nJan Feb Mar Apr May Jun Jul Aug Sep Oct Nov Dec");
 
 
