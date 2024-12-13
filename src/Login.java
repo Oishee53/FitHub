@@ -34,6 +34,40 @@ public class Login {
         }
         return false;
     }
+    public void viewAttendance(String email) {
+        System.out.println("Attendance Records for: " + email.trim());
+        try (BufferedReader reader = new BufferedReader(new FileReader("Attendance.csv"))) {
+            String line;
+            boolean hasAttendance = false;
+
+            boolean firstLine = true; // Skip header if any
+            while ((line = reader.readLine()) != null) {
+                if (firstLine) {
+                    firstLine = false;
+                    continue; // Skip the first line (header)
+                }
+
+                // Split line by comma to separate columns
+                String[] data = line.split(",");
+
+                // Check if the email matches the passed email
+                if (data[1].trim().equals(email.trim())) {  // Email is in the second column (data[1])
+                    // Print only the records for the specific member
+                    System.out.println("Class: " + data[0] + ", Status: " + data[2]);
+                    hasAttendance = true;
+                }
+            }
+
+            // If no attendance found for the member, inform the user
+            if (!hasAttendance) {
+                System.out.println("No attendance records found for this member.");
+            }
+        } catch (IOException e) {
+            System.out.println("Error reading attendance file: " + e.getMessage());
+        }
+    }
+
+
     public static void ReadMemberDetails(String email, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader("MemberFile.csv"))) {
             String line;
@@ -183,5 +217,3 @@ public class Login {
     }
 
 }
-
-
