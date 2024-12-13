@@ -260,7 +260,6 @@ public class GymManagement {
                         //DashBoard
                             for (Member member : gym.getMemberList()) {
                                 if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
-
                                     dashboard.graph(member);
                                 }
                             }
