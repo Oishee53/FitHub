@@ -13,6 +13,13 @@ public class ReadFile {
         else if(filename.equals("Member and Trainer.csv")){
             System.out.println("Trainer Assignment Information: ");
         }
+        else if(filename.equals("Attendance.csv")){
+            System.out.println("Attendence records are: ");
+        }
+        else if(filename.equals("EquipmentFile.csv")){
+            System.out.println("All equipments are: ");
+        }
+
         else {
             System.out.println("Unknown File Type:");
         }

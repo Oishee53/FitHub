@@ -29,7 +29,7 @@ public class GymManagement {
                 "Female Exercise.csv",
                 "WorkoutFile.csv",
                 "BalanceFile.csv",
-                "Attendance.csv" // Added Attendance CSV
+                "Attendance.csv"
         };
 
         // Create each file
@@ -85,7 +85,8 @@ public class GymManagement {
 
                 }
             }
-            else if (adminChoice == 5) { // For Attendance Management
+            else if (adminChoice == 5) {
+                // For Attendance Management
                 System.out.println("1. Take Attendance\n2. View Attendance for All Members");
                 int attendanceChoice = scanner.nextInt();
                 scanner.nextLine(); // Consume the leftover newline character
