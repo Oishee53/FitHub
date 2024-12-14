@@ -4,7 +4,16 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="view all transactions added" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="AccountsFile.csv created">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attendance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BalanceFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BalanceFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/EquipmentFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquipmentFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkoutFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/WorkoutFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Dashboard.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Dashboard.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadFile.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,13 +143,13 @@
       <option name="project" value="LOCAL" />
       <updated>1733393641240</updated>
     </task>
-    <task id="LOCAL-00010" summary="view all transactions added">
+    <task id="LOCAL-00010" summary="AccountsFile.csv created">
       <option name="closed" value="true" />
-      <created>1733394520387</created>
+      <created>1734079945737</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1733394520387</updated>
+      <updated>1734079945737</updated>
     </task>
     <option name="localTasksCounter" value="11" />
     <servers />
@@ -165,7 +174,6 @@
     <MESSAGE value="remove trainer added" />
     <MESSAGE value="added functionality to monitor expense" />
     <MESSAGE value="AccountsFile.csv created" />
-    <MESSAGE value="view all transactions added" />
-    <option name="LAST_COMMIT_MESSAGE" value="view all transactions added" />
+    <option name="LAST_COMMIT_MESSAGE" value="AccountsFile.csv created" />
   </component>
 </project>

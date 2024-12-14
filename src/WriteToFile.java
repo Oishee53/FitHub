@@ -2,11 +2,32 @@ import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.List;
 
 public class WriteToFile {
 
     // Constructor
     public WriteToFile() {
+    }
+    public static void writeAttendance(String className, String presentEmails, List<Member> members) {
+        String[] presentList = presentEmails.split(",");
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("Attendance.csv", true))) {
+            for (Member member : members) {
+                String status = "Absent";
+                for (String email : presentList) {
+                    if (member.getEmailAddress().equalsIgnoreCase(email.trim())) {
+                        status = "Present";
+                        break;
+                    }
+                }
+                bw.write(className + "," + member.getEmailAddress() + "," + status);
+                bw.newLine();
+            }
+            System.out.println("Attendance recorded successfully!");
+        } catch (IOException e) {
+            System.out.println("Error writing attendance.");
+            e.printStackTrace();
+        }
     }
 
     public static void writeMembers(ArrayList<Member> members,boolean append) {
@@ -83,27 +104,29 @@ public class WriteToFile {
             }
         }
     }
-    public static void writeInventory(ArrayList<Equipment> equipments,boolean append){
-        FileWriter EquipmentFileWriter = null;
+    public static void writeInventory(ArrayList<Equipment> equipments, boolean append) {
+        FileWriter equipmentFileWriter = null;
         try {
             // Open the file in append mode if specified
-            EquipmentFileWriter = new FileWriter("EquipmentFile.csv",true);
+            equipmentFileWriter = new FileWriter("EquipmentFile.csv", append);
 
-
-            // Write member details to the file
+            // Write equipment details to the file
             for (Equipment equipment : equipments) {
-                EquipmentFileWriter.write(equipment.getEquipmentID() + "," + equipment.getName() + "," +
-                        equipment.getCondition() + "," + equipment.getQuantity() + "," + "\n");
+                equipmentFileWriter.write(equipment.getEquipmentID() + "," +
+                        equipment.getName() + "," +
+                        equipment.getCondition() + "," +
+                        equipment.getQuantity() + "," +
+                        equipment.getCost() + "\n");
             }
 
             // Ensure data is written to the file
-            EquipmentFileWriter.flush();
+            equipmentFileWriter.flush();
         } catch (IOException e) {
             System.out.println("An error occurred while writing to the file: " + e.getMessage());
         } finally {
             try {
-                if (EquipmentFileWriter != null) {
-                    EquipmentFileWriter.close();
+                if (equipmentFileWriter != null) {
+                    equipmentFileWriter.close();
                 }
             } catch (IOException e) {
                 System.out.println("Error closing the file writer: " + e.getMessage());
