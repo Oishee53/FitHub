@@ -35,8 +35,16 @@ public class UserRegistration {
             System.out.println("Invalid Date Format.\nWrite Date in dd/MM/yyyy.");
             DOB=scanner.next();
         }
-        System.out.println("Enter Gender: ");
-        String gender = scanner.next();
+        System.out.println("Select Gender: \n 1.Male\n2.Female");
+        int selectGender = scanner.nextInt();
+        String gender = null;
+        if(selectGender == 1){
+            gender = "Male";
+        }
+        else if(selectGender == 2){
+            gender = "Female";
+        }
+
         System.out.println("Enter Address:");
         String address = scanner.next();
         System.out.println("Enter Weight: ");
