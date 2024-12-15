@@ -108,12 +108,6 @@ public class LoadData {
         }
     }
 
-
-
-
-
-
-
     public static void LoadMemberAssignedToTrainerDetails(Gym gym) {
         String trainerFilePath = "Member and Trainer.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(trainerFilePath))) {
