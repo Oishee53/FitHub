@@ -4,18 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="attendance tracking added and New problem solved">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountsFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AccountsFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Attendance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BalanceFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BalanceFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/EquipmentFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/EquipmentFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Member and Trainer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData.java" afterDir="false" />
-    </list>
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="attendance tracking added and New problem solved" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -177,7 +166,15 @@
       <option name="project" value="LOCAL" />
       <updated>1734024645383</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="attendance tracking added and New problem solved">
+      <option name="closed" value="true" />
+      <created>1734284363015</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1734284363015</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
