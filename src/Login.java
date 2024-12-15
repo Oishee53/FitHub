@@ -114,16 +114,15 @@ public class Login {
                 switch (attributeChoice) {
                     case 1 -> member.setFirstName(newData);
                     case 2 -> member.setLastName(newData);
-                    //case 3 -> member.setEmailAddress(newData);
-                    case 4 -> member.setPassword(newData);
-                    case 5 -> member.setDateOfBirth(newData);
-                    case 6 -> member.setGender(newData);
-                    case 7 -> member.setAddress(newData);
-                    case 8 -> member.setWeight(Integer.parseInt(newData));
-                    case 9 -> member.setHeight(Double.parseDouble(newData));
-                    case 10 -> member.setAge(Integer.parseInt(newData));
-                    case 11 -> member.setGoal(newData);
-                    case 12 -> member.setSpecificGoal(newData);
+                    case 3 -> member.setPassword(newData);
+                    case 4 -> member.setDateOfBirth(newData);
+                    case 5 -> member.setGender(newData);
+                    case 6 -> member.setAddress(newData);
+                    case 7 -> member.setWeight(Integer.parseInt(newData));
+                    case 8 -> member.setHeight(Double.parseDouble(newData));
+                    case 9 -> member.setAge(Integer.parseInt(newData));
+                    case 10 -> member.setGoal(newData);
+                    case 11 -> member.setSpecificGoal(newData);
                     default -> System.out.println("Invalid attribute choice.");
                 }
                 WriteToFile.writeMembers(members, false);  // Save updated members to the file
@@ -192,13 +191,12 @@ public class Login {
                 switch (attributeChoice) {
                     case 1 -> trainer.setFirstName(newData);
                     case 2 -> trainer.setLastName(newData);
-                    //  case 3 -> trainer.setEmailAddress(newData);
-                    case 4 -> trainer.setPassword(newData);
-                    case 5 -> trainer.setDateOfBirth(newData);  // Ensure proper format handling
-                    case 6 -> trainer.setGender(newData);
-                    case 7 -> trainer.setAddress(newData);
-                    case 8 -> trainer.setShift(newData);
-                    case 9 -> trainer.setAge(Integer.parseInt(newData));
+                    case 3 -> trainer.setPassword(newData);
+                    case 4 -> trainer.setDateOfBirth(newData);  // Ensure proper format handling
+                    case 5 -> trainer.setGender(newData);
+                    case 6 -> trainer.setAddress(newData);
+                    case 7 -> trainer.setShift(newData);
+                    case 8 -> trainer.setAge(Integer.parseInt(newData));
                     default -> System.out.println("Invalid attribute choice.");
                 }
                 WriteToFile.writeTrainer(trainers, false);  // Save updated trainers to the file
