@@ -4,7 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="attendance tracking added and New problem solved" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="updated trainer views">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -134,47 +140,23 @@
       <option name="project" value="LOCAL" />
       <updated>1733393641240</updated>
     </task>
-    <task id="LOCAL-00010" summary="attendance tracking added">
+    <task id="LOCAL-00010" summary="AccountsFile.csv created">
       <option name="closed" value="true" />
-      <created>1733836621727</created>
+      <created>1734079945737</created>
       <option name="number" value="00010" />
       <option name="presentableId" value="LOCAL-00010" />
       <option name="project" value="LOCAL" />
-      <updated>1733836621727</updated>
+      <updated>1734079945737</updated>
     </task>
-    <task id="LOCAL-00011" summary="attendance tracking added">
+    <task id="LOCAL-00011" summary="updated trainer views">
       <option name="closed" value="true" />
-      <created>1733836848591</created>
+      <created>1734283559417</created>
       <option name="number" value="00011" />
       <option name="presentableId" value="LOCAL-00011" />
       <option name="project" value="LOCAL" />
-      <updated>1733836848591</updated>
+      <updated>1734283559417</updated>
     </task>
-    <task id="LOCAL-00012" summary="attendance tracking added and New problem solved">
-      <option name="closed" value="true" />
-      <created>1734024606616</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1734024606616</updated>
-    </task>
-    <task id="LOCAL-00013" summary="attendance tracking added and New problem solved">
-      <option name="closed" value="true" />
-      <created>1734024645383</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1734024645383</updated>
-    </task>
-    <task id="LOCAL-00014" summary="attendance tracking added and New problem solved">
-      <option name="closed" value="true" />
-      <created>1734284363015</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1734284363015</updated>
-    </task>
-    <option name="localTasksCounter" value="15" />
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -191,14 +173,14 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Project initiated" />
+    <MESSAGE value="Upto mid implemented." />
     <MESSAGE value=".." />
     <MESSAGE value="resolved conflict" />
     <MESSAGE value="remove trainer added" />
     <MESSAGE value="added functionality to monitor expense" />
     <MESSAGE value="AccountsFile.csv created" />
-    <MESSAGE value="Upto mid implemented." />
-    <MESSAGE value="attendance tracking added" />
-    <MESSAGE value="attendance tracking added and New problem solved" />
-    <option name="LAST_COMMIT_MESSAGE" value="attendance tracking added and New problem solved" />
+    <MESSAGE value="view all transactions added" />
+    <MESSAGE value="updated trainer views" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated trainer views" />
   </component>
 </project>

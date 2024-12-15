@@ -1,8 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Login {
+    static Scanner scanner = new Scanner(System.in);
+    Dashboard dashboard = new Dashboard();
     public static boolean authenticateLogin(String email, String password, String filename) {
         String storedEmail = null;
         String storedPassword = null;
@@ -110,16 +114,15 @@ public class Login {
                 switch (attributeChoice) {
                     case 1 -> member.setFirstName(newData);
                     case 2 -> member.setLastName(newData);
-                    //case 3 -> member.setEmailAddress(newData);
-                    case 4 -> member.setPassword(newData);
-                    case 5 -> member.setDateOfBirth(newData);
-                    case 6 -> member.setGender(newData);
-                    case 7 -> member.setAddress(newData);
-                    case 8 -> member.setWeight(Integer.parseInt(newData));
-                    case 9 -> member.setHeight(Double.parseDouble(newData));
-                    case 10 -> member.setAge(Integer.parseInt(newData));
-                    case 11 -> member.setGoal(newData);
-                    case 12 -> member.setSpecificGoal(newData);
+                    case 3 -> member.setPassword(newData);
+                    case 4 -> member.setDateOfBirth(newData);
+                    case 5 -> member.setGender(newData);
+                    case 6 -> member.setAddress(newData);
+                    case 7 -> member.setWeight(Integer.parseInt(newData));
+                    case 8 -> member.setHeight(Double.parseDouble(newData));
+                    case 9 -> member.setAge(Integer.parseInt(newData));
+                    case 10 -> member.setGoal(newData);
+                    case 11 -> member.setSpecificGoal(newData);
                     default -> System.out.println("Invalid attribute choice.");
                 }
                 WriteToFile.writeMembers(members, false);  // Save updated members to the file
@@ -133,7 +136,7 @@ public class Login {
     }
 
 
-    public static void ReadTrainerDetails(String email, String password) {
+    public void ReadTrainerDetails(String email, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader("TrainerFile.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -152,9 +155,27 @@ public class Login {
                     System.out.println("Age: " + details[11]);
                     System.out.println("Available seats: " + details[12]);
                     printMembersForTrainer(details[0]);
-
-
-
+                    System.out.println("View progress of member");
+                    System.out.println("1.Yes");
+                    System.out.println("2.No");
+                    int viewChoice = scanner.nextInt();
+                    if(viewChoice == 1){
+                        System.out.println("Enter email address of member: ");
+                        String memberEmail = scanner.next();
+                        boolean foundEmail = false;
+                        for(Member member : Gym.getMemberList()){
+                            if(memberEmail.equals(member.getEmailAddress())){
+                                foundEmail = true;
+                                dashboard.graph(member);
+                            }
+                        }
+                        if(foundEmail == false){
+                            System.out.println("Invalid email address");
+                        }
+                    }
+                    else if(viewChoice>2){
+                        System.out.println("Inavlid choice");
+                    }
                 }
             }
         } catch (FileNotFoundException e) {
@@ -170,13 +191,12 @@ public class Login {
                 switch (attributeChoice) {
                     case 1 -> trainer.setFirstName(newData);
                     case 2 -> trainer.setLastName(newData);
-                    //  case 3 -> trainer.setEmailAddress(newData);
-                    case 4 -> trainer.setPassword(newData);
-                    case 5 -> trainer.setDateOfBirth(newData);  // Ensure proper format handling
-                    case 6 -> trainer.setGender(newData);
-                    case 7 -> trainer.setAddress(newData);
-                    case 8 -> trainer.setShift(newData);
-                    case 9 -> trainer.setAge(Integer.parseInt(newData));
+                    case 3 -> trainer.setPassword(newData);
+                    case 4 -> trainer.setDateOfBirth(newData);  // Ensure proper format handling
+                    case 5 -> trainer.setGender(newData);
+                    case 6 -> trainer.setAddress(newData);
+                    case 7 -> trainer.setShift(newData);
+                    case 8 -> trainer.setAge(Integer.parseInt(newData));
                     default -> System.out.println("Invalid attribute choice.");
                 }
                 WriteToFile.writeTrainer(trainers, false);  // Save updated trainers to the file
@@ -190,10 +210,12 @@ public class Login {
 
     public static void printMembersForTrainer(String trainerID) {
         String fileName = "Member and Trainer.csv";
+        Pattern emailPattern = Pattern.compile("\\(([^)]+)\\)");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             boolean hasAssignments = false;
+            int count = 0;
 
             System.out.println("Members assigned to Trainer " + trainerID + ":");
 
@@ -201,9 +223,18 @@ public class Login {
                 // Check if the line contains the specified trainerID
                 if (line.startsWith(trainerID + " assigned to")) {
                     hasAssignments = true;
-                    // Extract the member name from the line and print it
+                    count++;
                     String memberName = line.substring(line.indexOf("assigned to") + 11);
-                    System.out.println(memberName);
+                    Matcher matcher = emailPattern.matcher(line);
+                    if (matcher.find()) {
+                        String email = matcher.group(1);
+                        for(Member member:Gym.getMemberList()){
+                            if(email.equals(member.getEmailAddress())){
+                                System.out.println(count + "." + memberName + "Workout Goal: " + member.getGoal());
+                            }
+                        }
+                    }
+
                 }
             }
 

@@ -14,6 +14,7 @@ public class GymManagement {
     StrengthBuildingGoal strengthBuildingGoal = new StrengthBuildingGoal();
     TDEECalculator tdeeCalculator = new TDEECalculator();
     ProgressTrack progressTrack = new ProgressTrack();
+    Dashboard dashboard= new Dashboard();
     Scanner scanner = new Scanner(System.in);
 
     // Main method
@@ -28,7 +29,7 @@ public class GymManagement {
                 "Female Exercise.csv",
                 "WorkoutFile.csv",
                 "BalanceFile.csv",
-                "Attendance.csv" // Added Attendance CSV
+                "Attendance.csv"
         };
 
         // Create each file
@@ -84,7 +85,8 @@ public class GymManagement {
 
                 }
             }
-            else if (adminChoice == 5) { // For Attendance Management
+            else if (adminChoice == 5) {
+                // For Attendance Management
                 System.out.println("1. Take Attendance\n2. View Attendance for All Members");
                 int attendanceChoice = scanner.nextInt();
                 scanner.nextLine(); // Consume the leftover newline character
@@ -223,14 +225,13 @@ public class GymManagement {
                     String newData;
                     System.out.println("1.Reset First Name: ");
                     System.out.println("2.Reset Last Name: ");
-                    // System.out.println("3.Reset Email: ");
-                    System.out.println("4.Reset Password: ");
-                    System.out.println("5. Reset Date Of Birth: ");
-                    System.out.println("6.Gender: ");
-                    System.out.println("7.Reset Address: ");
-                    System.out.println("8.Reset Weight: ");
-                    System.out.println("9.Reset Height: ");
-                    System.out.println("10.Age: ");
+                    System.out.println("3.Reset Password: ");
+                    System.out.println("4.Reset Date Of Birth: ");
+                    System.out.println("5.Gender: ");
+                    System.out.println("6.Reset Address: ");
+                    System.out.println("7.Reset Weight: ");
+                    System.out.println("8.Reset Height: ");
+                    System.out.println("9.Age: ");
                     memberResetChoice = scanner.nextInt();
                     System.out.println("Enter new data:");
                     newData = scanner.next();
@@ -257,7 +258,14 @@ public class GymManagement {
                     int trackingChoice = scanner.nextInt();
                     if (trackingChoice == 1) {
                         //DashBoard
-                    } else if (trackingChoice == 2) {
+                            for (Member member : gym.getMemberList()) {
+                                if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
+                                    dashboard.graph(member);
+                                }
+                            }
+
+
+                            } else if (trackingChoice == 2) {
                         System.out.println("1.Post new workout:");
                         System.out.println("2.Past workouts");
                         int WorkoutChoice = scanner.nextInt();
@@ -306,9 +314,7 @@ public class GymManagement {
                         }
                     }
                 }
-
-
-
+                
                 else {
                     System.out.println("Wrong email or password:");
                     gymManagement.consoleApp();
@@ -344,13 +350,12 @@ public class GymManagement {
                     System.out.println("What do you want to reset?");
                     System.out.println("1.Reset First Name ");
                     System.out.println("2.Reset Last Name ");
-                    //  System.out.println("3.Reset Email ");
-                    System.out.println("4.Reset Password ");
-                    System.out.println("5. Reset Date Of Birth ");
-                    System.out.println("6.Reset Gender ");
-                    System.out.println("7.Reset Address ");
-                    System.out.println("8.Reset Shift ");
-                    System.out.println("9.Reset Age ");
+                    System.out.println("3.Reset Password ");
+                    System.out.println("4.Reset Date Of Birth ");
+                    System.out.println("5.Reset Gender ");
+                    System.out.println("6.Reset Address ");
+                    System.out.println("7.Reset Shift ");
+                    System.out.println("8.Reset Age ");
                     trainerResetChoice = scanner.nextInt();
                     System.out.println("Enter new data:");
                     newData = scanner.next();
