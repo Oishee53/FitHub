@@ -1,11 +1,11 @@
 import java.util.ArrayList;
 
 public class Gym {
-    ArrayList<Member> members=new ArrayList<>();
+    static ArrayList<Member> members=new ArrayList<>();
     ArrayList<Trainer> trainers=new ArrayList<>();
     ArrayList<Equipment>equipments = new ArrayList<>();
 
-    public ArrayList<Member> getMemberList(){
+    public static ArrayList<Member> getMemberList(){
         return members;
     }
 

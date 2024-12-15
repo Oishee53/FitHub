@@ -315,9 +315,7 @@ public class GymManagement {
                         }
                     }
                 }
-
-
-
+                
                 else {
                     System.out.println("Wrong email or password:");
                     gymManagement.consoleApp();

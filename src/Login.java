@@ -1,8 +1,12 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.util.regex.Matcher;
+import java.util.regex.Pattern;
 
 public class Login {
+    static Scanner scanner = new Scanner(System.in);
+    Dashboard dashboard = new Dashboard();
     public static boolean authenticateLogin(String email, String password, String filename) {
         String storedEmail = null;
         String storedPassword = null;
@@ -133,7 +137,7 @@ public class Login {
     }
 
 
-    public static void ReadTrainerDetails(String email, String password) {
+    public void ReadTrainerDetails(String email, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader("TrainerFile.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -152,9 +156,27 @@ public class Login {
                     System.out.println("Age: " + details[11]);
                     System.out.println("Available seats: " + details[12]);
                     printMembersForTrainer(details[0]);
-
-
-
+                    System.out.println("View progress of member");
+                    System.out.println("1.Yes");
+                    System.out.println("2.No");
+                    int viewChoice = scanner.nextInt();
+                    if(viewChoice == 1){
+                        System.out.println("Enter email address of member: ");
+                        String memberEmail = scanner.next();
+                        boolean foundEmail = false;
+                        for(Member member : Gym.getMemberList()){
+                            if(memberEmail.equals(member.getEmailAddress())){
+                                foundEmail = true;
+                                dashboard.graph(member);
+                            }
+                        }
+                        if(foundEmail == false){
+                            System.out.println("Invalid email address");
+                        }
+                    }
+                    else if(viewChoice>2){
+                        System.out.println("Inavlid choice");
+                    }
                 }
             }
         } catch (FileNotFoundException e) {
@@ -190,10 +212,12 @@ public class Login {
 
     public static void printMembersForTrainer(String trainerID) {
         String fileName = "Member and Trainer.csv";
+        Pattern emailPattern = Pattern.compile("\\(([^)]+)\\)");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
             boolean hasAssignments = false;
+            int count = 0;
 
             System.out.println("Members assigned to Trainer " + trainerID + ":");
 
@@ -201,9 +225,18 @@ public class Login {
                 // Check if the line contains the specified trainerID
                 if (line.startsWith(trainerID + " assigned to")) {
                     hasAssignments = true;
-                    // Extract the member name from the line and print it
+                    count++;
                     String memberName = line.substring(line.indexOf("assigned to") + 11);
-                    System.out.println(memberName);
+                    Matcher matcher = emailPattern.matcher(line);
+                    if (matcher.find()) {
+                        String email = matcher.group(1);
+                        for(Member member:Gym.getMemberList()){
+                            if(email.equals(member.getEmailAddress())){
+                                System.out.println(count + "." + memberName + "Workout Goal: " + member.getGoal());
+                            }
+                        }
+                    }
+
                 }
             }
 
