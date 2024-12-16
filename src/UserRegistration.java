@@ -72,7 +72,7 @@ public class UserRegistration {
             String goal = null;
             while(selectGoal!=1 && selectGoal!=2){
                 System.out.println("Invalid choice!");
-                System.out.println("Select goal\n1.Strength Building\n2.Weightloss):");
+                System.out.println("Select goal\n1.Strength Building\n2.Weightloss");
                 selectGoal = scanner.nextInt();
             }
             if(selectGoal==1){
