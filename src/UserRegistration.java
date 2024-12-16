@@ -10,7 +10,8 @@ public class UserRegistration {
     }
     public void memberRegistration(Gym gym) throws IOException {
 
-
+        IdGenerate idGenerate = new IdGenerate();
+        String memberId=idGenerate.autogenerate("MemberFile.csv");
         System.out.println("Enter First Name:");
         String firstName = scanner.next();
         System.out.println("Enter Last Name: ");
@@ -58,7 +59,7 @@ public class UserRegistration {
             String goal = scanner.next();
             System.out.println("Enter your Specific goal");
             String specificGoal=scanner.next();
-            Member member = new Member(firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
+            Member member = new Member(memberId,firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
                     address, age, weight, height, trainerID,goal,specificGoal);
             gym.addMembers(member);
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);

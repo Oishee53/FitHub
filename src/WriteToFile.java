@@ -5,7 +5,6 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class WriteToFile {
-
     // Constructor
     public WriteToFile() {
     }
@@ -31,7 +30,7 @@ public class WriteToFile {
     }
 
     public static void writeMembers(ArrayList<Member> members,boolean append) {
-        append = false;
+       append = false;
         FileWriter memberFileWriter = null;
         try {
             // Open the file in append mode if specified
@@ -40,12 +39,12 @@ public class WriteToFile {
 
             // Write member details to the file
             for (Member member : members) {
-                memberFileWriter.write(member.getFirstName() + "," + member.getLastName() + "," +
+                memberFileWriter.write(member.getId()+","+member.getFirstName() + "," + member.getLastName() + "," +
                         member.getEmailAddress() + "," + member.getPassword() + "," +
                         member.getPhoneNumber() + "," + member.getDateOfBirth() + "," +
                         member.getGender() + "," + member.getAddress() + "," +
-                        member.getWeight() + "," + member.getHeight() +
-                        "," + member.getAge() + "," + member.getTrainerChose() + "," + member.getGoal()+ ","+ member.getSpecificGoal()+ "\n");
+                        member.getAge() + "," + member.getWeight() +
+                        "," + member.getHeight() + "," + member.getTrainerChose() + "," + member.getGoal()+ ","+ member.getSpecificGoal()+ "\n");
             }
 
             // Ensure data is written to the file

@@ -3,24 +3,31 @@ import java.io.FileReader;
 import java.io.IOException;
 
 public class Member extends User {
-
+    private String id;
     private int weight;
     private double height;
     private String trainerChose;
     private String goal;
     private String specificGoal;
 
-    public Member(String firstName, String lastName, String emailAddress, String password,
+    public Member(String id,String firstName, String lastName, String emailAddress, String password,
                   String phoneNumber, String DOB, String gender, String address, int age,
                   int weight, double height, String trainerChose, String goal, String specificGoal) {
 
         super(firstName, lastName, emailAddress, password, phoneNumber, DOB, gender, address, age);
-
+        this.id=id;
         this.weight = weight;
         this.height = height;
         this.trainerChose = trainerChose;
         this.goal = goal;
         this.specificGoal = specificGoal;
+    }
+
+    public String getId(){
+        return id;
+    }
+    public void setId(String id) {
+        this.id = id;
     }
 
     public int getWeight() {
