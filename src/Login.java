@@ -230,7 +230,8 @@ public class Login {
                         String email = matcher.group(1);
                         for(Member member:Gym.getMemberList()){
                             if(email.equals(member.getEmailAddress())){
-                                System.out.println(count + "." + memberName + "Workout Goal: " + member.getGoal());
+                                System.out.printf(count + "." + "%-30s %-15s%n",memberName, "Workout Goal: " + member.getGoal());
+
                             }
                         }
                     }
