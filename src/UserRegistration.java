@@ -67,7 +67,7 @@ public class UserRegistration {
         else {
             System.out.println("Enter TrainerID: ");
             String trainerID = scanner.next();
-            System.out.println("Select goal\n1.Strength Building\n2.Weightloss):");
+            System.out.println("Select goal\n1.Strength Building\n2.Weightloss");
             int selectGoal = scanner.nextInt();
             String goal = null;
             while(selectGoal!=1 && selectGoal!=2){
