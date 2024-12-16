@@ -3,7 +3,7 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 public class LoadData {
-    public static void LoadMemberDetails(Gym gym) {
+    public static void LoadMemberDetails(Gym gym) {//load data from file to array members
         String memberFilePath = "MemberFile.csv";
         try (BufferedReader reader = new BufferedReader(new FileReader(memberFilePath))) {
             String line;
@@ -11,21 +11,22 @@ public class LoadData {
                 String[] details = line.split(",");
 
                 // Check the array length to prevent out-of-bounds errors
-                if (details.length < 14) {
+                if (details.length < 15) {
                     System.out.println("Skipping invalid member record: " + line);
                     continue;
                 }
 
                 try {
                     // Parse numeric values with error handling
-                    int age = Integer.parseInt(details[10]);
-                    int weight = Integer.parseInt(details[8]);
-                    double height = Double.parseDouble(details[9]);
+                    int age = Integer.parseInt(details[9]);
+                    int weight = Integer.parseInt(details[10]);
+                    double height = Double.parseDouble(details[11]);
 
                     // Create the Member object
                     Member member = new Member(details[0], details[1], details[2],
                             details[3], details[4], details[5], details[6],
-                            details[7], age, weight, height, details[11],details[12],details[13]);
+                            details[7], details[8], age,weight,height,details[12],details[13],details[14]);
+
                     gym.addMembers(member);
 
                 } catch (NumberFormatException ex) {

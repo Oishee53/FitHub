@@ -4,7 +4,22 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="created button" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="AccountsFile.csv created">
+      <change afterPath="$PROJECT_DIR$/src/IdGenerate.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountsFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AccountsFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BalanceFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BalanceFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Member and Trainer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/LoadData.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/LoadData.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ProgressTrack.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workouts.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserRegistration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/WriteToFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/WriteToFile.java" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -142,55 +157,7 @@
       <option name="project" value="LOCAL" />
       <updated>1734079945737</updated>
     </task>
-    <task id="LOCAL-00011" summary="updated trainer views">
-      <option name="closed" value="true" />
-      <created>1734283559417</created>
-      <option name="number" value="00011" />
-      <option name="presentableId" value="LOCAL-00011" />
-      <option name="project" value="LOCAL" />
-      <updated>1734283559417</updated>
-    </task>
-    <task id="LOCAL-00012" summary="removed email reset option">
-      <option name="closed" value="true" />
-      <created>1734284006651</created>
-      <option name="number" value="00012" />
-      <option name="presentableId" value="LOCAL-00012" />
-      <option name="project" value="LOCAL" />
-      <updated>1734284006651</updated>
-    </task>
-    <task id="LOCAL-00013" summary="gender">
-      <option name="closed" value="true" />
-      <created>1734284386937</created>
-      <option name="number" value="00013" />
-      <option name="presentableId" value="LOCAL-00013" />
-      <option name="project" value="LOCAL" />
-      <updated>1734284386937</updated>
-    </task>
-    <task id="LOCAL-00014" summary="created button">
-      <option name="closed" value="true" />
-      <created>1734330935552</created>
-      <option name="number" value="00014" />
-      <option name="presentableId" value="LOCAL-00014" />
-      <option name="project" value="LOCAL" />
-      <updated>1734330935552</updated>
-    </task>
-    <task id="LOCAL-00015" summary="created button">
-      <option name="closed" value="true" />
-      <created>1734347295449</created>
-      <option name="number" value="00015" />
-      <option name="presentableId" value="LOCAL-00015" />
-      <option name="project" value="LOCAL" />
-      <updated>1734347295449</updated>
-    </task>
-    <task id="LOCAL-00016" summary="created button">
-      <option name="closed" value="true" />
-      <created>1734374266880</created>
-      <option name="number" value="00016" />
-      <option name="presentableId" value="LOCAL-00016" />
-      <option name="project" value="LOCAL" />
-      <updated>1734374266880</updated>
-    </task>
-    <option name="localTasksCounter" value="17" />
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -213,12 +180,6 @@
     <MESSAGE value="remove trainer added" />
     <MESSAGE value="added functionality to monitor expense" />
     <MESSAGE value="AccountsFile.csv created" />
-    <MESSAGE value="view all transactions added" />
-    <MESSAGE value="updated trainer views" />
-    <MESSAGE value="removed email reset option" />
-    <MESSAGE value="gender" />
-    <MESSAGE value="attendance tracking added and New problem solved" />
-    <MESSAGE value="created button" />
-    <option name="LAST_COMMIT_MESSAGE" value="created button" />
+    <option name="LAST_COMMIT_MESSAGE" value="AccountsFile.csv created" />
   </component>
 </project>
