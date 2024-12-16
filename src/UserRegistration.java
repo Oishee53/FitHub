@@ -36,8 +36,21 @@ public class UserRegistration {
             System.out.println("Invalid Date Format.\nWrite Date in dd/MM/yyyy.");
             DOB=scanner.next();
         }
-        System.out.println("Enter Gender: ");
-        String gender = scanner.next();
+        System.out.println("Select Gender: \n1.Male\n2.Female");
+        int selectGender = scanner.nextInt();
+        String gender = null;
+        while(selectGender!=1 && selectGender!=2){
+            System.out.println("Invalid choice!");
+            System.out.println("Select Gender: \n1.Male\n2.Female");
+            selectGender = scanner.nextInt();
+        }
+        if(selectGender == 1){
+            gender = "Male";
+        }
+        else if(selectGender == 2){
+            gender = "Female";
+        }
+
         System.out.println("Enter Address:");
         String address = scanner.next();
         System.out.println("Enter Weight: ");
@@ -55,8 +68,20 @@ public class UserRegistration {
         else {
             System.out.println("Enter TrainerID: ");
             String trainerID = scanner.next();
-            System.out.println("Enter goal(WeightLoss or WeightGain):");
-            String goal = scanner.next();
+            System.out.println("Select goal\n1.Strength Building\n2.Weightloss");
+            int selectGoal = scanner.nextInt();
+            String goal = null;
+            while(selectGoal!=1 && selectGoal!=2){
+                System.out.println("Invalid choice!");
+                System.out.println("Select goal\n1.Strength Building\n2.Weightloss");
+                selectGoal = scanner.nextInt();
+            }
+            if(selectGoal==1){
+                goal = "StrengthBuilding";
+            }
+            if(selectGoal==2){
+                goal = "WeightLoss";
+            }
             System.out.println("Enter your Specific goal");
             String specificGoal=scanner.next();
             Member member = new Member(memberId,firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
@@ -103,8 +128,20 @@ public class UserRegistration {
             System.out.println("Invalid Date Format.\nWrite Date in dd/MM/yyyy.");
             DOB=scanner.next();
         }
-        System.out.println("Enter Gender: ");
-        String gender = scanner.next();
+        System.out.println("Select Gender: \n1.Male\n2.Female");
+        int selectGender = scanner.nextInt();
+        String gender = null;
+        while(selectGender!=1 && selectGender!=2){
+            System.out.println("Invalid choice!");
+            System.out.println("Select Gender: \n1.Male\n2.Female");
+            selectGender = scanner.nextInt();
+        }
+        if(selectGender == 1){
+            gender = "Male";
+        }
+        else if(selectGender == 2){
+            gender = "Female";
+        }
         System.out.println("Enter Address:");
         String address = scanner.next();
         System.out.println("Enter Shift: ");
