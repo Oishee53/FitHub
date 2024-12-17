@@ -44,7 +44,7 @@ public class WriteToFile {
                         member.getPhoneNumber() + "," + member.getDateOfBirth() + "," +
                         member.getGender() + "," + member.getAddress() + "," +
                         member.getAge() + "," + member.getWeight() +
-                        "," + member.getHeight() + "," + member.getTrainerChose() + "," + member.getGoal()+ ","+ member.getSpecificGoal()+ "\n");
+                        "," + member.getHeight() + "," + member.getTrainerChose() + "," + member.getGoal()+ "\n");
             }
 
             // Ensure data is written to the file

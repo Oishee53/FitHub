@@ -11,7 +11,7 @@ public class LoadData {
                 String[] details = line.split(",");
 
                 // Check the array length to prevent out-of-bounds errors
-                if (details.length < 15) {
+                if (details.length < 14) {
                     System.out.println("Skipping invalid member record: " + line);
                     continue;
                 }
@@ -25,7 +25,7 @@ public class LoadData {
                     // Create the Member object
                     Member member = new Member(details[0], details[1], details[2],
                             details[3], details[4], details[5], details[6],
-                            details[7], details[8], age,weight,height,details[12],details[13],details[14]);
+                            details[7], details[8], age,weight,height,details[12],details[13]);
 
                     gym.addMembers(member);
 

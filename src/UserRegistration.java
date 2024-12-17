@@ -81,10 +81,8 @@ public class UserRegistration {
             if(selectGoal==2){
                 goal = "WeightLoss";
             }
-            System.out.println("Enter your Specific goal");
-            String specificGoal=scanner.next();
             Member member = new Member(memberId,firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
-                    address, age, weight, height, trainerID,goal,specificGoal);
+                    address, age, weight, height, trainerID,goal);
             gym.addMembers(member);
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);
             String fullname = firstName + " " + lastName;

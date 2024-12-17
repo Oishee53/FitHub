@@ -22,8 +22,8 @@ public class Login {
                     storedPassword = details[4];
                 }
                 if(filename.equals("MemberFile.csv")) {
-                    storedEmail = details[2];
-                    storedPassword = details[3];
+                    storedEmail = details[3];
+                    storedPassword = details[4];
                 }
 
                 if (storedEmail.equals(email) && storedPassword.equals(password)) {
@@ -121,8 +121,7 @@ public class Login {
                     case 7 -> member.setWeight(Integer.parseInt(newData));
                     case 8 -> member.setHeight(Double.parseDouble(newData));
                     case 9 -> member.setAge(Integer.parseInt(newData));
-                    case 10 -> member.setGoal(newData);
-                    case 11 -> member.setSpecificGoal(newData);
+                    case 10 -> member.setPhoneNumber(newData);
                     default -> System.out.println("Invalid attribute choice.");
                 }
                 WriteToFile.writeMembers(members, false);  // Save updated members to the file
@@ -195,6 +194,7 @@ public class Login {
                     case 5 -> trainer.setGender(newData);
                     case 6 -> trainer.setAddress(newData);
                     case 7 -> trainer.setAge(Integer.parseInt(newData));
+                    case 8 -> trainer.setPhoneNumber(newData);
                     default -> System.out.println("Invalid attribute choice.");
                 }
                 WriteToFile.writeTrainer(trainers, false);  // Save updated trainers to the file
