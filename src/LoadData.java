@@ -11,7 +11,7 @@ public class LoadData {
                 String[] details = line.split(",");
 
                 // Check the array length to prevent out-of-bounds errors
-                if (details.length < 15) {
+                if (details.length < 14) {
                     System.out.println("Skipping invalid member record: " + line);
                     continue;
                 }
@@ -25,7 +25,7 @@ public class LoadData {
                     // Create the Member object
                     Member member = new Member(details[0], details[1], details[2],
                             details[3], details[4], details[5], details[6],
-                            details[7], details[8], age,weight,height,details[12],details[13],details[14]);
+                            details[7], details[8], age,weight,height,details[12],details[13]);
 
                     gym.addMembers(member);
 
@@ -46,20 +46,20 @@ public class LoadData {
                 String[] details = line.split(",");
 
                 // Check the array length to prevent out-of-bounds errors
-                if (details.length < 13) {
+                if (details.length < 12) {
                     continue;
                 }
 
                 try {
                     // Parse numeric values with error handling
-                    int age = Integer.parseInt(details[9]);
-                    int availableSeats = Integer.parseInt(details[12]);
-                    double salary = Double.parseDouble(details[11]);
+                    int age = Integer.parseInt(details[10]);
+                    int availableSeats = Integer.parseInt(details[11]);
+                    double salary = Double.parseDouble(details[9]);
 
                     // Create the Trainer object
                     Trainer trainer = new Trainer(details[0], details[1],
                             details[2], details[3], details[4], details[5],
-                            details[6], details[7],details[8],age,details[10], salary, availableSeats);
+                            details[6], details[7],details[8], age, salary, availableSeats);
                     gym.addTrainer(trainer);
 
                 } catch (NumberFormatException ex) {

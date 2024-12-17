@@ -81,10 +81,8 @@ public class UserRegistration {
             if(selectGoal==2){
                 goal = "WeightLoss";
             }
-            System.out.println("Enter your Specific goal");
-            String specificGoal=scanner.next();
-            Member member = new Member(memberId,firstName, lastName, emailAddress, password, DOB, phoneNumber, gender,
-                    address, age, weight, height, trainerID,goal,specificGoal);
+            Member member = new Member(memberId,firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
+                    address, age, weight, height, trainerID,goal);
             gym.addMembers(member);
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);
             String fullname = firstName + " " + lastName;
@@ -143,17 +141,14 @@ public class UserRegistration {
         }
         System.out.println("Enter Address:");
         String address = scanner.next();
-        System.out.println("Enter Shift: ");
-        String shift;
-        shift = String.valueOf(scanner.next());
         System.out.println("Enter Salary: ");
         int salary = scanner.nextInt();
         System.out.println("Enter Age:");
         int age = scanner.nextInt();
         System.out.println("How many members do they want to train?");
         int availableSeats = scanner.nextInt();
-        Trainer trainer = new Trainer(trainerID,firstName, lastName, emailAddress, password, DOB ,phoneNumber, gender,
-                address, age,shift,salary,availableSeats);
+        Trainer trainer = new Trainer(trainerID,firstName, lastName, emailAddress, password, phoneNumber, DOB , gender,
+                address, age,salary,availableSeats);
         gym.addTrainer(trainer);
         WriteToFile.writeTrainer(gym.getTrainerList(), false);
         System.out.println("Trainer is registered successfully!!");

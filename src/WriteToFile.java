@@ -41,10 +41,10 @@ public class WriteToFile {
             for (Member member : members) {
                 memberFileWriter.write(member.getId()+","+member.getFirstName() + "," + member.getLastName() + "," +
                         member.getEmailAddress() + "," + member.getPassword() + "," +
-                        member.getDateOfBirth() + "," + member.getPhoneNumber() + "," +
+                        member.getPhoneNumber() + "," + member.getDateOfBirth() + "," +
                         member.getGender() + "," + member.getAddress() + "," +
                         member.getAge() + "," + member.getWeight() +
-                        "," + member.getHeight() + "," + member.getTrainerChose() + "," + member.getGoal()+ ","+ member.getSpecificGoal()+ "\n");
+                        "," + member.getHeight() + "," + member.getTrainerChose() + "," + member.getGoal()+ "\n");
             }
 
             // Ensure data is written to the file
@@ -82,10 +82,9 @@ public class WriteToFile {
             for (Trainer trainer:trainers) {
                 trainerFileWriter.write(trainer.getTrainerID() + "," + trainer.getFirstName() + "," + trainer.getLastName() + "," +
                         trainer.getEmailAddress() + "," + trainer.getPassword() + "," +
-                        trainer.getDateOfBirth() + "," + trainer.getPhoneNumber() + "," +
-                        trainer.getGender() + "," + trainer.getAddress() + "," +
-                        trainer.getAge() + "," + trainer.getShift() + "," +
-                        trainer.getSalary() + "," + trainer.getAvailableSeats() + "\n");
+                        trainer.getPhoneNumber() + "," + trainer.getDateOfBirth() + "," +
+                        trainer.getGender() + "," + trainer.getAddress() + "," + trainer.getSalary() + "," +
+                        trainer.getAge() + "," + trainer.getAvailableSeats() + "\n");
             }
 
             // Ensure data is written to the file

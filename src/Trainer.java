@@ -2,20 +2,18 @@ import java.util.ArrayList;
 
 public class Trainer extends User {
     private String trainerID;
-    private String shift;
     private double salary;
     private int availableSeats;
     ArrayList<Member> assignedMembers = new ArrayList<>();
 
     public Trainer(String trainerID, String firstName, String lastName, String emailAddress, String password,
-                   String DOB,String phoneNumber, String gender, String address, int age,
-                   String shift, double salary,int availableSeats) {
+                   String phoneNumber, String DOB, String gender, String address, int age,
+                   double salary,int availableSeats) {
 
         super(firstName, lastName, emailAddress, password, phoneNumber,DOB, gender, address, age);
 
 
         this.trainerID = trainerID;
-        this.shift = shift;
         this.salary = salary;
         this.availableSeats = availableSeats;
     }
@@ -30,11 +28,7 @@ public class Trainer extends User {
     @Override
     public void showDetails() {
         System.out.println("Trainer Name: " + getFullName());
-        System.out.println("Shift: " + shift);
     }
-
-    public String getShift() { return shift; }
-    public void setShift(String shift) { this.shift = shift; }
 
     public double getSalary() {
         return salary;

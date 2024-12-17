@@ -228,11 +228,12 @@ public class GymManagement {
                     System.out.println("2.Reset Last Name: ");
                     System.out.println("3.Reset Password: ");
                     System.out.println("4.Reset Date Of Birth: ");
-                    System.out.println("5.Gender: ");
+                    System.out.println("5.Reset Gender: ");
                     System.out.println("6.Reset Address: ");
                     System.out.println("7.Reset Weight: ");
                     System.out.println("8.Reset Height: ");
-                    System.out.println("9.Age: ");
+                    System.out.println("9.Reset Age: ");
+                    System.out.println("10.Reset Phone Number");
                     memberResetChoice = scanner.nextInt();
                     System.out.println("Enter new data:");
                     newData = scanner.next();
@@ -355,8 +356,8 @@ public class GymManagement {
                     System.out.println("4.Reset Date Of Birth ");
                     System.out.println("5.Reset Gender ");
                     System.out.println("6.Reset Address ");
-                    System.out.println("7.Reset Shift ");
-                    System.out.println("8.Reset Age ");
+                    System.out.println("7.Reset Age ");
+                    System.out.println("8.Reset Phone Number ");
                     trainerResetChoice = scanner.nextInt();
                     System.out.println("Enter new data:");
                     newData = scanner.next();

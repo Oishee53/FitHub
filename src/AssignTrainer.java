@@ -9,7 +9,7 @@ public class AssignTrainer {
     public static boolean AvailableTrainerList(Gym gym) {
         System.out.println("Available trainers: ");
         // Print the headings with specific formatting
-        System.out.printf("%-12s %-10s %-15s%n", "TrainerID", "Shift", "Available Seats");
+        System.out.printf("%-12s %-10s %-15s%n", "TrainerID", "Gender", "Available Seats");
         boolean availableTrainer = false;
 
         // Loop through each trainer in the gym's trainer list
@@ -18,7 +18,7 @@ public class AssignTrainer {
                 availableTrainer = true;
                 // Print the trainer's details with the same formatting
                 System.out.printf("%-12s %-10s %-15d%n",
-                        trainer.getTrainerID(), trainer.getShift(), trainer.getAvailableSeats());
+                        trainer.getTrainerID(), trainer.getGender(), trainer.getAvailableSeats());
             }
         }
 
