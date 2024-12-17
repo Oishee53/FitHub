@@ -8,18 +8,18 @@ public class WriteToFile {
     // Constructor
     public WriteToFile() {
     }
-    public static void writeAttendance(String className, String presentEmails, List<Member> members) {
-        String[] presentList = presentEmails.split(",");
+    public static void writeAttendance(String className, String presentIDs, List<Member> members) {
+        String[] presentList = presentIDs.split(",");
         try (BufferedWriter bw = new BufferedWriter(new FileWriter("Attendance.csv", true))) {
             for (Member member : members) {
                 String status = "Absent";
-                for (String email : presentList) {
-                    if (member.getEmailAddress().equalsIgnoreCase(email.trim())) {
+                for (String ID : presentList) {
+                    if (member.getId().equalsIgnoreCase(ID.trim())) {
                         status = "Present";
                         break;
                     }
                 }
-                bw.write(className + "," + member.getEmailAddress() + "," + status);
+                bw.write(className + "," + member.getId() + "," + status);
                 bw.newLine();
             }
             System.out.println("Attendance recorded successfully!");
