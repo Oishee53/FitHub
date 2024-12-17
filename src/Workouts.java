@@ -4,10 +4,7 @@ import java.io.FileWriter;
 import java.io.IOException;
 import java.util.Scanner;
 
-public class ProgressTrack {
-    public void Dashboard(){
-
-    }
+public class Workouts {
     public void NewMaleWorkout(Member member,Scanner scanner){
         double metValue = 0;
         String exercise = null;

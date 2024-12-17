@@ -13,7 +13,7 @@ public class GymManagement {
     WeightLoseGoal weightLoseGoal = new WeightLoseGoal();
     StrengthBuildingGoal strengthBuildingGoal = new StrengthBuildingGoal();
     TDEECalculator tdeeCalculator = new TDEECalculator();
-    ProgressTrack progressTrack = new ProgressTrack();
+    Workouts workouts = new Workouts();
     Dashboard dashboard= new Dashboard();
     Scanner scanner = new Scanner(System.in);
 
@@ -47,6 +47,7 @@ public class GymManagement {
         else{
             Account account = new Account(updatedBalance);
         }
+        
         loadData.LoadMemberDetails(gym);
         loadData.LoadTrainerDetails(gym);
         loadData.LoadEquipmentDetails(gym);
@@ -276,13 +277,13 @@ public class GymManagement {
 
                                 if (member.getEmailAddress().equalsIgnoreCase(loginEmail) && member.getGender().equalsIgnoreCase("Male")) {
 
-                                    progressTrack.NewMaleWorkout(member,scanner);
+                                    workouts.NewMaleWorkout(member,scanner);
                                 }
 
 
                                 else if (member.getEmailAddress().equalsIgnoreCase(loginEmail) && member.getGender().equalsIgnoreCase("Female")){
 
-                                    progressTrack.NewFemaleWorkout(member,scanner);
+                                    workouts.NewFemaleWorkout(member,scanner);
 
                                 }
                             }
@@ -293,7 +294,7 @@ public class GymManagement {
                             for (Member member : gym.getMemberList()) {
                                 if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
 
-                                    progressTrack.pastWorkout(member);
+                                    workouts.pastWorkout(member);
                                 }
                             }
 
@@ -354,8 +355,7 @@ public class GymManagement {
                     System.out.println("4.Reset Date Of Birth ");
                     System.out.println("5.Reset Gender ");
                     System.out.println("6.Reset Address ");
-                    System.out.println("7.Reset Shift ");
-                    System.out.println("8.Reset Age ");
+                    System.out.println("7.Reset Age ");
                     trainerResetChoice = scanner.nextInt();
                     System.out.println("Enter new data:");
                     newData = scanner.next();

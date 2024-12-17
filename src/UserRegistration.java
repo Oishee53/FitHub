@@ -10,7 +10,8 @@ public class UserRegistration {
     }
     public void memberRegistration(Gym gym) throws IOException {
 
-
+        IdGenerate idGenerate = new IdGenerate();
+        String memberId=idGenerate.autogenerate("MemberFile.csv");
         System.out.println("Enter First Name:");
         String firstName = scanner.next();
         System.out.println("Enter Last Name: ");
@@ -83,7 +84,7 @@ public class UserRegistration {
             }
             System.out.println("Enter your Specific goal");
             String specificGoal=scanner.next();
-            Member member = new Member(firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
+            Member member = new Member(memberId,firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
                     address, age, weight, height, trainerID,goal,specificGoal);
             gym.addMembers(member);
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);
@@ -143,9 +144,6 @@ public class UserRegistration {
         }
         System.out.println("Enter Address:");
         String address = scanner.next();
-        System.out.println("Enter Shift: ");
-        String shift;
-        shift = String.valueOf(scanner.next());
         System.out.println("Enter Salary: ");
         int salary = scanner.nextInt();
         System.out.println("Enter Age:");
@@ -153,7 +151,7 @@ public class UserRegistration {
         System.out.println("How many members do they want to train?");
         int availableSeats = scanner.nextInt();
         Trainer trainer = new Trainer(trainerID,firstName, lastName, emailAddress, password, phoneNumber, DOB , gender,
-                address, age,shift,salary,availableSeats);
+                address, age,salary,availableSeats);
         gym.addTrainer(trainer);
         WriteToFile.writeTrainer(gym.getTrainerList(), false);
         System.out.println("Trainer is registered successfully!!");
