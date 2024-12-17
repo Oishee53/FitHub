@@ -1,6 +1,7 @@
-T-01,Adrita,Ahsan,adrita@gmail.com,20202,01745191964,02/02/2002,Female,Uttara,evening,20000.0,21,2
-T-02,Auhona,Ahsan,auhona@gmail.com,pass123,01784312211,04/11/1999,Female,DHaka,Evening,20000.0,25,0
-T-03,shahriar,shoeb,shsh@gmail.com,1234,23/09/1998,01911306123,male,uttara,morning,10000.0,25,0
-T-04,masud,reza,masud@gmail.com,12345,01916436171,08/09/1998,male,uttara,morning,23000.0,23,8
-T-05,shamim,khan,shamim@gmail.com,12345,01919191919,23/08/1998,male,uttara,evening,20000.0,21,7
-T-06,Fairuz,Bohota,fairuz@gmail.com,123,01816213837,10/04/2004,Female,Dhaka,Morning,10000.0,22,4
+T-01,Adrita,Ahsan,adrita@gmail.com,20202,02/02/2002,01745191964,Female,Uttara,21,evening,20000.0,2
+T-02,Auhona,Ahsan,auhona@gmail.com,pass123,04/11/1999,01784312211,Female,Dhaka,25,Evening,20000.0,0
+T-03,shahriar,shoeb,shsh@gmail.com,1234,23/09/1998,01911306123,male,uttara,50,morning,10000.0,0
+T-04,masud,reza,masud@gmail.com,12345,08/09/1998,01916436171,male,uttara,23,morning,23000.0,7
+T-05,shamim,khan,shamim@gmail.com,12345,23/08/1998,01919191919,male,uttara,21,evening,20000.0,7
+T-06,Fairuz,Bohota,fairuz@gmail.com,123,10/04/2004,01816213837,Female,Dhaka,22,Morning,10000.0,4
+T-07,Nishat,Oishee,ois@gmail.com,123,10/04/2004,01816213837,Female,Dhaka,22,Morning,20000.0,6

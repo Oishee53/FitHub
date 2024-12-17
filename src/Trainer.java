@@ -8,7 +8,7 @@ public class Trainer extends User {
     ArrayList<Member> assignedMembers = new ArrayList<>();
 
     public Trainer(String trainerID, String firstName, String lastName, String emailAddress, String password,
-                   String phoneNumber, String DOB, String gender, String address, int age,
+                   String DOB,String phoneNumber, String gender, String address, int age,
                    String shift, double salary,int availableSeats) {
 
         super(firstName, lastName, emailAddress, password, phoneNumber,DOB, gender, address, age);

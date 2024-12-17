@@ -11,10 +11,10 @@ public class Member extends User {
     private String specificGoal;
 
     public Member(String id,String firstName, String lastName, String emailAddress, String password,
-                  String phoneNumber, String DOB, String gender, String address, int age,
+                  String dateOfBirth,String phoneNumber, String gender, String address, int age,
                   int weight, double height, String trainerChose, String goal, String specificGoal) {
 
-        super(firstName, lastName, emailAddress, password, phoneNumber, DOB, gender, address, age);
+        super(firstName, lastName, emailAddress, password, phoneNumber,dateOfBirth, gender, address, age);
         this.id=id;
         this.weight = weight;
         this.height = height;

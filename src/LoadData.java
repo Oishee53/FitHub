@@ -52,14 +52,14 @@ public class LoadData {
 
                 try {
                     // Parse numeric values with error handling
-                    int age = Integer.parseInt(details[11]);
+                    int age = Integer.parseInt(details[9]);
                     int availableSeats = Integer.parseInt(details[12]);
-                    double salary = Double.parseDouble(details[10]);
+                    double salary = Double.parseDouble(details[11]);
 
                     // Create the Trainer object
                     Trainer trainer = new Trainer(details[0], details[1],
                             details[2], details[3], details[4], details[5],
-                            details[6], details[7],details[8], age, details[9], salary, availableSeats);
+                            details[6], details[7],details[8],age,details[10], salary, availableSeats);
                     gym.addTrainer(trainer);
 
                 } catch (NumberFormatException ex) {

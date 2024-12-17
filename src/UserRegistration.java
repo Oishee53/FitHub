@@ -83,7 +83,7 @@ public class UserRegistration {
             }
             System.out.println("Enter your Specific goal");
             String specificGoal=scanner.next();
-            Member member = new Member(memberId,firstName, lastName, emailAddress, password, phoneNumber, DOB, gender,
+            Member member = new Member(memberId,firstName, lastName, emailAddress, password, DOB, phoneNumber, gender,
                     address, age, weight, height, trainerID,goal,specificGoal);
             gym.addMembers(member);
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);
@@ -152,7 +152,7 @@ public class UserRegistration {
         int age = scanner.nextInt();
         System.out.println("How many members do they want to train?");
         int availableSeats = scanner.nextInt();
-        Trainer trainer = new Trainer(trainerID,firstName, lastName, emailAddress, password, phoneNumber, DOB , gender,
+        Trainer trainer = new Trainer(trainerID,firstName, lastName, emailAddress, password, DOB ,phoneNumber, gender,
                 address, age,shift,salary,availableSeats);
         gym.addTrainer(trainer);
         WriteToFile.writeTrainer(gym.getTrainerList(), false);
