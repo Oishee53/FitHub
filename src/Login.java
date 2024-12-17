@@ -22,8 +22,8 @@ public class Login {
                     storedPassword = details[4];
                 }
                 if(filename.equals("MemberFile.csv")) {
-                    storedEmail = details[2];
-                    storedPassword = details[3];
+                    storedEmail = details[3];
+                    storedPassword = details[4];
                 }
 
                 if (storedEmail.equals(email) && storedPassword.equals(password)) {
