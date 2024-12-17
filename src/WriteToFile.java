@@ -136,8 +136,7 @@ public class WriteToFile {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(fileName, false))) {
             for(Trainer trainer: gym.getTrainerList()) {
                 for(Member member: trainer.getAssignedMembers()) {
-                    writer.write(trainer.getTrainerID() + " assigned to " + member.getFirstName() + " " + member.getLastName() +
-                            " " + "(" + member.getEmailAddress() + ")");
+                    writer.write(trainer.getTrainerID() + " assigned to " + member.getId());
                     writer.newLine();  // Add a new line after each entry
                 }
             }

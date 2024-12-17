@@ -118,20 +118,13 @@ public class LoadData {
                 if (parts.length < 2) continue;  // Skip malformed lines
 
                 String trainerID = parts[0].trim(); // Trainer ID
-                String memberInfo = parts[1].trim(); // Member's name and email
-
-                // Split member info to get the email part
-                String[] details = memberInfo.split("\\(");
-                if (details.length < 2) continue;  // Skip if no email info
-
-                String memberName = details[0].trim();
-                String memberEmail = details[1].replace(")", "").trim();
+                String memberID = parts[1].trim(); // Member's name and email
 
                 // Find the trainer and add the correct member
                 for (Trainer trainer : gym.getTrainerList()) {
                     if (trainerID.equals(trainer.getTrainerID())) {
                         for (Member member : gym.getMemberList()) {
-                            if (member.getEmailAddress().equals(memberEmail)) {
+                            if (member.getId().equals(memberID)) {
                                 trainer.addAssignedMember(member);
                                 break; // Break once the member is added
                             }
