@@ -158,11 +158,11 @@ public class Login {
                     System.out.println("2.No");
                     int viewChoice = scanner.nextInt();
                     if(viewChoice == 1){
-                        System.out.println("Enter email address of member: ");
-                        String memberEmail = scanner.next();
+                        System.out.println("Enter memberID: ");
+                        String memberID = scanner.next();
                         boolean foundEmail = false;
                         for(Member member : Gym.getMemberList()){
-                            if(memberEmail.equals(member.getEmailAddress())){
+                            if(memberID.equals(member.getId())){
                                 foundEmail = true;
                                 dashboard.graph(member);
                             }
@@ -206,9 +206,8 @@ public class Login {
         System.out.println("Trainer not found");
     }
 
-    public static void printMembersForTrainer(String trainerID) {
+    /*public static void printMembersForTrainer(String trainerID) {
         String fileName = "Member and Trainer.csv";
-        Pattern emailPattern = Pattern.compile("\\(([^)]+)\\)");
 
         try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
             String line;
@@ -222,21 +221,53 @@ public class Login {
                 if (line.startsWith(trainerID + " assigned to")) {
                     hasAssignments = true;
                     count++;
-                    String memberName = line.substring(line.indexOf("assigned to") + 11);
-                    Matcher matcher = emailPattern.matcher(line);
-                    if (matcher.find()) {
-                        String email = matcher.group(1);
-                        for(Member member:Gym.getMemberList()){
-                            if(email.equals(member.getEmailAddress())){
-                                System.out.printf(count + "." + "%-30s %-15s%n",memberName, "Workout Goal: " + member.getGoal());
+                    String memberID = line.substring(line.indexOf("assigned to") + 11);
+                    for (Member member : Gym.getMemberList()) {
+                        if (memberID.equals(member.getId())) {
+                            System.out.printf(count + "." + "%-30s %-15s%n", memberID, "Workout Goal: " + member.getGoal());
 
-                            }
                         }
                     }
+                }
 
+                if (!hasAssignments) {
+                    System.out.println("No members assigned to Trainer " + trainerID + ".");
+                }
+
+            }
+        }catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
+    }*/
+    public static void printMembersForTrainer(String trainerID) {
+        String fileName = "Member and Trainer.csv";
+
+        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            boolean hasAssignments = false;
+            int count = 0;
+
+            System.out.println("Members assigned to Trainer " + trainerID + ":");
+
+            // Loop through the file line by line
+            while ((line = reader.readLine()) != null) {
+                // Check if the line starts with trainerID followed by " assigned to"
+                if (line.startsWith(trainerID + " assigned to")) {
+                    hasAssignments = true; // Found at least one assignment
+                    String memberID = line.substring(line.indexOf("assigned to") + 11).trim();
+
+                    // Find the member in the member list
+                    for (Member member : Gym.getMemberList()) {
+                        if (memberID.equals(member.getId())) {
+                            count++;
+                            System.out.printf("%d. %-10s %-15s%n", count, memberID, "Workout Goal: " + member.getGoal());
+                            break; // Break after finding the matching member
+                        }
+                    }
                 }
             }
 
+            // Print message if no members are assigned
             if (!hasAssignments) {
                 System.out.println("No members assigned to Trainer " + trainerID + ".");
             }
@@ -245,5 +276,6 @@ public class Login {
             System.err.println("Error reading file: " + e.getMessage());
         }
     }
+
 
 }
