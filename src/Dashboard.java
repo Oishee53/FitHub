@@ -80,11 +80,11 @@ public class Dashboard {
             System.out.print(months[i] + "| ");
             for (double j = 0; j < calories[i] / 100; j++) {
 
-                System.out.print("*");
+                System.out.print("*  ");
             }
             System.out.println();
         }
-        System.out.println("   _   _   _   _   _   _   _   _   _   _   _   _   _   _   _   ");
+        System.out.println("    _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  _  ");
 
 
     }
