@@ -95,9 +95,9 @@ public class GymManagement {
                 if (attendanceChoice == 1) {
                     System.out.println("Enter Class Name (e.g., Class 1):");
                     String className = scanner.nextLine(); // Use nextLine to capture full class name
-                    System.out.println("Enter emails of present members (comma-separated):");
-                    String presentEmails = scanner.nextLine(); // Use nextLine to capture the full input
-                    WriteToFile.writeAttendance(className, presentEmails, gym.getMemberList());
+                    System.out.println("Enter IDs of present members (comma-separated):");
+                    String presentIDs = scanner.nextLine(); // Use nextLine to capture the full input
+                    WriteToFile.writeAttendance(className, presentIDs ,gym.getMemberList());
                 } else if (attendanceChoice == 2) {
                     readListFile.readFile("Attendance.csv");
                 }

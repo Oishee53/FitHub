@@ -10,8 +10,7 @@ public class UserRegistration {
     }
     public void memberRegistration(Gym gym) throws IOException {
 
-        IdGenerate idGenerate = new IdGenerate();
-        String memberId=idGenerate.autogenerate("MemberFile.csv");
+        String memberId=autogenerate("MemberFile.csv");
         System.out.println("Enter First Name:");
         String firstName = scanner.next();
         System.out.println("Enter Last Name: ");
@@ -101,8 +100,8 @@ public class UserRegistration {
 
     public void trainerRegistration(Gym gym) throws IOException {
 
-        System.out.println("Assign TrainerID: ");
-        String trainerID = scanner.next();
+        String trainerID = autogenerate("TrainerFile.csv");
+
         System.out.println("Enter First Name:");
         String firstName = scanner.next();
         System.out.println("Enter Last Name:");
@@ -189,4 +188,43 @@ public class UserRegistration {
         return phoneNumber.matches("(\\+8801|01)\\d{9}");
 
     }
+    public String autogenerate(String filename) {
+        String generatedID=null;
+        if(filename.equals("MemberFile.csv"))
+            generatedID = "M-01"; // Default ID if file is empty
+
+        else if (filename.equals("TrainerFile.csv"))
+            generatedID = "T-01";
+
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
+            String line;
+            String lastID = null;
+
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (data.length > 0 && data[0].contains("-")) { // Validate data
+                    String[] partsOfId = data[0].split("-");
+                    if (partsOfId.length == 2) { // Ensure correct ID format
+                        lastID = partsOfId[1]; // Get the numeric part of the last ID
+                    }
+                }
+            }
+
+            if (lastID != null) {
+                int parsedID = Integer.parseInt(lastID);
+                int newID = parsedID + 1;
+                if(filename.equals("MemberFile.csv"))
+                    generatedID = "M-" + String.format("%02d", newID); // Format ID as "M-XX"
+                else if (filename.equals("TrainerFile.csv"))
+                    generatedID = "T-" + String.format("%02d", newID); // Format ID as "M-XX"
+
+            }
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        } catch (NumberFormatException e) {
+            System.err.println("Invalid ID format in file: " + e.getMessage());
+        }
+        return generatedID;
+    }
+
 }
