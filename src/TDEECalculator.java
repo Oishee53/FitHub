@@ -17,9 +17,10 @@ public class TDEECalculator {
         protein=(TDEE*30)/100;
         fat=(TDEE*30)/100;
         carb=(TDEE*40)/100;
-        System.out.println("Your daily calorie conumption will be "+TDEE+" cal.\n");
+        System.out.println("Your daily calorie consumption will be "+TDEE+" cal.\n");
         System.out.println(protein+" cal protein\n");
         System.out.println(fat+" cal fat\n");
-        System.out.println(carb+" cal carb");
+        System.out.println(carb+" cal carb\n");
+        System.out.println("            \n");
     }
 }

@@ -77,19 +77,20 @@ public class Login {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] details = line.split(",");
-                String storedEmail = details[2];
-                String storedPassword = details[3];
+                String storedEmail = details[3];
+                String storedPassword = details[4];
                 if (storedEmail.equals(email) && storedPassword.equals(password)) {
-                    System.out.println("Name: " + details[0] + " " + details[1]);
-                    System.out.println("Contact Info: " + details[4]);
-                    System.out.println("Date of Birth: " + details[5]);
-                    System.out.println("Gender:" + details[6]);
-                    System.out.println("Address:" + details[7]);
-                    System.out.println("Weight: " + details[8]);
-                    System.out.println("Height: " + details[9]);
-                    System.out.println("Age: " + details[10]);
-                    System.out.println("Assigned Trainer: " + details[11]);;
-                    System.out.println("Goal: " + details[12]);
+                    System.out.println("Member ID: "+details[0]);
+                    System.out.println("Name: " + details[1] + " " + details[2]);
+                    System.out.println("Contact Info: " + details[5]);
+                    System.out.println("Date of Birth: " + details[6]);
+                    System.out.println("Gender:" + details[7]);
+                    System.out.println("Address:" + details[8]);
+                    System.out.println("Weight: " + details[10]);
+                    System.out.println("Height: " + details[11]);
+                    System.out.println("Age: " + details[9]);
+                    System.out.println("Assigned Trainer: " + details[12]);;
+                    System.out.println("Goal: " + details[13]);
                 }
             }
         } catch (FileNotFoundException e) {
