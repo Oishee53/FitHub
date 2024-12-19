@@ -97,7 +97,8 @@ public class Workouts {
         System.out.println("Enter Todays date\n");
         String date =scanner.next();
         System.out.println("Enter new workout:\n");
-        try (BufferedReader bufferedReader = new BufferedReader(new FileReader("Female Exercise.csv"))) {
+        String filename = "Female Exercise.csv";
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(filename))) {
             String line;
 
             // Read each line from the file until the end
@@ -114,22 +115,18 @@ public class Workouts {
                         metValue=9.8;
                         exercise = data[1];
                     }
-
                     else if (Workout==1 && data[1].equalsIgnoreCase("Moderate Weightlifting (Full Body) for 30 minutes")){
                         metValue=4;
                         exercise = data[1];
                     }
-
                     else if (Workout==2 && data[2].equalsIgnoreCase("Jump rope for 15 minutes")){
                         metValue=11.8;
                         exercise = data[2];
                     }
-
                     else if (Workout==2 && data[2].equalsIgnoreCase("Bodyweight Exercises (Squats, Lunges, Push-ups) for 30 minutes")){
                         metValue=5;
                         exercise = data[2];
                     }
-
                     else if (Workout==3 && data[3].equalsIgnoreCase("HIIT for 20-30 minutes")) {
                         metValue = 10;
                         exercise = data[3];
@@ -138,10 +135,6 @@ public class Workouts {
                         metValue=5.5;
                         exercise = data[3];
                     }
-
-
-
-
                     System.out.println("Enter the duration in hours");
                     int duration=scanner.nextInt();
                     double burnedCalorie= member.getWeight()*duration*metValue;
@@ -169,12 +162,9 @@ public class Workouts {
                     break;
                 }
             }
-
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
         }
-
-
     }
     public void pastWorkout(Member member){
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("WorkoutFile.csv"))) {
