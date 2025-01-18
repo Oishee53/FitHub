@@ -134,7 +134,7 @@ public class GymManagement {
                 } else if (adminTchoice == 4) {
                     System.out.println("1.Pay all trainers");
                     System.out.println("2.Pay specific trainer");
-                    System.out.println("3.Pay all trainers, excluding one");
+                    System.out.println("3.Pay all trainers, excluding some");
                     int paymentChoice = scanner.nextInt();
                     if (paymentChoice == 1) {
                         for (Trainer trainer : gym.getTrainerList()) {
@@ -156,16 +156,22 @@ public class GymManagement {
                         }
                     } else if (paymentChoice == 3) {
                         System.out.println("Enter the trainer ID to exclude from payment:");
+                        System.out.println("Write the IDs seperating them by coma");
                         String trainerID = scanner.next();
-                        boolean found = false;
+                        String[] excludedID = trainerID.split(",");
                         for (Trainer trainer : gym.getTrainerList()) {
-                            if (!trainer.getTrainerID().equals(trainerID)) {
-                                found = true;
-                                Account.trainerPaid(trainer.getTrainerID(), trainer.getSalary());
+                            boolean isExcluded = false;
+                            for (String id : excludedID) {
+                                if (trainer.getTrainerID().equals(id)) {
+                                    isExcluded = true;
+                                }
                             }
-                        }
-                        if (found == false) {
-                            System.out.println("Incorrect trainerID!");
+                            if (!isExcluded) {
+                                Account.trainerPaid(trainer.getTrainerID(), trainer.getSalary());
+                            } else {
+                                System.out.println(trainer.getTrainerID() +
+                                        " is already paid or will get paid later!");
+                            }
                         }
                     }
                     gymManagement.consoleApp();
