@@ -136,7 +136,7 @@ public class Workouts {
                     }
                     else if (Workout==3 && data[3].equalsIgnoreCase("Pilates or Yoga (Strength Focus) for 45 minutes")){
                         metValue=5.5;
-                        exercise = data[3];
+                        exercise = data[3];//test
                     }
 
 
@@ -173,8 +173,6 @@ public class Workouts {
         } catch (IOException e) {
             System.err.println("Error reading file: " + e.getMessage());
         }
-
-
     }
     public void pastWorkout(Member member){
         try (BufferedReader bufferedReader = new BufferedReader(new FileReader("WorkoutFile.csv"))) {

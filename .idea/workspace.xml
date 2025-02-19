@@ -6,10 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="AccountsFile.csv created">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/TDEECalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TDEECalculator.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkoutFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/WorkoutFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Workouts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workouts.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
