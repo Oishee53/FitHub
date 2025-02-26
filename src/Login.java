@@ -100,32 +100,37 @@ public class Login {
         }
 
     }
-
-
-
-
     public static void resetMemberData(int attributeChoice, String newData,
-                                       String email, String password, ArrayList<Member> members) {
+                                       String email, String password, ArrayList<Member> members) throws IOException {
         boolean memberFound = false;
         for (Member member : members) {
-            System.out.println("Checking member: " + member.getEmailAddress());
-
             if (member.getEmailAddress().equals(email) && member.getPassword().equals(password)) {
                 memberFound = true;
-                switch (attributeChoice) {
-                    case 1 -> member.setFirstName(newData);
-                    case 2 -> member.setLastName(newData);
-                    case 3 -> member.setPassword(newData);
-                    case 4 -> member.setDateOfBirth(newData);
-                    case 5 -> member.setGender(newData);
-                    case 6 -> member.setAddress(newData);
-                    case 7 -> member.setWeight(Integer.parseInt(newData));
-                    case 8 -> member.setHeight(Double.parseDouble(newData));
-                    case 9 -> member.setAge(Integer.parseInt(newData));
-                    case 10 -> member.setPhoneNumber(newData);
-                    default -> System.out.println("Invalid attribute choice.");
+
+                try {
+                    switch (attributeChoice) {
+                        case 1 -> member.setFirstName(newData);
+                        case 2 -> member.setLastName(newData);
+                        case 3 -> member.setPassword(newData);
+                        case 4 -> member.setDateOfBirth(newData);
+                        case 5 -> member.setGender(newData);
+                        case 6 -> member.setAddress(newData);
+                        case 7 -> member.setWeight(Integer.parseInt(newData));
+                        case 8 -> member.setHeight(Double.parseDouble(newData));
+                        case 9 -> member.setAge(Integer.parseInt(newData));
+                        case 10 -> member.setPhoneNumber(newData);
+                        default -> {
+                            System.out.println("Invalid attribute choice.");
+                            return;
+                        }
+                    }
+                } catch (NumberFormatException e) {
+                    System.out.println("Invalid input for the chosen attribute. Please enter a valid value.");
+                    return;
                 }
-                WriteToFile.writeMembers(members, false);  // Save updated members to the file
+
+                WriteToFile.writeMembers(members, false);
+
                 System.out.println("Member data updated successfully.");
                 return;
             }
