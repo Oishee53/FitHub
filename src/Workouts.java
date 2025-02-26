@@ -133,7 +133,7 @@ public class Workouts {
                     }
                     else if (Workout==3 && data[3].equalsIgnoreCase("Pilates or Yoga (Strength Focus) for 45 minutes")){
                         metValue=5.5;
-                        exercise = data[3];//test
+                        exercise = data[3];
                     }
                     System.out.println("Enter the duration in hours");
                     int duration=scanner.nextInt();
