@@ -72,7 +72,7 @@ public class Login {
     }
 
 
-    public static void ReadMemberDetails(String email, String password) {
+    /*public static void ReadMemberDetails(String email, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader("MemberFile.csv"))) {
             String line;
             while ((line = reader.readLine()) != null) {
@@ -91,6 +91,53 @@ public class Login {
                     System.out.println("Age: " + details[9]);
                     System.out.println("Assigned Trainer: " + details[12]);;
                     System.out.println("Goal: " + details[13]);
+                }
+            }
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
+    }*/
+    public static void ReadMemberDetails(String email, String password) {
+        try (BufferedReader reader = new BufferedReader(new FileReader("MemberFile.csv"))) {
+            String line;
+            while ((line = reader.readLine()) != null) {
+                String[] details = line.split(",");
+                String storedEmail = details[3];
+                String storedPassword = details[4];
+                if (storedEmail.equals(email) && storedPassword.equals(password)) {
+                    String[][] table = {
+                            {"Field", "Value"},
+                            {"Member ID", details[0]},
+                            {"Name", details[1] + " " + details[2]},
+                            {"Contact Info", details[5]},
+                            {"Date of Birth", details[6]},
+                            {"Gender", details[7]},
+                            {"Address", details[8]},
+                            {"Weight", details[10]},
+                            {"Height", details[11]},
+                            {"Age", details[9]},
+                            {"Assigned Trainer", details[12]},
+                            {"Goal", details[13]},
+                    };
+
+// Calculate column widths
+                    int fieldWidth = 0, valueWidth = 0;
+                    for (String[] row : table) {
+                        fieldWidth = Math.max(fieldWidth, row[0].length());
+                        valueWidth = Math.max(valueWidth, row[1].length());
+                    }
+
+// Print the table with proper alignment
+                    String format = "| %-" + fieldWidth + "s | %-" + valueWidth + "s |%n";
+                    System.out.println("-".repeat(fieldWidth + valueWidth + 7));
+                    for (String[] row : table) {
+                        System.out.printf(format, row[0], row[1]);
+                        System.out.println("-".repeat(fieldWidth + valueWidth + 7));
+                    }
+
                 }
             }
         } catch (FileNotFoundException e) {
