@@ -1,9 +1,9 @@
 public class UserRemove {
     AssignTrainer assignTrainer = new AssignTrainer();
 
-    public void memberRemove(Gym gym,String email){
+    public void memberRemove(Gym gym,String memberID){
         for (Member member: gym.members){
-            if(email.equals(member.getEmailAddress())) {
+            if(member.equals(member.getId())) {
                 gym.removeMembers(member);
                 System.out.println("Member removed successfully");
                 assignTrainer.memberUnassigned(gym,member.getTrainerChose(),member);

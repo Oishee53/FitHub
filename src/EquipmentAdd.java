@@ -16,8 +16,8 @@ public class EquipmentAdd {
         double cost = scanner.nextDouble();
         Equipment equipment = new Equipment(equipmentID,equipmentName,quantity,condition,cost);
         gym.addEquipment(equipment);
-        Account.equipmentPurchased(cost,quantity);
-        WriteToFile.writeInventory(gym.getEquipmentsList(), true);
+        Account.equipmentPurchased(equipmentName,cost,quantity);
+        WriteToFile.writeInventory(gym.getEquipmentsList(), false);
         System.out.println("Equipment is added successfully!!");
 
     }

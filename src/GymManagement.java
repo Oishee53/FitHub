@@ -29,7 +29,8 @@ public class GymManagement {
                 "Female Exercise.csv",
                 "WorkoutFile.csv",
                 "BalanceFile.csv",
-                "Attendance.csv"
+                "Attendance.csv",
+                "AdminFile.csv"
         };
 
         // Create each file
@@ -65,148 +66,159 @@ public class GymManagement {
         System.out.println("1.Admin\n2.Member\n3.Trainer");
         int loginChoice = scanner.nextInt();
         if (loginChoice == 1) {
+            System.out.print("Enter your email:\n");
+            String loginEmail = scanner.next();
+            System.out.print("Enter your password:\n");
+            String loginPassword = scanner.next();
+            String filename = "AdminFile.csv";
+            boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
+
             //Admin
-            System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management\n4.Account\n5.Attendance Management");
-            int adminChoice = scanner.nextInt();
-            if (adminChoice == 1) {
-                System.out.println("1.Register a new member\n2.Remove a member\n3.Show all members");
-                int adminMchoice = scanner.nextInt();
-                if (adminMchoice == 1) {
-                    // register new member
-                    userRegistration.memberRegistration(gym);
-                    gymManagement.consoleApp();
-                } else if (adminMchoice == 2) {
-                    System.out.println("Enter the member email id you want to remove");
-                    String removeMemberId = scanner.next();
-                    userRemove.memberRemove(gym, removeMemberId);
-                    gymManagement.consoleApp();
+            if (isAuthenticated) {
+                System.out.println("1.Member Management\n2.Trainer Management\n3.Equipment management\n4.Account\n5.Attendance Management");
+                int adminChoice = scanner.nextInt();
+                if (adminChoice == 1) {
+                    System.out.println("1.Register a new member\n2.Remove a member\n3.Show all members");
+                    int adminMchoice = scanner.nextInt();
+                    if (adminMchoice == 1) {
+                        // register new member
+                        userRegistration.memberRegistration(gym);
+                        gymManagement.consoleApp();
+                    } else if (adminMchoice == 2) {
+                        System.out.println("Enter the memberID you want to remove");
+                        String removeMemberId = scanner.next();
+                        userRemove.memberRemove(gym, removeMemberId);
+                        gymManagement.consoleApp();
 
-                } else if (adminMchoice == 3) {
-                    readListFile.readFile("MemberFile.csv");
-                    gymManagement.consoleApp();
+                    } else if (adminMchoice == 3) {
+                        readListFile.readFile("MemberFile.csv");
+                        gymManagement.consoleApp();
 
-                }
-            }
-            else if (adminChoice == 5) {
-                // For Attendance Management
-                System.out.println("1. Take Attendance\n2. View Attendance for All Members");
-                int attendanceChoice = scanner.nextInt();
-                scanner.nextLine(); // Consume the leftover newline character
-
-                if (attendanceChoice == 1) {
-                    System.out.println("Enter Class Name (e.g., Class 1):");
-                    String className = scanner.nextLine(); // Use nextLine to capture full class name
-                    System.out.println("Enter IDs of present members (comma-separated):");
-                    String presentIDs = scanner.nextLine(); // Use nextLine to capture the full input
-                    WriteToFile.writeAttendance(className, presentIDs ,gym.getMemberList());
-                    gymManagement.consoleApp();
-                } else if (attendanceChoice == 2) {
-                    readListFile.readFile("Attendance.csv");
-                    gymManagement.consoleApp();
-                }
-            }
-
-            else if (adminChoice == 2) {
-                System.out.println("1.Register a new trainer\n2.Remove a trainer\n3.Show all trainers");
-                System.out.println("4.Pay trainer salary");
-                int adminTchoice = scanner.nextInt();
-                if (adminTchoice == 1) {
-                    // register new member
-                    userRegistration.trainerRegistration(gym);
-                    gymManagement.consoleApp();
-                } else if (adminTchoice == 2) {
-                    System.out.println("Enter the trainer email id you want to remove: ");
-                    String removeTrainerID = scanner.next();
-                    for (Trainer trainer : gym.getTrainerList()) {
-                        if (removeTrainerID.equals(trainer.getTrainerID())) {
-                            userRemove.trainerRemove(gym, removeTrainerID);
-                            for (Member member : trainer.getAssignedMembers()) {
-                                AssignTrainer.trainerReassign(gym, member);
-                            }
-                        }
                     }
-                    gymManagement.consoleApp();
+                } else if (adminChoice == 5) {
+                    // For Attendance Management
+                    System.out.println("1. Take Attendance\n2. View Attendance for All Members");
+                    int attendanceChoice = scanner.nextInt();
+                    scanner.nextLine(); // Consume the leftover newline character
 
-                } else if (adminTchoice == 3) {
-
-                    readListFile.readFile("TrainerFile.csv");
-                    gymManagement.consoleApp();
-                } else if (adminTchoice == 4) {
-                    System.out.println("1.Pay all trainers");
-                    System.out.println("2.Pay specific trainer");
-                    System.out.println("3.Pay all trainers, excluding some");
-                    int paymentChoice = scanner.nextInt();
-                    if (paymentChoice == 1) {
+                    if (attendanceChoice == 1) {
+                        System.out.println("Enter Class Name (e.g., Class 1):");
+                        String className = scanner.nextLine(); // Use nextLine to capture full class name
+                        System.out.println("Enter IDs of present members (comma-separated):");
+                        String presentIDs = scanner.nextLine(); // Use nextLine to capture the full input
+                        WriteToFile.writeAttendance(className, presentIDs, gym.getMemberList());
+                        gymManagement.consoleApp();
+                    } else if (attendanceChoice == 2) {
+                        readListFile.readFile("Attendance.csv");
+                        gymManagement.consoleApp();
+                    }
+                } else if (adminChoice == 2) {
+                    System.out.println("1.Register a new trainer\n2.Remove a trainer\n3.Show all trainers");
+                    System.out.println("4.Pay trainer salary");
+                    int adminTchoice = scanner.nextInt();
+                    if (adminTchoice == 1) {
+                        // register new member
+                        userRegistration.trainerRegistration(gym);
+                        gymManagement.consoleApp();
+                    } else if (adminTchoice == 2) {
+                        System.out.println("Enter the trainerID you want to remove: ");
+                        String removeTrainerID = scanner.next();
                         for (Trainer trainer : gym.getTrainerList()) {
-                            Account.trainerPaid(trainer.getTrainerID(), trainer.getSalary());
-                        }
-
-                    } else if (paymentChoice == 2) {
-                        System.out.println("Enter trainerID:");
-                        String trainerID = scanner.next();
-                        boolean found = false;
-                        for (Trainer trainer : gym.getTrainerList()) {
-                            if (trainer.getTrainerID().equals(trainerID)) {
-                                found = true;
-                                Account.trainerPaid(trainerID, trainer.getSalary());
-                            }
-                        }
-                        if (found == false) {
-                            System.out.println("Incorrect trainerID!");
-                        }
-                    } else if (paymentChoice == 3) {
-                        System.out.println("Enter the trainer ID to exclude from payment:");
-                        System.out.println("Write the IDs seperating them by coma");
-                        String trainerID = scanner.next();
-                        String[] excludedID = trainerID.split(",");
-                        for (Trainer trainer : gym.getTrainerList()) {
-                            boolean isExcluded = false;
-                            for (String id : excludedID) {
-                                if (trainer.getTrainerID().equals(id)) {
-                                    isExcluded = true;
+                            if (removeTrainerID.equals(trainer.getTrainerID())) {
+                                userRemove.trainerRemove(gym, removeTrainerID);
+                                for (Member member : trainer.getAssignedMembers()) {
+                                    AssignTrainer.trainerReassign(gym, member);
                                 }
                             }
-                            if (!isExcluded) {
+                        }
+                        gymManagement.consoleApp();
+
+                    } else if (adminTchoice == 3) {
+
+                        readListFile.readFile("TrainerFile.csv");
+                        gymManagement.consoleApp();
+                    } else if (adminTchoice == 4) {
+                        System.out.println("1.Pay all trainers");
+                        System.out.println("2.Pay specific trainer");
+                        System.out.println("3.Pay all trainers, excluding some");
+                        int paymentChoice = scanner.nextInt();
+                        if (paymentChoice == 1) {
+                            for (Trainer trainer : gym.getTrainerList()) {
                                 Account.trainerPaid(trainer.getTrainerID(), trainer.getSalary());
-                            } else {
-                                System.out.println(trainer.getTrainerID() +
-                                        " is already paid or will get paid later!");
+                            }
+
+                        } else if (paymentChoice == 2) {
+                            System.out.println("Enter trainerID:");
+                            String trainerID = scanner.next();
+                            boolean found = false;
+                            for (Trainer trainer : gym.getTrainerList()) {
+                                if (trainer.getTrainerID().equals(trainerID)) {
+                                    found = true;
+                                    Account.trainerPaid(trainerID, trainer.getSalary());
+                                }
+                            }
+                            if (found == false) {
+                                System.out.println("Incorrect trainerID!");
+                            }
+                        } else if (paymentChoice == 3) {
+                            System.out.println("Enter the trainer ID to exclude from payment:");
+                            System.out.println("Write the IDs seperating them by coma");
+                            String trainerID = scanner.next();
+                            String[] excludedID = trainerID.split(",");
+                            for (Trainer trainer : gym.getTrainerList()) {
+                                boolean isExcluded = false;
+                                for (String id : excludedID) {
+                                    if (trainer.getTrainerID().equals(id)) {
+                                        isExcluded = true;
+                                    }
+                                }
+                                if (!isExcluded) {
+                                    Account.trainerPaid(trainer.getTrainerID(), trainer.getSalary());
+                                } else {
+                                    System.out.println(trainer.getTrainerID() +
+                                            " is already paid or will get paid later!");
+                                }
                             }
                         }
+                        gymManagement.consoleApp();
                     }
-                    gymManagement.consoleApp();
-                }
-            } else if (adminChoice == 3) {
-                System.out.println("1.Add new equipments\n2.Remove equipment\n3.Show all equipments");
-                int adminEchoice = scanner.nextInt();
-                if (adminEchoice == 1) {
-                    //add new equipment
-                    equipmentAdd.newEquipment(gym);
-                    gymManagement.consoleApp();
-                } else if (adminEchoice == 2) {
-                    System.out.println("Enter the equipment id you want to remove:");
-                    String removeEquipmentID = scanner.next();
-                    userRemove.equipmentRemove(gym, removeEquipmentID);
+                } else if (adminChoice == 3) {
+                    System.out.println("1.Add new equipments\n2.Remove equipment\n3.Show all equipments");
+                    int adminEchoice = scanner.nextInt();
+                    if (adminEchoice == 1) {
+                        //add new equipment
+                        equipmentAdd.newEquipment(gym);
+                        gymManagement.consoleApp();
+                    } else if (adminEchoice == 2) {
+                        System.out.println("Enter the equipment id you want to remove:");
+                        String removeEquipmentID = scanner.next();
+                        userRemove.equipmentRemove(gym, removeEquipmentID);
 
-                    gymManagement.consoleApp();
-                } else if (adminEchoice == 3) {
-                    readListFile.readFile("EquipmentFile.csv");
+                        gymManagement.consoleApp();
+                    } else if (adminEchoice == 3) {
+                        readListFile.readFile("EquipmentFile.csv");
 
-                }
-            } else if (adminChoice == 4) {
-                System.out.println("1.View Balance");
-                System.out.println("2. View all transaction");
-                int accountChoice = scanner.nextInt();
-                if (accountChoice == 1) {
-                    System.out.println("Account Balance: ");
-                    System.out.println(ReadFile.readBalanceFile("BalanceFile.csv"));
-                    gymManagement.consoleApp();
-                } else if (accountChoice == 2) {
-                    ReadFile.readAccountFile();
-                    gymManagement.consoleApp();
+                    }
+                } else if (adminChoice == 4) {
+                    System.out.println("1.View Balance");
+                    System.out.println("2. View all transaction");
+                    int accountChoice = scanner.nextInt();
+                    if (accountChoice == 1) {
+                        System.out.println("Account Balance: ");
+                        System.out.println(ReadFile.readBalanceFile("BalanceFile.csv"));
+                        gymManagement.consoleApp();
+                    } else if (accountChoice == 2) {
+                        ReadFile.readAccountFile();
+                        gymManagement.consoleApp();
+                    }
                 }
             }
-        }
+            else{
+                System.out.println("Wrong email or password.");
+                gymManagement.consoleApp();
+            }
+            }
+
 
 
 
@@ -317,7 +329,7 @@ public class GymManagement {
 
                     if (member.getGoal().equalsIgnoreCase("WeightLoss")) {
                         weightLoseGoal.suggestion(member, tdeeCalculator);
-                        return;
+                        //return;
                     } else if (member.getGoal().equalsIgnoreCase("StrengthBuilding")) {
                         strengthBuildingGoal.suggestion(member, tdeeCalculator);
                     } else {
@@ -337,7 +349,7 @@ public class GymManagement {
                     }
                 }
             } else if (trackingChoice == 2) {
-                System.out.println("1.Post new workout:");
+                System.out.println("1.Post new workout");
                 System.out.println("2.Past workouts");
                 int WorkoutChoice = scanner.nextInt();
                 if (WorkoutChoice == 1) {
@@ -358,7 +370,6 @@ public class GymManagement {
                     //Past workouts
                     for (Member member : gym.getMemberList()) {
                         if (member.getEmailAddress().equalsIgnoreCase(loginEmail)) {
-
                             workouts.pastWorkout(member);
                         }
                     }

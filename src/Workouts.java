@@ -78,7 +78,7 @@ public class Workouts {
                                 System.out.println("Error closing the file writer: " + e.getMessage());
                             }
                         }
-                        break;
+                        //break;
                     }
                 }
 
@@ -159,7 +159,7 @@ public class Workouts {
                         System.out.println("Error closing the file writer: " + e.getMessage());
                     }
                 }
-                    break;
+                    //break;
                 }
             }
         } catch (IOException e) {
