@@ -3,7 +3,7 @@ public class UserRemove {
 
     public void memberRemove(Gym gym,String memberID){
         for (Member member: gym.members){
-            if(member.equals(member.getId())) {
+            if(memberID.equals(member.getId())) {
                 gym.removeMembers(member);
                 System.out.println("Member removed successfully");
                 assignTrainer.memberUnassigned(gym,member.getTrainerChose(),member);
