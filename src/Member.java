@@ -20,7 +20,7 @@ public class Member extends User {
         this.trainerChose = trainerChose;
         this.goal = goal;
     }
-
+    public Member(){}
     public String getId(){
         return id;
     }
