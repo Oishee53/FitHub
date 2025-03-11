@@ -1,5 +1,6 @@
-E001,dumbell,New,2,300.0
-E002,rope,New,2,200.0
-E001,dumbell,New,2,300.0
-E002,rope,New,2,200.0
-E003,Stick,old,5,300.0
+E-01,Dumbbell,New,10,2000.0
+E-01,Dumbbell,New,10,2000.0
+E-02,Treadmill,Old,5,5000.0
+E-01,Dumbbell,New,10,2000.0
+E-02,Treadmill,Old,5000,5000.0
+E-03,Barbell,Old,3,5000.0
