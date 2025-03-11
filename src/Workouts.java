@@ -123,7 +123,7 @@ public class Workouts {
                         metValue=11.8;
                         exercise = data[2];
                     }
-                    else if (Workout==2 && data[2].equalsIgnoreCase("Bodyweight Exercises (Squats, Lunges, Push-ups) for 30 minutes")){
+                    else if (Workout==2 && data[2].equalsIgnoreCase("Bodyweight Exercises (Squats; Lunges; Push-ups) for 30 minutes")){
                         metValue=5;
                         exercise = data[2];
                     }
