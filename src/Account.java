@@ -13,17 +13,18 @@ public class Account {
         if (salary > 0 && balance >= salary) {
             balance -= salary;
             WriteToFile.BalanceFile(balance);
-            System.out.println(trainerID + " paid successfully!");
+            System.out.println(trainerID + " paid" + "successfully!");
             WriteToFile.TrainerAccount(trainerID,salary);
         } else {
             System.out.println("Insufficient funds for trainer payment.");
         }
     }
 
-    public static void equipmentPurchased(double price,int quantity) {
+    public static void equipmentPurchased(String name,double price,int quantity) {
         if (price > 0 && balance >= price*quantity) {
             balance -= price*quantity;
             WriteToFile.BalanceFile(balance);
+            WriteToFile.EquipmentAccount(name,price,quantity);
         } else {
             System.out.println("Insufficient funds for equipment purchase.");
         }

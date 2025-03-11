@@ -152,7 +152,7 @@ public class WriteToFile {
         }
     }
     public static void initialAccountBalance(double balance){
-        String filename="AccountsFile.csv";
+        String filename="AccountsFile.txt";
         try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename,true))){
             writer.write("Initial Balance: " + balance + "\n");
         } catch (IOException e) {
@@ -160,7 +160,7 @@ public class WriteToFile {
         }
     }
     public static void memberAccount(String name, double amount){
-        String filename="AccountsFile.csv";
+        String filename="AccountsFile.txt";
         try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename,true))){
             writer.write(name + " registered with " + amount + " taka!\n");
         } catch (IOException e) {
@@ -168,7 +168,7 @@ public class WriteToFile {
         }
     }
     public static void TrainerAccount(String ID,double salary){
-        String filename="AccountsFile.csv";
+        String filename="AccountsFile.txt";
         try(BufferedWriter writer=new BufferedWriter(new FileWriter(filename,true))){
             writer.write(salary + " taka salary paid to " + ID + "!\n");
         } catch (IOException e) {
@@ -176,4 +176,13 @@ public class WriteToFile {
         }
     }
 
+    public static void EquipmentAccount(String name, double cost, int quantity) {
+        String filename = "AccountsFile.txt";
+
+        try (BufferedWriter writer = new BufferedWriter(new FileWriter(filename, true))) {
+            writer.write("Purchased " + quantity + " " + name + " for " + (quantity * cost) + " taka.\n");
+        } catch (IOException e) {
+            System.err.println("Error writing to file: " + e.getMessage());
+        }
+    }
 }

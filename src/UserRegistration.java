@@ -17,7 +17,11 @@ public class UserRegistration {
         String lastName = scanner.next();
         System.out.println("Enter email address:");
         String emailAddress = scanner.next();
-        while (!canUseEmail(emailAddress,"MemberFile.csv")) {
+        while (!ValidateEmail.validEmail(emailAddress)) {
+            System.out.println("Invalid email format.\nEnter a new email");
+            emailAddress = scanner.next();
+        }
+        while (!ValidateEmail.canUseEmail(emailAddress,"MemberFile.csv")) {
             System.out.println("Email already exists.\nEnter a new email");
             emailAddress = scanner.next();
         }
@@ -106,7 +110,11 @@ public class UserRegistration {
         String lastName = scanner.next();
         System.out.println("Enter email address:");
         String emailAddress = scanner.next();
-        while (!canUseEmail(emailAddress,"TrainerFile.csv")) {
+        while (!ValidateEmail.validEmail(emailAddress)) {
+            System.out.println("Invalid email format.\nEnter a new email");
+            emailAddress = scanner.next();
+        }
+        while (!ValidateEmail.canUseEmail(emailAddress,"TrainerFile.csv") || !ValidateEmail.validEmail(emailAddress)) {
             System.out.println("Email already exists.\nEnter a new email");
             emailAddress = scanner.next();
         }
@@ -154,26 +162,7 @@ public class UserRegistration {
         System.out.println("Trainer is registered successfully!!");
 
     }
-    public boolean canUseEmail(String email,String filename) {
-        try (BufferedReader reader = new BufferedReader(new FileReader(filename))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] details = line.split(",");
-                if (details.length < 3) {
-                    continue;
-                }
-                String storedEmail = details[2];
-                if (storedEmail.equals(email)) {
-                    return false;
-                }
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-        return true;
-    }
+
 
     private boolean validDate(String date){
         return date.matches("\\d{2}/\\d{2}/\\d{4}");

@@ -17,14 +17,10 @@ public class Login {
                 if (details.length < 4) {
                     continue;
                 }
-                if(filename.equals("TrainerFile.csv")) {
                     storedEmail = details[3];
                     storedPassword = details[4];
-                }
-                if(filename.equals("MemberFile.csv")) {
-                    storedEmail = details[3];
-                    storedPassword = details[4];
-                }
+
+
 
                 if (storedEmail.equals(email) && storedPassword.equals(password)) {
                     WriteToFile.LoginFile(email,password);
@@ -173,13 +169,11 @@ public class Login {
                     }
                 } catch (NumberFormatException e) {
                     System.out.println("Invalid input for the chosen attribute. Please enter a valid value.");
-                    return;
                 }
 
                 WriteToFile.writeMembers(members, false);
 
                 System.out.println("Member data updated successfully.");
-                return;
             }
         }
         if (!memberFound) {
@@ -253,7 +247,6 @@ public class Login {
                 WriteToFile.writeTrainer(trainers, false);  // Save updated trainers to the file
 
                 System.out.println("Trainer data updated successfully.");
-                return;
             }
         }
         System.out.println("Trainer not found");
