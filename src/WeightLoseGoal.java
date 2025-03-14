@@ -24,6 +24,7 @@ public class WeightLoseGoal extends FitnessGoal{
                 // Check if the member's specific goal matches the first column (goal)
                 if (member.getGoal().equalsIgnoreCase(data[0])) {
                     // Print the entire line if the goal matches
+                    System.out.println("");
                     System.out.println("Your suggested workout plan:\n"+data[1]+"\n"+data[2]+"\n"+data[3]+"\n");
                     break;
                 }
