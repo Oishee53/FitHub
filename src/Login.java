@@ -14,11 +14,11 @@ public class Login {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] details = line.split(",");
-                if (details.length < 4) {
+                if (details.length < 6) {
                     continue;
                 }
-                    storedEmail = details[3];
-                    storedPassword = details[4];
+                storedEmail = details[3].trim();
+                storedPassword = details[4].trim();
 
 
 
@@ -67,35 +67,6 @@ public class Login {
         }
     }
 
-
-    /*public static void ReadMemberDetails(String email, String password) {
-        try (BufferedReader reader = new BufferedReader(new FileReader("MemberFile.csv"))) {
-            String line;
-            while ((line = reader.readLine()) != null) {
-                String[] details = line.split(",");
-                String storedEmail = details[3];
-                String storedPassword = details[4];
-                if (storedEmail.equals(email) && storedPassword.equals(password)) {
-                    System.out.println("Member ID: "+details[0]);
-                    System.out.println("Name: " + details[1] + " " + details[2]);
-                    System.out.println("Contact Info: " + details[5]);
-                    System.out.println("Date of Birth: " + details[6]);
-                    System.out.println("Gender:" + details[7]);
-                    System.out.println("Address:" + details[8]);
-                    System.out.println("Weight: " + details[10]);
-                    System.out.println("Height: " + details[11]);
-                    System.out.println("Age: " + details[9]);
-                    System.out.println("Assigned Trainer: " + details[12]);;
-                    System.out.println("Goal: " + details[13]);
-                }
-            }
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        } catch (IOException e) {
-            throw new RuntimeException(e);
-        }
-
-    }*/
     public static void ReadMemberDetails(String email, String password) {
         try (BufferedReader reader = new BufferedReader(new FileReader("MemberFile.csv"))) {
             String line;
@@ -189,37 +160,62 @@ public class Login {
                 String[] details = line.split(",");
                 String storedEmail = details[3];
                 String storedPassword = details[4];
+
                 if (storedEmail.equals(email) && storedPassword.equals(password)) {
-                    System.out.println("TrainerID: " + details[0]);
-                    System.out.println("Name: " + details[1] + " " + details[2]);
-                    System.out.println("Contact Info: " + details[5]);
-                    System.out.println("Date of Birth: " + details[6]);
-                    System.out.println("Gender:" + details[7]);
-                    System.out.println("Address:" + details[8]);
-                    System.out.println("Salary: " + details[9]);
-                    System.out.println("Age: " + details[10]);
-                    System.out.println("Available seats: " + details[11]);
+                    // Define table structure
+                    String[][] table = {
+                            {"Field", "Value"},
+                            {"TrainerID", details[0]},
+                            {"Name", details[1] + " " + details[2]},
+                            {"Contact Info", details[5]},
+                            {"Date of Birth", details[6]},
+                            {"Gender", details[7]},
+                            {"Address", details[8]},
+                            {"Salary", details[9]},
+                            {"Age", details[10]},
+                            {"Available seats", details[11]}
+                    };
+
+                    // Calculate column widths dynamically
+                    int fieldWidth = 0, valueWidth = 0;
+                    for (String[] row : table) {
+                        fieldWidth = Math.max(fieldWidth, row[0].length());
+                        valueWidth = Math.max(valueWidth, row[1].length());
+                    }
+
+                    // Create formatting
+                    String format = "| %-" + fieldWidth + "s | %-" + valueWidth + "s |%n";
+                    System.out.println("-".repeat(fieldWidth + valueWidth + 7));
+
+                    // Print table
+                    for (String[] row : table) {
+                        System.out.printf(format, row[0], row[1]);
+                        System.out.println("-".repeat(fieldWidth + valueWidth + 7));
+                    }
+
+                    // Print assigned members
                     printMembersForTrainer(details[0]);
+
                     System.out.println("View progress of member");
-                    System.out.println("1.Yes");
-                    System.out.println("2.No");
+                    System.out.println("1. Yes");
+                    System.out.println("2. No");
                     int viewChoice = scanner.nextInt();
-                    if(viewChoice == 1){
+
+                    if (viewChoice == 1) {
                         System.out.println("Enter memberID: ");
                         String memberID = scanner.next();
                         boolean foundEmail = false;
-                        for(Member member : Gym.getMemberList()){
-                            if(memberID.equals(member.getId())){
+                        for (Member member : Gym.getMemberList()) {
+                            if (memberID.equals(member.getId())) {
                                 foundEmail = true;
                                 dashboard.graph(member);
                             }
                         }
-                        if(foundEmail == false){
+                        if (!foundEmail) {
                             System.out.println("Invalid email address");
                         }
-                    }
-                    else if(viewChoice>2){
-                        System.out.println("Inavlid choice");
+                    } else if (viewChoice > 2) {
+                        System.out.println("Invalid choice");
                     }
                 }
             }
@@ -229,6 +225,7 @@ public class Login {
             throw new RuntimeException(e);
         }
     }
+
     public static void resetTrainerData(int attributeChoice, String newData,
                                         String email, String password, ArrayList<Trainer> trainers) {
         for (Trainer trainer:trainers) {
