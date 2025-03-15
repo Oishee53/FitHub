@@ -15,6 +15,7 @@ public class GymManagement {
     TDEECalculator tdeeCalculator = new TDEECalculator();
     Workouts workouts = new Workouts();
     Dashboard dashboard= new Dashboard();
+    PasswordField passwordField = new PasswordField();
     Scanner scanner = new Scanner(System.in);
 
     // Main method
@@ -214,8 +215,8 @@ public class GymManagement {
         else if (loginChoice == 2) {
             System.out.print("Enter your email:\n");
             String loginEmail = scanner.next();
-            System.out.print("Enter your password:\n");
-            String loginPassword = scanner.next();
+            String enterPassword = PasswordField.readPassword("Enter your password: ");
+            String loginPassword = PasswordField.hashPassword(enterPassword);
             String filename = "MemberFile.csv";
             boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
             if (isAuthenticated) {
@@ -242,8 +243,8 @@ public class GymManagement {
         else if (loginChoice == 3) {
             System.out.print("Enter your email:\n");
             String loginEmail = scanner.next();
-            System.out.print("Enter your password:\n");
-            String loginPassword = scanner.next();
+            String enterPassword = PasswordField.readPassword("Enter your password: ");
+            String loginPassword = PasswordField.hashPassword(enterPassword);
             String filename = "TrainerFile.csv";
             boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
             if (isAuthenticated) {
@@ -337,7 +338,7 @@ public class GymManagement {
                     }
                 }
             } else if (trackingChoice == 2) {
-                System.out.println("1.Post new workout:");
+                System.out.println("1.Post new workout");
                 System.out.println("2.Past workouts");
                 int WorkoutChoice = scanner.nextInt();
                 if (WorkoutChoice == 1) {
