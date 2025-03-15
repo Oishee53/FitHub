@@ -14,11 +14,11 @@ public class Login {
             String line;
             while ((line = reader.readLine()) != null) {
                 String[] details = line.split(",");
-                if (details.length < 4) {
+                if (details.length < 6) {
                     continue;
                 }
-                    storedEmail = details[3];
-                    storedPassword = details[4];
+                storedEmail = details[3].trim();
+                storedPassword = details[4].trim();
 
 
 
