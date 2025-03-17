@@ -27,5 +27,6 @@
         <SOURCES />
       </library>
     </orderEntry>
+    <orderEntry type="library" name="jline-3.29.0" level="project" />
   </component>
 </module>

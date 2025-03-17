@@ -77,6 +77,7 @@ public class Login {
                 if (storedEmail.equals(email) && storedPassword.equals(password)) {
                     String[][] table = {
                             {"Field", "Value"},
+                            {"Duraton","3 months"},
                             {"Member ID", details[0]},
                             {"Name", details[1] + " " + details[2]},
                             {"Contact Info", details[5]},
@@ -88,6 +89,7 @@ public class Login {
                             {"Age", details[9]},
                             {"Assigned Trainer", details[12]},
                             {"Goal", details[13]},
+
                     };
 
 // Calculate column widths
@@ -246,42 +248,7 @@ public class Login {
                 System.out.println("Trainer data updated successfully.");
             }
         }
-        System.out.println("Trainer not found");
     }
-
-    /*public static void printMembersForTrainer(String trainerID) {
-        String fileName = "Member and Trainer.csv";
-
-        try (BufferedReader reader = new BufferedReader(new FileReader(fileName))) {
-            String line;
-            boolean hasAssignments = false;
-            int count = 0;
-
-            System.out.println("Members assigned to Trainer " + trainerID + ":");
-
-            while ((line = reader.readLine()) != null) {
-                // Check if the line contains the specified trainerID
-                if (line.startsWith(trainerID + " assigned to")) {
-                    hasAssignments = true;
-                    count++;
-                    String memberID = line.substring(line.indexOf("assigned to") + 11);
-                    for (Member member : Gym.getMemberList()) {
-                        if (memberID.equals(member.getId())) {
-                            System.out.printf(count + "." + "%-30s %-15s%n", memberID, "Workout Goal: " + member.getGoal());
-
-                        }
-                    }
-                }
-
-                if (!hasAssignments) {
-                    System.out.println("No members assigned to Trainer " + trainerID + ".");
-                }
-
-            }
-        }catch (IOException e) {
-            System.err.println("Error reading file: " + e.getMessage());
-        }
-    }*/
     public static void printMembersForTrainer(String trainerID) {
         String fileName = "Member and Trainer.csv";
 

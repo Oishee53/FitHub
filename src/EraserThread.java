@@ -1,26 +1,26 @@
-import java.io.IOException;
-
 class EraserThread implements Runnable {
-    private volatile boolean stop;
+    private volatile boolean stop; // Correct flag usage
+    private final String prompt;
 
     public EraserThread(String prompt) {
-        System.out.println(prompt);
+        this.prompt = prompt;
     }
 
     public void run() {
+        System.out.print(prompt); // Print prompt without a new line
 
         try {
-            Thread.sleep(300); // Give the user some time to start typing
+            Thread.sleep(300); // Small delay to allow typing
         } catch (InterruptedException e) {
-            e.printStackTrace();
+            Thread.currentThread().interrupt();
         }
 
         while (!stop) {
-            System.out.print("\010*"); // Overwrites last character with '*'
+            System.out.print("*"); // Print '*' for each keypress
             try {
-                Thread.sleep(50);
+                Thread.sleep(100); // Adjusted delay
             } catch (InterruptedException ie) {
-                Thread.currentThread().interrupt(); // Restore interrupt status
+                Thread.currentThread().interrupt();
                 break;
             }
         }

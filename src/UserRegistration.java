@@ -1,6 +1,7 @@
 import java.io.*;
 import java.util.ArrayList;
 import java.util.Scanner;
+import java.io.Console;
 
 
 public class UserRegistration {
@@ -27,8 +28,9 @@ public class UserRegistration {
             System.out.println("Email already exists.\nEnter a new email");
             emailAddress = scanner.next();
         }
-        String password = PasswordField.readPassword("Enter password: ");
-        String hashedPassword = PasswordField.hashPassword(password);
+        System.out.println("Enter password");
+        String password = scanner.next();
+        String hashedPassword1 = PasswordField.hashPassword(password);
         System.out.println("Enter Phone Number:");
         String phoneNumber = scanner.next();
         while(!validPhoneNumber(phoneNumber)){
@@ -87,7 +89,7 @@ public class UserRegistration {
             if(selectGoal==2){
                 goal = "WeightLoss";
             }
-            Member member = new Member(memberId,firstName, lastName, emailAddress, hashedPassword, phoneNumber, DOB, gender,
+            Member member = new Member(memberId,firstName, lastName, emailAddress,hashedPassword1, phoneNumber, DOB, gender,
                     address, age, weight, height, trainerID,goal);
             gym.addMembers(member);
             assignTrainer.trainerAssigned(gym, member.getTrainerChose(), member);
@@ -120,8 +122,9 @@ public class UserRegistration {
             System.out.println("Email already exists.\nEnter a new email");
             emailAddress = scanner.next();
         }
-        String password = PasswordField.readPassword("Enter password: ");
-        String hashedPassword = PasswordField.hashPassword(password);
+        System.out.println("Enter password");
+        String password = scanner.next();
+        String hashedPassword2 = PasswordField.hashPassword(password);
         System.out.println("Enter Phone Number:");
         String phoneNumber = scanner.next();
         while(!validPhoneNumber(phoneNumber)){
@@ -157,7 +160,7 @@ public class UserRegistration {
         int age = scanner.nextInt();
         System.out.println("How many members do they want to train?");
         int availableSeats = scanner.nextInt();
-        Trainer trainer = new Trainer(trainerID,firstName, lastName, emailAddress, hashedPassword, phoneNumber, DOB , gender,
+        Trainer trainer = new Trainer(trainerID,firstName, lastName, emailAddress, hashedPassword2, phoneNumber, DOB , gender,
                 address, age,salary,availableSeats);
         gym.addTrainer(trainer);
         WriteToFile.writeTrainer(gym.getTrainerList(), false);

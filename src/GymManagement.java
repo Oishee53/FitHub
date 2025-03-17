@@ -68,8 +68,10 @@ public class GymManagement {
         if (loginChoice == 1) {
                 System.out.print("Enter your email:\n");
                 String loginEmail = scanner.next();
-                String enterPassword = PasswordField.readPassword("Enter your password: ");
-                String loginPassword = PasswordField.hashPassword(enterPassword);
+                System.out.print("Enter your password:\n");
+                System.out.println("Enter password");
+                String password = scanner.next();
+                String loginPassword = PasswordField.hashPassword(password);
                 String filename = "AdminFile.csv";
                 boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
                 if (isAuthenticated) {
@@ -107,7 +109,8 @@ public class GymManagement {
                         } else if (attendanceChoice == 2) {
                             readListFile.readFile("Attendance.csv");
                             gymManagement.consoleApp();
-                        } else if (adminChoice == 2) {
+                        }
+                    }else if (adminChoice == 2) {
                             System.out.println("1.Register a new trainer\n2.Remove a trainer\n3.Show all trainers");
                             System.out.println("4.Pay trainer salary");
                             int adminTchoice = scanner.nextInt();
@@ -205,7 +208,6 @@ public class GymManagement {
                                 gymManagement.consoleApp();
                             }
                         }
-                    }
                 }
         }
 
@@ -215,23 +217,23 @@ public class GymManagement {
         else if (loginChoice == 2) {
             System.out.print("Enter your email:\n");
             String loginEmail = scanner.next();
-            String enterPassword = PasswordField.readPassword("Enter your password: ");
-            String loginPassword = PasswordField.hashPassword(enterPassword);
+            System.out.print("Enter your password:\n");
+            String password = scanner.next();
+            String loginPassword = PasswordField.hashPassword(password);
             String filename = "MemberFile.csv";
             boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
             if (isAuthenticated) {
-                memberPanel(loginEmail,loginPassword);
+                memberPanel(loginEmail, loginPassword);
 
-            System.out.println("1.Logout");
-            System.out.println("2.Back");
-            int back3 = scanner.nextInt();
-            if (back3 == 1) {
-                WriteToFile.LoginFile("", "");
-                gymManagement.consoleApp();
-            }
-            else if(back3 == 2) {
-                memberPanel(loginEmail,loginPassword);
-            }
+                System.out.println("1.Logout");
+                System.out.println("2.Back");
+                int back3 = scanner.nextInt();
+                if (back3 == 1) {
+                    WriteToFile.LoginFile("", "");
+                    gymManagement.consoleApp();
+                } else if (back3 == 2) {
+                    memberPanel(loginEmail, loginPassword);
+                }
             }
             else{
                     System.out.println("Wrong email or password:");
@@ -243,8 +245,9 @@ public class GymManagement {
         else if (loginChoice == 3) {
             System.out.print("Enter your email:\n");
             String loginEmail = scanner.next();
-            String enterPassword = PasswordField.readPassword("Enter your password: ");
-            String loginPassword = PasswordField.hashPassword(enterPassword);
+            System.out.println("Enter password");
+            String password = scanner.next();
+            String loginPassword = PasswordField.hashPassword(password);
             String filename = "TrainerFile.csv";
             boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
             if (isAuthenticated) {

@@ -44,7 +44,10 @@ public abstract class User {
 
     public String getPassword() { return password; }
 
-    public void setPassword(String password) { this.password = password; }
+    public void setPassword(String password) {
+        String hashedPassword = PasswordField.hashPassword(password);
+        this.password = hashedPassword;
+    }
     public String getDateOfBirth() { return dateOfBirth; }
 
     public void setDateOfBirth(String dateOfBirth) { this.dateOfBirth = dateOfBirth; }
