@@ -1,5 +1,7 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class GymManagement {
@@ -17,7 +19,7 @@ public class GymManagement {
     Workouts workouts = new Workouts();
     Dashboard dashboard= new Dashboard();
     PasswordField passwordField = new PasswordField();
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     // Main method
     public static void main(String[] args) throws IOException {
@@ -333,17 +335,17 @@ public class GymManagement {
                 } else if (adminTchoice == 2) {
                     System.out.println("Enter the trainerID you want to remove: ");
                     String removeTrainerID = scanner.next();
-                    Iterator<Trainer> iterator = gym.getTrainerList().iterator();
-                    while(iterator.hasNext()) {
-                        Trainer trainer = iterator.next();
-                            if (removeTrainerID.equals(trainer.getTrainerID())) {
-                                userRemove.trainerRemove(gym, removeTrainerID);
-                                for (Member member : trainer.getAssignedMembers()) {
-                                    AssignTrainer.trainerReassign(gym, member);
-                                }
-                                iterator.remove();
+                    for (Trainer trainer: gym.getTrainerList() ) {
+                        if (removeTrainerID.equals(trainer.getTrainerID())) {
+                            userRemove.trainerRemove(gym, removeTrainerID);
+                            for (Member member : trainer.getAssignedMembers()) {
+                                AssignTrainer.trainerReassign(gym, member);
                             }
+                            return;
+                        }
                     }
+
+
                 } else if (adminTchoice == 3) {
 
                     readListFile.readFile("TrainerFile.csv");
