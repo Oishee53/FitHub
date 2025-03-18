@@ -4,23 +4,8 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="admin login added">
-      <change afterPath="$PROJECT_DIR$/src/PasswordMaskingIDE.java" afterDir="false" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="updated password setting">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AccountsFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AccountsFile.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/AdminFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AdminFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/BalanceFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BalanceFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/FitHub.iml" beforeDir="false" afterPath="$PROJECT_DIR$/FitHub.iml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Member and Trainer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/EraserThread.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/EraserThread.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Login.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Login.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/PasswordField.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/PasswordField.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/User.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/User.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/UserRegistration.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/UserRegistration.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -84,7 +69,7 @@
     &quot;project.structure.side.proportion&quot;: &quot;0.2&quot;
   }
 }</component>
-  <component name="RunManager">
+  <component name="RunManager" selected="Application.checkHashing">
     <configuration name="PasswordField" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="PasswordField" />
       <module name="FitHub" />
@@ -235,7 +220,23 @@
       <option name="project" value="LOCAL" />
       <updated>1742033194401</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="updated password setting">
+      <option name="closed" value="true" />
+      <created>1742197327083</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1742197327083</updated>
+    </task>
+    <task id="LOCAL-00015" summary="updated password setting">
+      <option name="closed" value="true" />
+      <created>1742197361469</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742197361469</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -260,6 +261,7 @@
     <MESSAGE value="AccountsFile.csv created" />
     <MESSAGE value="masked password" />
     <MESSAGE value="admin login added" />
-    <option name="LAST_COMMIT_MESSAGE" value="admin login added" />
+    <MESSAGE value="updated password setting" />
+    <option name="LAST_COMMIT_MESSAGE" value="updated password setting" />
   </component>
 </project>
