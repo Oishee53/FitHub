@@ -178,7 +178,7 @@ public class Workouts {
                 // Check if the member's specific goal matches the first column (goal)
                 if (member.getEmailAddress().equalsIgnoreCase(data[0])) {
                     // Print the entire line if the goal matches
-                    System.out.println("Date:"+data[1]+",Exercise:"+data[2]+",Duration:"+data[3]+",BurnedCalories:"+data[4]);
+                    System.out.println("Date:"+data[1]+",Exercise:"+data[2]+",Duration:"+data[3]+" h"+",BurnedCalories:"+data[4]);
 
                 }
             }
