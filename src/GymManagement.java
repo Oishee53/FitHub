@@ -84,7 +84,7 @@ public class GymManagement {
                             userRegistration.memberRegistration(gym);
                             gymManagement.consoleApp();
                         } else if (adminMchoice == 2) {
-                            System.out.println("Enter the member email id you want to remove");
+                            System.out.println("Enter the member id you want to remove");
                             String removeMemberId = scanner.next();
                             userRemove.memberRemove(gym, removeMemberId);
                             gymManagement.consoleApp();
@@ -118,7 +118,7 @@ public class GymManagement {
                                 userRegistration.trainerRegistration(gym);
                                 gymManagement.consoleApp();
                             } else if (adminTchoice == 2) {
-                                System.out.println("Enter the trainer email id you want to remove: ");
+                                System.out.println("Enter the trainer id you want to remove: ");
                                 String removeTrainerID = scanner.next();
                                 for (Trainer trainer : gym.getTrainerList()) {
                                     if (removeTrainerID.equals(trainer.getTrainerID())) {
