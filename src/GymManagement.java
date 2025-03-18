@@ -78,15 +78,6 @@ public class GymManagement {
                 boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
                 if (isAuthenticated) {
                     adminPanel();
-                    System.out.println("1.Logout");
-                    System.out.println("2.Back");
-                    int back3 = scanner.nextInt();
-                    if (back3 == 1) {
-                        WriteToFile.LoginFile("", "");
-                        gymManagement.consoleApp();
-                    } else if (back3 == 2) {
-                        adminPanel();
-                    }
                 }
                 else{
                     System.out.println("Wrong email or password:");
@@ -107,16 +98,6 @@ public class GymManagement {
             boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
             if (isAuthenticated) {
                 memberPanel(loginEmail, loginPassword);
-
-                System.out.println("1.Logout");
-                System.out.println("2.Back");
-                int back3 = scanner.nextInt();
-                if (back3 == 1) {
-                    WriteToFile.LoginFile("", "");
-                    gymManagement.consoleApp();
-                } else if (back3 == 2) {
-                    memberPanel(loginEmail, loginPassword);
-                }
             }
             else{
                     System.out.println("Wrong email or password:");
@@ -138,16 +119,6 @@ public class GymManagement {
             } else {
                 System.out.println("Wrong email or password:");
                 gymManagement.consoleApp();
-            }
-            System.out.println("1.Logout");
-            System.out.println("2.Back");
-            int back3 = scanner.nextInt();
-            if (back3 == 1) {
-                WriteToFile.LoginFile("", "");
-                gymManagement.consoleApp();
-            }
-            else if(back3==2){
-                trainerPanel(loginEmail,loginPassword);
             }
         }
 
@@ -263,6 +234,15 @@ public class GymManagement {
                 }
             }
         }
+        System.out.println("1.Logout");
+        System.out.println("2.Back");
+        int back3 = scanner.nextInt();
+        if (back3 == 1) {
+            WriteToFile.LoginFile("", "");
+            gymManagement.consoleApp();
+        } else if (back3 == 2) {
+            memberPanel(loginEmail, loginPassword);
+        }
     }
     public void trainerPanel(String loginEmail,String loginPassword) throws IOException {
         System.out.println("1. View Your Details");
@@ -291,6 +271,16 @@ public class GymManagement {
         } else if (trainerChoice == 3) {
             WriteToFile.LoginFile("", "");
             gymManagement.consoleApp();
+        }
+        System.out.println("1.Logout");
+        System.out.println("2.Back");
+        int back3 = scanner.nextInt();
+        if (back3 == 1) {
+            WriteToFile.LoginFile("", "");
+            gymManagement.consoleApp();
+        }
+        else if(back3==2){
+            trainerPanel(loginEmail,loginPassword);
         }
     }
 
@@ -417,6 +407,15 @@ public class GymManagement {
                 } else if (accountChoice == 2) {
                     ReadFile.readAccountFile();
                 }
+            }
+            System.out.println("1.Logout");
+            System.out.println("2.Back");
+            int back3 = scanner.nextInt();
+            if (back3 == 1) {
+                WriteToFile.LoginFile("", "");
+                gymManagement.consoleApp();
+            } else if (back3 == 2) {
+                adminPanel();
             }
         }
     }
