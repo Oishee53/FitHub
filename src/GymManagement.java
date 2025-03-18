@@ -69,7 +69,6 @@ public class GymManagement {
                 System.out.print("Enter your email:\n");
                 String loginEmail = scanner.next();
                 System.out.print("Enter your password:\n");
-                System.out.println("Enter password");
                 String password = scanner.next();
                 String loginPassword = PasswordField.hashPassword(password);
                 String filename = "AdminFile.csv";
