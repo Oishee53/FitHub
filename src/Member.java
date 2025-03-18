@@ -21,6 +21,8 @@ public class Member extends User {
         this.goal = goal;
     }
     public Member(){}
+
+
     public String getId(){
         return id;
     }
