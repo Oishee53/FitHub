@@ -1,43 +1,37 @@
-import static org.junit.Assert.*;
-import org.junit.Before;
-import org.junit.Test;
-import org.junit.jupiter.api.BeforeEach;
-
+import org.junit.jupiter.api.Test;
+import static org.junit.jupiter.api.Assertions.*;
 import java.io.ByteArrayOutputStream;
-import java.io.FileWriter;
-import java.io.IOException;
 import java.io.PrintStream;
 
-public class TestCase {
-    private TDEECalculator tdeeCalculator;
-    private Member testMember;
-    private final ByteArrayOutputStream outContent = new ByteArrayOutputStream();
-
-    @Before
-    public void setUp() {
-        tdeeCalculator = new TDEECalculator();
-        testMember = new Member();
-
-        testMember.setGender("male");
-        testMember.setWeight(70);
-        testMember.setHeight(175);
-        testMember.setAge(25);
-        testMember.setGoal("WeightLoss");
-
-        // Redirect System.out to capture output
-        System.setOut(new PrintStream(outContent));
-    }
-
+class CalculatorTest {
     @Test
-    public void testCalculatorOutput() {
-        // Call method
-        tdeeCalculator.calculator(testMember);
+    void testCalculator() {
+        // Arrange
+        Member member = new Member();
+        member.setGender("male");
+        member.setWeight(70);
+        member.setHeight(175);
+        member.setAge(25);
+        member.setGoal("WeightLoss");
 
-        // Check printed output
-        String expectedOutput = "Your daily calorie consumption will be ";
-        assertTrue("Output should contain expected text", outContent.toString().contains(expectedOutput));
+        TDEECalculator calculator = new TDEECalculator();
 
+        // Capture console output
+        ByteArrayOutputStream outputStream = new ByteArrayOutputStream();
+        PrintStream originalOut = System.out;
+        System.setOut(new PrintStream(outputStream));
 
+        // Act
+        calculator.calculator(member);
+
+        // Reset System.out
+        System.setOut(originalOut);
+
+        // Assert
+        String output = outputStream.toString();
+        assertTrue(output.contains("Daily Calorie Consumption"));
+        assertTrue(output.contains("Protein (cal)"));
+        assertTrue(output.contains("Fat (cal)"));
+        assertTrue(output.contains("Carbohydrates (cal)"));
+    }
 }
-}
-
