@@ -4,35 +4,29 @@ import java.io.IOException;
 
 public class StrengthBuildingGoal extends FitnessGoal{
     @Override
-    public void suggestion(Member member,TDEECalculator tdeeCalculator) {
-        String fileName = null;
-        tdeeCalculator.calculator(member);//diet
-        if(member.getGender().equalsIgnoreCase("Male")) {
-            fileName = "Male Exercise.csv";
-        }
-        else if(member.getGender().equalsIgnoreCase("Female")) {
-            fileName = "Female Exercise.csv";
-        }
-            try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
-                String line;
+    public void suggestion(Member member, TDEECalculator tdeeCalculator) {
+        tdeeCalculator.calculator(member);
+        String fileName = member.getGender().equalsIgnoreCase("Male") ? "Male Exercise.csv" : "Female Exercise.csv";
 
-                // Read each line from the file until the end
-                while ((line = bufferedReader.readLine()) != null) {
-                    // Split the line into data columns
-                    String[] data = line.split(",");
-
-                    // Check if the member's specific goal matches the first column (goal)
-                    if (member.getGoal().equalsIgnoreCase(data[0])) {
-                        // Print the entire line if the goal matches
-                        System.out.println("Your suggested workout plan:\n"+data[1]+"\n"+data[2]+"\n"+data[3]+"\n");
-                        break;
-                    }
+        try (BufferedReader bufferedReader = new BufferedReader(new FileReader(fileName))) {
+            String line;
+            while ((line = bufferedReader.readLine()) != null) {
+                String[] data = line.split(",");
+                if (member.getGoal().equalsIgnoreCase(data[0])) {
+                    // Print workout plan in table format
+                    System.out.println("-------------------------------------------------------------------------------------------------------");
+                    System.out.printf("\n| %-25s | %-70s | ", "Exercise", "Details");
+                    System.out.println("\n------------------------------------------------------------------------------------------------------");
+                    System.out.printf("\n| %-25s | %-70s | ", "Workout 1", data[1]);
+                    System.out.printf("\n| %-25s | %-70s | ", "Workout 2", data[2]);
+                    System.out.printf("\n| %-25s | %-70s | ", "Workout 3", data[3]);
+                    System.out.println("\n------------------------------------------------------------------------------------------------------");
+                    break;
                 }
-
-            } catch (IOException e) {
-                System.err.println("Error reading file: " + e.getMessage());
             }
-
+        } catch (IOException e) {
+            System.err.println("Error reading file: " + e.getMessage());
+        }
     }
 
 }

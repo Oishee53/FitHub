@@ -4,8 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="AccountsFile.csv created">
-      <change beforePath="$PROJECT_DIR$/src/Member.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Member.java" afterDir="false" />
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="testcase2">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/StrengthBuildingGoal.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/StrengthBuildingGoal.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/TDEECalculator.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/TDEECalculator.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +168,15 @@
       <option name="project" value="LOCAL" />
       <updated>1741668870991</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="testcase2">
+      <option name="closed" value="true" />
+      <created>1742271855147</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1742271855147</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -188,6 +199,7 @@
     <MESSAGE value="remove trainer added" />
     <MESSAGE value="added functionality to monitor expense" />
     <MESSAGE value="AccountsFile.csv created" />
-    <option name="LAST_COMMIT_MESSAGE" value="AccountsFile.csv created" />
+    <MESSAGE value="testcase2" />
+    <option name="LAST_COMMIT_MESSAGE" value="testcase2" />
   </component>
 </project>
