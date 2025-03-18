@@ -22,6 +22,12 @@ public class Member extends User {
     }
     public Member(){}
 
+    public Member(String emailAddress) {
+        this.setEmailAddress(emailAddress);
+    }
+
+
+
 
     public String getId(){
         return id;
