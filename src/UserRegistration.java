@@ -28,7 +28,7 @@ public class UserRegistration {
             System.out.println("Email already exists.\nEnter a new email");
             emailAddress = scanner.next();
         }
-        System.out.println("Enter password");
+        System.out.println("Enter password:");
         String password = scanner.next();
         String hashedPassword1 = PasswordField.hashPassword(password);
         System.out.println("Enter Phone Number:");
@@ -122,7 +122,7 @@ public class UserRegistration {
             System.out.println("Email already exists.\nEnter a new email");
             emailAddress = scanner.next();
         }
-        System.out.println("Enter password");
+        System.out.println("Enter password:");
         String password = scanner.next();
         String hashedPassword2 = PasswordField.hashPassword(password);
         System.out.println("Enter Phone Number:");

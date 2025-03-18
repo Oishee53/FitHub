@@ -34,7 +34,7 @@ public class ReadFile {
             }
 
         } catch (IOException e) {
-            System.err.println("Error reading file: " + e.getMessage());
+            System.out.println("Error reading file: " + e.getMessage());
         }
     }
     public static void readAccountFile() {
@@ -57,9 +57,9 @@ public class ReadFile {
                 balance = Double.parseDouble(line);  // Parse balance if there's data
             }
         } catch (IOException e) {
-            System.err.println("Error reading from file: " + e.getMessage());
+            System.out.println("Error reading from file: " + e.getMessage());
         } catch (NumberFormatException e) {
-            System.err.println("Error parsing balance from file: " + e.getMessage());
+            System.out.println("Error parsing balance from file: " + e.getMessage());
         }
 
         return balance;  // Return the balance (0.0 if file is empty or an error occurs)

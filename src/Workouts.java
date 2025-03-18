@@ -181,6 +181,10 @@ public class Workouts {
                     System.out.println("Date:"+data[1]+",Exercise:"+data[2]+",Duration:"+data[3]+" h"+",BurnedCalories:"+data[4]);
 
                 }
+                else{
+                    System.out.println("This member has no past workouts!");
+                    break;
+                }
             }
 
         } catch (IOException e) {
