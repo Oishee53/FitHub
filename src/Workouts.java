@@ -148,7 +148,7 @@ public class Workouts {
                     WorkoutFilewriter.flush();
                       }
                     catch (IOException e) {
-                    System.out.println("An error occurred while writing to the file: " + e.getMessage());
+                    System.err.println("An error occurred while writing to the file: " + e.getMessage());
                 }
                     finally {
                     try {
@@ -156,7 +156,7 @@ public class Workouts {
                             WorkoutFilewriter.close();
                         }
                     } catch (IOException e) {
-                        System.out.println("Error closing the file writer: " + e.getMessage());
+                        System.err.println("Error closing the file writer: " + e.getMessage());
                     }
                 }
                     //break;
@@ -178,13 +178,10 @@ public class Workouts {
                 // Check if the member's specific goal matches the first column (goal)
                 if (member.getEmailAddress().equalsIgnoreCase(data[0])) {
                     // Print the entire line if the goal matches
-                    System.out.println("Date:"+data[1]+",Exercise:"+data[2]+",Duration:"+data[3]+" h"+",BurnedCalories:"+data[4]);
+                    System.err.println("Date:"+data[1]+",Exercise:"+data[2]+",Duration:"+data[3]+" h"+",BurnedCalories:"+data[4]);
 
                 }
-                else{
-                    System.out.println("This member has no past workouts!");
-                    break;
-                }
+
             }
 
         } catch (IOException e) {

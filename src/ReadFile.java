@@ -38,7 +38,7 @@ public class ReadFile {
         }
     }
     public static void readAccountFile() {
-        String filename = "AccountsFile.csv";
+        String filename = "AccountsFile.txt";
         String line;
         try (BufferedReader br = new BufferedReader(new FileReader(filename))) {
             while ((line = br.readLine()) != null) {

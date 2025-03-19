@@ -4,11 +4,19 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="fixed trainer removed">
+    <list default="true" id="2e78e7d9-54af-4496-b9ca-3996b37eb640" name="Changes" comment="fixed logout and back">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountsFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/AccountsFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/AccountsFile.txt" beforeDir="false" afterPath="$PROJECT_DIR$/AccountsFile.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Attendance.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Attendance.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/BalanceFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/BalanceFile.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/LoginFileInfo.csv" beforeDir="false" afterPath="$PROJECT_DIR$/LoginFileInfo.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Member and Trainer.csv" beforeDir="false" afterPath="$PROJECT_DIR$/Member and Trainer.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MemberFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/MemberFile.csv" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/TrainerFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/TrainerFile.csv" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/GymManagement.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/GymManagement.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/WorkoutFile.csv" beforeDir="false" afterPath="$PROJECT_DIR$/WorkoutFile.csv" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/ReadFile.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/ReadFile.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Workouts.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Workouts.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -187,7 +195,15 @@
       <option name="project" value="LOCAL" />
       <updated>1742329968791</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="fixed logout and back">
+      <option name="closed" value="true" />
+      <created>1742331895450</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1742331895450</updated>
+    </task>
+    <option name="localTasksCounter" value="16" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -212,6 +228,7 @@
     <MESSAGE value="AccountsFile.csv created" />
     <MESSAGE value="testcase2" />
     <MESSAGE value="fixed trainer removed" />
-    <option name="LAST_COMMIT_MESSAGE" value="fixed trainer removed" />
+    <MESSAGE value="fixed logout and back" />
+    <option name="LAST_COMMIT_MESSAGE" value="fixed logout and back" />
   </component>
 </project>
