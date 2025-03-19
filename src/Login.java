@@ -147,6 +147,8 @@ public class Login {
                 WriteToFile.writeMembers(members, false);
 
                 System.out.println("Member data updated successfully.");
+                System.out.println("1. Logout\n2. Back");
+                int choice = scanner.nextInt();
             }
         }
         if (!memberFound) {

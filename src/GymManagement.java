@@ -1,5 +1,7 @@
 import java.io.*;
+import java.util.ArrayList;
 import java.util.Iterator;
+import java.util.List;
 import java.util.Scanner;
 
 public class GymManagement {
@@ -17,7 +19,7 @@ public class GymManagement {
     Workouts workouts = new Workouts();
     Dashboard dashboard= new Dashboard();
     PasswordField passwordField = new PasswordField();
-    Scanner scanner = new Scanner(System.in);
+    static Scanner scanner = new Scanner(System.in);
 
     // Main method
     public static void main(String[] args) throws IOException {
@@ -76,15 +78,6 @@ public class GymManagement {
                 boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
                 if (isAuthenticated) {
                     adminPanel();
-                    System.out.println("1.Logout");
-                    System.out.println("2.Back");
-                    int back3 = scanner.nextInt();
-                    if (back3 == 1) {
-                        WriteToFile.LoginFile("", "");
-                        gymManagement.consoleApp();
-                    } else if (back3 == 2) {
-                        adminPanel();
-                    }
                 }
                 else{
                     System.out.println("Wrong email or password:");
@@ -105,16 +98,6 @@ public class GymManagement {
             boolean isAuthenticated = Login.authenticateLogin(loginEmail, loginPassword, filename);
             if (isAuthenticated) {
                 memberPanel(loginEmail, loginPassword);
-
-                System.out.println("1.Logout");
-                System.out.println("2.Back");
-                int back3 = scanner.nextInt();
-                if (back3 == 1) {
-                    WriteToFile.LoginFile("", "");
-                    gymManagement.consoleApp();
-                } else if (back3 == 2) {
-                    memberPanel(loginEmail, loginPassword);
-                }
             }
             else{
                     System.out.println("Wrong email or password:");
@@ -136,16 +119,6 @@ public class GymManagement {
             } else {
                 System.out.println("Wrong email or password:");
                 gymManagement.consoleApp();
-            }
-            System.out.println("1.Logout");
-            System.out.println("2.Back");
-            int back3 = scanner.nextInt();
-            if (back3 == 1) {
-                WriteToFile.LoginFile("", "");
-                gymManagement.consoleApp();
-            }
-            else if(back3==2){
-                trainerPanel(loginEmail,loginPassword);
             }
         }
 
@@ -261,6 +234,15 @@ public class GymManagement {
                 }
             }
         }
+        System.out.println("1.Logout");
+        System.out.println("2.Back");
+        int back3 = scanner.nextInt();
+        if (back3 == 1) {
+            WriteToFile.LoginFile("", "");
+            gymManagement.consoleApp();
+        } else if (back3 == 2) {
+            memberPanel(loginEmail, loginPassword);
+        }
     }
     public void trainerPanel(String loginEmail,String loginPassword) throws IOException {
         System.out.println("1. View Your Details");
@@ -289,6 +271,16 @@ public class GymManagement {
         } else if (trainerChoice == 3) {
             WriteToFile.LoginFile("", "");
             gymManagement.consoleApp();
+        }
+        System.out.println("1.Logout");
+        System.out.println("2.Back");
+        int back3 = scanner.nextInt();
+        if (back3 == 1) {
+            WriteToFile.LoginFile("", "");
+            gymManagement.consoleApp();
+        }
+        else if(back3==2){
+            trainerPanel(loginEmail,loginPassword);
         }
     }
 
@@ -333,17 +325,17 @@ public class GymManagement {
                 } else if (adminTchoice == 2) {
                     System.out.println("Enter the trainerID you want to remove: ");
                     String removeTrainerID = scanner.next();
-                    Iterator<Trainer> iterator = gym.getTrainerList().iterator();
-                    while(iterator.hasNext()) {
-                        Trainer trainer = iterator.next();
-                            if (removeTrainerID.equals(trainer.getTrainerID())) {
-                                userRemove.trainerRemove(gym, removeTrainerID);
-                                for (Member member : trainer.getAssignedMembers()) {
-                                    AssignTrainer.trainerReassign(gym, member);
-                                }
-                                iterator.remove();
+                    for (Trainer trainer: gym.getTrainerList() ) {
+                        if (removeTrainerID.equals(trainer.getTrainerID())) {
+                            userRemove.trainerRemove(gym, removeTrainerID);
+                            for (Member member : trainer.getAssignedMembers()) {
+                                AssignTrainer.trainerReassign(gym, member);
                             }
+                            return;
+                        }
                     }
+
+
                 } else if (adminTchoice == 3) {
 
                     readListFile.readFile("TrainerFile.csv");
@@ -415,6 +407,15 @@ public class GymManagement {
                 } else if (accountChoice == 2) {
                     ReadFile.readAccountFile();
                 }
+            }
+            System.out.println("1.Logout");
+            System.out.println("2.Back");
+            int back3 = scanner.nextInt();
+            if (back3 == 1) {
+                WriteToFile.LoginFile("", "");
+                gymManagement.consoleApp();
+            } else if (back3 == 2) {
+                adminPanel();
             }
         }
     }
