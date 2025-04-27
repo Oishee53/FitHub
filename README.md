@@ -21,4 +21,4 @@ This management system is designed to facilitate the daily operations of gyms an
 
 - **Programming Language**: Java
 - **IDE**: IntelliJ IDEA
-- **Version Control**: GitHub
+- **Version Control**: Git
