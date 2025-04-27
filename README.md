@@ -2,8 +2,7 @@
 
 ## Overview
 
-This Gym Management System is a software application designed to help gym owners and managers efficiently manage members, trainers, classes, and gym equipment.
-The system streamlines gym operations by automating various tasks, such as member registration, attendance tracking, accounts and more.
+This management system is designed to facilitate the daily operations of gyms and fitness centers. This platform enables gym administrators to efficiently manage various aspects of the business, including member registration, trainer registration, attendance tracking, and accounts management. It also simplifies staff management while ensuring better control over inventory management. In addition, the system allows members to set a workout goal and generate a graph to show progress.
 
 ## Features
 
